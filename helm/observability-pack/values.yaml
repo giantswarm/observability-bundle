@@ -1,12 +1,37 @@
-name: observability-pack
-serviceType: managed
+clusterName: ""
+organization: ""
 
-project:
-  branch: "[[ .Branch ]]"
-  commit: "[[ .SHA ]]"
+# User values can be provided via a ConfigMap or Secret for each individual app
+# using the structure shown below.
 
-image:
-  registry: quay.io
-  name: giantswarm/observability-pack
-  tag: v0.0.1
-  pullPolicy: IfNotPresent
+# userConfig:
+#   kube-prometheus-stack:
+#     configMap:
+#       values: |
+#         prometheusOperator:
+#           enabled: true
+
+apps:
+  operatorCrd:
+    appName: prometheus-operator-crd
+    chartName: prometheus-operator-crd
+    catalog: giantswarm
+    enabled: true
+    namespace: monitoring
+    version: 1.0.1
+
+  operator:
+    appName: prometheus-operator
+    chartName: prometheus-operator-app
+    catalog: giantswarm
+    enabled: true
+    namespace: monitoring
+    version: 1.3.0
+
+  agent:
+    appName: prometheus-agent
+    chartName: prometheus-agent-app
+    catalog: giantswarm
+    enabled: true
+    namespace: monitoring
+    version: 0.1.0

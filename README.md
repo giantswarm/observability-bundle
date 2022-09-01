@@ -4,7 +4,7 @@
 
 # observability-pack chart
 
-Giant Swarm offers a observability-pack App which can be installed in workload clusters.
+Giant Swarm offers a [observability-pack App](https://docs.giantswarm.io/app-platform/apps/observability/) which can be installed in workload clusters.
 Here we define the observability-pack chart with its templates and default configuration.
 
 **What is this app?**

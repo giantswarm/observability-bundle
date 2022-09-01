@@ -14,6 +14,17 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{/*
+When apps are created in the org namespace add a cluster prefix.
+*/}}
+{{- define "app.name" -}}
+{{- if ne .cluster .ns -}}
+{{- printf "%s-%s" .cluster .app -}}
+{{- else -}}
+{{- .app -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
 Selector labels
 */}}
 {{- define "labels.selector" -}}
