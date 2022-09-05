@@ -1,0 +1,38 @@
+userConfig:
+  prometheus-operator-app:
+    configMap:
+      values: |
+        defaultRules:
+          create: false
+        global:
+          rbac:
+            create: true
+            pspEnabled: false
+        alertmanager:
+          enabled: false
+        grafana:
+          enabled: false
+        kubeApiServer:
+          enabled: true
+        kubelet:
+          enabled: false
+        kubeControllerManager:
+          enabled: true
+        coreDns:
+          enabled: false
+        kubeEtcd:
+          enabled: false
+        kubeScheduler:
+          enabled: true
+        kubeProxy:
+          enabled: false
+        kubeStateMetrics:
+          enabled: false
+        nodeExporter:
+          enabled: false
+        prometheusOperator:
+          enabled: true
+          image:
+            tag: v0.58.0
+        prometheus:
+          enabled: false
