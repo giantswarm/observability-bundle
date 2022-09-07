@@ -4,7 +4,7 @@ description: A Helm chart for Giant Swarm's collection of observability tools.
 home: https://github.com/giantswarm/observability-pack
 sources:
 - https://github.com/giantswarm/observability-pack
-version: [[ .Version ]]
+version: 0.1.0
 annotations:
   application.giantswarm.io/in-cluster-app: "true"
   application.giantswarm.io/team: atlas

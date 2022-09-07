@@ -1,5 +1,5 @@
-clusterName: ""
-organization: ""
+clusterName: "ex47m"
+organization: "mohamed"
 
 # User values can be provided via a ConfigMap or Secret for each individual app
 # using the structure shown below.
@@ -51,7 +51,7 @@ userConfig:
           enabled: false
 
 apps:
-  operatorCrd:
+  prometheus-operator-crd:
     appName: prometheus-operator-crd
     chartName: prometheus-operator-crd
     catalog: giantswarm
@@ -59,16 +59,16 @@ apps:
     namespace: monitoring
     version: 1.0.1
 
-  operator:
-    appName: prometheus-operator
+  prometheus-operator-app:
+    appName: prometheus-operator-app
     chartName: prometheus-operator-app
     catalog: giantswarm
     enabled: true
     namespace: monitoring
     version: 1.3.0
 
-  agent:
-    appName: prometheus-agent
+  prometheus-agent-app:
+    appName: prometheus-agent-app
     chartName: prometheus-agent-app
     catalog: giantswarm
     enabled: true
