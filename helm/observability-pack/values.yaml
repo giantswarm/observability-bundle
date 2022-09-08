@@ -12,7 +12,7 @@ organization: ""
 #           enabled: true
 
 userConfig:
-  prometheus-agent-app:
+  prometheus-agent:
     configMap:
       values: |
         remoteWrite:
@@ -88,10 +88,10 @@ apps:
     namespace: monitoring
     version: 1.3.0
 
-  prometheus-agent-app:
-    appName: prometheus-agent-app
-    chartName: prometheus-agent-app
-    catalog: giantswarm
+  prometheus-agent:
+    appName: prometheus-agent
+    chartName: prometheus-agent
+    catalog: giantswarm-playground
     enabled: true
     namespace: monitoring
     version: 0.1.1
