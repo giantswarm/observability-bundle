@@ -6,6 +6,7 @@ sources:
 - https://github.com/giantswarm/observability-pack
 version: [[ .Version ]]
 annotations:
+  application.giantswarm.io/app-type: bundle
   application.giantswarm.io/in-cluster-app: "true"
   application.giantswarm.io/team: atlas
   branch: main

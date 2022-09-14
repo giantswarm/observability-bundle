@@ -29,4 +29,4 @@ spec:
     configMap:
       name: observability-pack-user-values
       namespace: w8eu8
-  version: 0.0.0-42d43b02bce8f97442f3f3d42075110509186175
+  version: 0.0.0-ae45ab37e0f78d79cb8c0db99ae6872a35a8b80b
