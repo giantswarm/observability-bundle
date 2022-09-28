@@ -19,7 +19,7 @@ metadata:
   name: observability-bundle
   namespace: w8eu8
 spec:
-  catalog: giantswarm-playground-test
+  catalog: default-test-catalog
   kubeConfig:
     # Required
     inCluster: true
