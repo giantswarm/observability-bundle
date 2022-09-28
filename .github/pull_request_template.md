@@ -14,7 +14,7 @@ This PR:
 
 ### Testing
 
-Description on how observability-pack can be tested.
+Description on how observability-bundle can be tested.
 
 - [ ] fresh install works
   - [ ] AWS
@@ -27,7 +27,7 @@ Description on how observability-pack can be tested.
 
 #### Other testing
 
-Description of features to additionally test for observability-pack installations.
+Description of features to additionally test for observability-bundle installations.
 
 - [ ] check reconciliation of existing resources after upgrading
 - [ ] X still works after upgrade

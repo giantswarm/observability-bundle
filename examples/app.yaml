@@ -5,7 +5,7 @@ data:
     organization: mohamed
 kind: ConfigMap
 metadata:
-  name: observability-pack-user-values
+  name: observability-bundle-user-values
   namespace: w8eu8
 ---
 
@@ -15,18 +15,18 @@ metadata:
   labels:
     # Required version: 0.0.0
     app-operator.giantswarm.io/version: 0.0.0
-    app.kubernetes.io/name: observability-pack
-  name: observability-pack
+    app.kubernetes.io/name: observability-bundle
+  name: observability-bundle
   namespace: w8eu8
 spec:
   catalog: giantswarm-playground-test
   kubeConfig:
     # Required
     inCluster: true
-  name: observability-pack
+  name: observability-bundle
   namespace: w8eu8
   userConfig:
     configMap:
-      name: observability-pack-user-values
+      name: observability-bundle-user-values
       namespace: w8eu8
   version: 0.0.0-ae45ab37e0f78d79cb8c0db99ae6872a35a8b80b

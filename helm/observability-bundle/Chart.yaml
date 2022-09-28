@@ -1,9 +1,9 @@
 apiVersion: v2
-name: observability-pack
+name: observability-bundle
 description: A Helm chart for Giant Swarm's collection of observability tools.
-home: https://github.com/giantswarm/observability-pack
+home: https://github.com/giantswarm/observability-bundle
 sources:
-- https://github.com/giantswarm/observability-pack
+- https://github.com/giantswarm/observability-bundle
 version: [[ .Version ]]
 annotations:
   application.giantswarm.io/app-type: bundle
