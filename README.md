@@ -4,8 +4,7 @@
 
 # observability-bundle chart
 
-Giant Swarm offers a [observability-bundle](https://docs.giantswarm.io/app-platform/apps/observability/) which can be installed in workload clusters.
-Here we define the observability-bundle chart with its templates and default configuration.
+The observability bundle provides necessary components to enable observability capabilities in a workload cluster.
 
 **What is this app?**
 
