@@ -25,6 +25,10 @@ spec:
   name: {{ .chartName }}
   namespace: {{ .namespace }}
   version: {{ .version }}
+  {{- if .extraConfigs }}
+  extraConfigs:
+   {{- toYaml .extraConfigs | nindent 2 }}
+  {{- end }}
   {{- if $.Values.userConfig }}
   {{- with (get $.Values.userConfig $key) }}
   {{- if or .configMap .secret }}
