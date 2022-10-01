@@ -98,7 +98,7 @@ apps:
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs: []
-    # - kind: secret
-    #   name: prometheus-agent-secret
-    #   namespace: test1
+    extraConfigs:
+    - kind: secret
+      name: agent-remote-write-config
+      namespace: "clusterID"

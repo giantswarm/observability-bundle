@@ -27,7 +27,7 @@ spec:
   version: {{ .version }}
   {{- if .extraConfigs }}
   extraConfigs:
-   {{- toYaml .extraConfigs | nindent 2 }}
+  {{- include "app.extra-config" (dict "base" . "cluster" $.Values.clusterID ) | trim  | nindent 2}}
   {{- end }}
   {{- if .userConfig }}
   {{- if or .userConfig.configMap .userConfig.secret }}
