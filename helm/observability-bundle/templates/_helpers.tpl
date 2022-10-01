@@ -57,7 +57,7 @@ Generate extraConfigs for each app
 - kind: {{ $extraConfig.kind }}
   name: {{ $extraConfig.name }}
   {{- if and (eq $appName "prometheus-agent" ) (eq $extraConfig.name "agent-remote-write-config") }}
-  namespace: {{ $cluster }}
+  namespace: {{ $cluster }}-prometheus
   {{- else }}
   namespace: {{ $extraConfig.namespace }}
   {{- end }}
