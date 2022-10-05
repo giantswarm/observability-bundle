@@ -92,7 +92,4 @@ apps:
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs:
-    - kind: secret
-      name: remote-write-api-endpoint-config
-      namespace: "clusterID"
+    extraConfigs: {}
