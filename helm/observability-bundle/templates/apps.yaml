@@ -32,16 +32,16 @@ spec:
   {{- if .userConfig }}
   {{- if or .userConfig.configMap .userConfig.secret }}
   userConfig:
-  {{- if .userConfig.configMap }}
+    {{- if .userConfig.configMap }}
     configMap:
       name: {{ $appName }}-user-values
       namespace: {{ $.Release.Namespace }}
-  {{- end }}
-  {{- if .userConfig.secret }}
+    {{- end }}
+    {{- if .userConfig.secret }}
     secret:
       name: {{ $appName }}-user-secrets
       namespace: {{ $.Release.Namespace }}
-  {{- end }}
+    {{- end }}
   {{- end }}
   {{- end }}
 {{- end }}
