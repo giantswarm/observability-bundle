@@ -78,14 +78,18 @@ apps:
               tag: v0.58.0
           prometheus:
             enabled: false
+    # a list of extraConfigs for the App,
+    # It can be secret or configmap
+    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
+    extraConfigs: []
 
   prometheus-agent:
     appName: prometheus-agent
     chartName: prometheus-agent
-    catalog: giantswarm-playground
+    catalog: giantswarm-playground-test
     enabled: true
     namespace: kube-system
-    version: 0.1.1
+    version: 0.1.1-9eaffc47c303bbd04633b2b92e1e73d84e63ea74
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
     userConfig: {}
