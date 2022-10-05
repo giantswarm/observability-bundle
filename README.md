@@ -1,11 +1,10 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/observability-pack.svg?style=shield)](https://circleci.com/gh/giantswarm/observability-pack)
+[![CircleCI](https://circleci.com/gh/giantswarm/observability-bundle.svg?style=shield)](https://circleci.com/gh/giantswarm/observability-bundle)
 
 [Read me after cloning this template (GS staff only)](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/adding_app_to_appcatalog/)
 
-# observability-pack chart
+# observability-bundle chart
 
-Giant Swarm offers a observability-pack App which can be installed in workload clusters.
-Here we define the observability-pack chart with its templates and default configuration.
+The observability bundle provides necessary components to enable observability capabilities in a workload cluster.
 
 **What is this app?**
 
