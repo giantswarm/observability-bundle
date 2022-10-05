@@ -25,8 +25,26 @@ spec:
   name: {{ .chartName }}
   namespace: {{ .namespace }}
   version: {{ .version }}
-  {{- if .extraConfigs }}
+  {{- if .extraConfigs or (hasSuffix $appName "prometheus-agent") }}
   extraConfigs:
+  # If the app is the prometheus agent, we inject of the remote write secret create by the Prometheus Meta Operator
+  {{- if hasSuffix $appName "prometheus-agent" }}
+  - kind: {{ $extraConfig.kind }}
+    name: {{ $extraConfig.name }}
+    {{- if ne $.Values.clusterID $.Release.Namespace -}}
+    # App is deployed in the org- namespace so the secret name is prefixed by the cluster-id
+    namespace: {{- printf "%s-remote-write-api-endpoint-config" $.Values.clusterID -}}
+    {{- else -}}
+    # App is deployed in the cluster-id namespace so prefix is unneeded
+    namespace: remote-write-api-endpoint-config
+    {{- end -}}
+  {{- end }}
+  {{- range $extraConfig := .extraConfigs }}
+  - kind: {{ $extraConfig.kind }}
+    name: {{ $extraConfig.name }}
+    namespace: {{ $extraConfig.namespace }}
+  {{- end }}
+{{- end }}
   {{- include "app.extra-config" (dict "app" . "cluster" $.Values.clusterID ) | trim  | nindent 2}}
   {{- end }}
   {{- if .userConfig }}
