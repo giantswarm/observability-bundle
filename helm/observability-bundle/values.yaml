@@ -1,0 +1,92 @@
+clusterID: ""
+organization: ""
+
+# User values can be provided via a ConfigMap or Secret for each individual app
+# using the structure shown below.
+
+# userConfig:
+#   prometheus-operator-app:
+#     configMap:
+#       values: |
+#         prometheusOperator:
+#           enabled: true
+
+userConfig:
+  prometheus-operator-app:
+    configMap:
+      values: |
+        defaultRules:
+          create: false
+        global:
+          rbac:
+            create: true
+            pspEnabled: false
+        alertmanager:
+          enabled: false
+        grafana:
+          enabled: false
+        kubeApiServer:
+          enabled: true
+        kubelet:
+          enabled: false
+        kubeControllerManager:
+          enabled: true
+          service:
+            port: 10257
+            targetPort: 10257
+            selector:
+              app.kubernetes.io/name: controller-manager
+          serviceMonitor:
+            https: true
+            insecureSkipVerify: true
+        coreDns:
+          enabled: false
+        kubeEtcd:
+          enabled: false
+        kubeScheduler:
+          enabled: true
+          service:
+            port: 10252
+            targetPort: 10257
+            selector:
+              app.kubernetes.io/name: scheduler
+          serviceMonitor:
+            https: true
+            insecureSkipVerify: true
+        kubeProxy:
+          enabled: false
+        kubeStateMetrics:
+          enabled: false
+        nodeExporter:
+          enabled: false
+        prometheusOperator:
+          enabled: true
+          image:
+            tag: v0.58.0
+        prometheus:
+          enabled: false
+
+apps:
+  prometheus-operator-crd:
+    appName: prometheus-operator-crd
+    chartName: prometheus-operator-crd
+    catalog: giantswarm
+    enabled: true
+    namespace: kube-system
+    version: 1.0.1
+
+  prometheus-operator-app:
+    appName: prometheus-operator-app
+    chartName: prometheus-operator-app
+    catalog: giantswarm
+    enabled: true
+    namespace: kube-system
+    version: 1.3.0
+
+  prometheus-agent:
+    appName: prometheus-agent
+    chartName: prometheus-agent
+    catalog: giantswarm-playground
+    enabled: true
+    namespace: kube-system
+    version: 0.1.1
