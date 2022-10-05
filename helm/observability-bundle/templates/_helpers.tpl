@@ -46,19 +46,3 @@ giantswarm.io/managed-by: {{ .Release.Name | quote }}
 helm.sh/chart: {{ include "chart" . | quote }}
 {{- end -}}
 
-{{/*
-Generate extraConfigs for each app
-*/}}
-{{- define "app.extra-config" -}}
-{{ $cluster := .cluster }}
-{{ $appName := .base.appName }}
-{{- range $extraConfig := .base.extraConfigs }}
-- kind: {{ $extraConfig.kind }}
-  name: {{ $extraConfig.name }}
-  {{- if and (eq $appName "prometheus-agent" ) (eq $extraConfig.name "remote-write-api-endpoint-config") }}
-  namespace: {{ $cluster }}
-  {{- else }}
-  namespace: {{ $extraConfig.namespace }}
-  {{- end }}
-{{- end }}
-{{- end -}}
