@@ -72,7 +72,7 @@ apps:
     chartName: prometheus-operator-crd
     catalog: giantswarm
     enabled: true
-    namespace: monitoring
+    namespace: kube-system
     version: 1.0.1
 
   prometheus-operator-app:
@@ -80,7 +80,7 @@ apps:
     chartName: prometheus-operator-app
     catalog: giantswarm
     enabled: true
-    namespace: monitoring
+    namespace: kube-system
     version: 1.3.0
 
   prometheus-agent:
@@ -88,5 +88,5 @@ apps:
     chartName: prometheus-agent
     catalog: giantswarm-playground
     enabled: true
-    namespace: monitoring
+    namespace: kube-system
     version: 0.1.1
