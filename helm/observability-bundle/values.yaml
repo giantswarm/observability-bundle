@@ -19,10 +19,10 @@ apps:
   prometheus-operator-app:
     appName: prometheus-operator-app
     chartName: prometheus-operator-app
-    catalog: giantswarm
+    catalog: giantswarm-test
     enabled: true
     namespace: kube-system
-    version: 1.3.0
+    version: 1.3.1-d33d7661d93fd9fab6953473c6391b97852a9926
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
     userConfig:
@@ -33,7 +33,7 @@ apps:
           global:
             rbac:
               create: true
-              pspEnabled: false
+              pspEnabled: true
           alertmanager:
             enabled: false
           grafana:
@@ -89,7 +89,7 @@ apps:
     catalog: giantswarm-playground-test
     enabled: true
     namespace: kube-system
-    version: 0.1.1-9eaffc47c303bbd04633b2b92e1e73d84e63ea74
+    version: 0.1.1-6c898749913337deb170fabcfad4eee619a7642b
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
     userConfig: {}
