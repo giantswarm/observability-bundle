@@ -22,7 +22,7 @@ apps:
     catalog: giantswarm-test
     enabled: true
     namespace: kube-system
-    version: 1.3.1-cbe7763583c5d1be405f5ed0e8969a18d9858e40
+    version: 1.3.1-85705f06a5f53936c931208c7e63fff3ae428b79
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
     userConfig:
