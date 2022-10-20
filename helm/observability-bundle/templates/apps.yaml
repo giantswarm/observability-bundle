@@ -15,6 +15,8 @@ spec:
     configMap:
       name: {{ $.Values.clusterID }}-cluster-values
       namespace: {{ $.Release.Namespace }}
+  install:
+    skipCRDs: {{.skipCRDs | default false }}
   kubeConfig:
     context:
       name: {{ $.Values.clusterID }}-admin@{{ $.Values.clusterID }}
