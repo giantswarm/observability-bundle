@@ -1,71 +1,6 @@
 clusterID: ""
 organization: ""
 
-# User values can be provided via a ConfigMap or Secret for each individual app
-# using the structure shown below.
-
-# userConfig:
-#   prometheus-operator-app:
-#     configMap:
-#       values: |
-#         prometheusOperator:
-#           enabled: true
-
-userConfig:
-  prometheus-operator-app:
-    configMap:
-      values: |
-        defaultRules:
-          create: false
-        global:
-          rbac:
-            create: true
-            pspEnabled: false
-        alertmanager:
-          enabled: false
-        grafana:
-          enabled: false
-        kubeApiServer:
-          enabled: true
-        kubelet:
-          enabled: false
-        kubeControllerManager:
-          enabled: true
-          service:
-            port: 10257
-            targetPort: 10257
-            selector:
-              app.kubernetes.io/name: controller-manager
-          serviceMonitor:
-            https: true
-            insecureSkipVerify: true
-        coreDns:
-          enabled: false
-        kubeEtcd:
-          enabled: false
-        kubeScheduler:
-          enabled: true
-          service:
-            port: 10252
-            targetPort: 10257
-            selector:
-              app.kubernetes.io/name: scheduler
-          serviceMonitor:
-            https: true
-            insecureSkipVerify: true
-        kubeProxy:
-          enabled: false
-        kubeStateMetrics:
-          enabled: false
-        nodeExporter:
-          enabled: false
-        prometheusOperator:
-          enabled: true
-          image:
-            tag: v0.58.0
-        prometheus:
-          enabled: false
-
 apps:
   prometheus-operator-crd:
     appName: prometheus-operator-crd
@@ -74,6 +9,12 @@ apps:
     enabled: true
     namespace: kube-system
     version: 1.0.1
+    # User values can be provided via a ConfigMap or Secret for each individual app
+    userConfig: {}
+    # a list of extraConfigs for the App,
+    # It can be secret or configmap
+    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
+    extraConfigs: []
 
   prometheus-operator-app:
     appName: prometheus-operator-app
@@ -81,7 +22,140 @@ apps:
     catalog: giantswarm
     enabled: true
     namespace: kube-system
-    version: 1.3.0
+    skipCRDs: true
+    version: 2.0.0
+    userConfig:
+      configMap:
+        values: |
+          prometheus-operator-app:
+            defaultRules:
+              create: false
+            global:
+              rbac:
+                create: true
+                pspEnabled: true
+            alertmanager:
+              enabled: false
+            grafana:
+              enabled: false
+            kubeApiServer:
+              enabled: true
+              serviceMonitor:
+                metricRelabelings:
+                # Keep existing metric relabeling
+                - action: drop
+                  regex: apiserver_request_duration_seconds_bucket;(0.15|0.2|0.3|0.35|0.4|0.45|0.6|0.7|0.8|0.9|1.25|1.5|1.75|2|3|3.5|4|4.5|6|7|8|9|15|25|40|50)
+                  sourceLabels:
+                    - __name__
+                    - le
+                # Add app label.
+                - targetLabel: app
+                  replacement: kubernetes
+                # Add container label.
+                - sourceLabels:
+                  - __meta_kubernetes_pod_container_name
+                  targetLabel: container
+                # Add node label.
+                - sourceLabels:
+                  - __meta_kubernetes_pod_node_name
+                  targetLabel: node
+                # Add node role label.
+                - sourceLabels:
+                  - __meta_kubernetes_node_label_kubernetes_io_role
+                  targetLabel: role
+            kubelet:
+              enabled: false
+            kubeControllerManager:
+              enabled: true
+              service:
+                port: 10257
+                targetPort: 10257
+                selector:
+                  app.kubernetes.io/name: controller-manager
+              serviceMonitor:
+                https: true
+                insecureSkipVerify: true
+                metricRelabelings:
+                # Add app label.
+                - targetLabel: app
+                  replacement: kube-controller-manager
+                # Add container label.
+                - sourceLabels:
+                  - __meta_kubernetes_pod_container_name
+                  targetLabel: container
+                # Add node label.
+                - sourceLabels:
+                  - __meta_kubernetes_pod_node_name
+                  targetLabel: node
+                # Add node role label.
+                - sourceLabels:
+                  - __meta_kubernetes_node_label_kubernetes_io_role
+                  targetLabel: role
+            coreDns:
+              enabled: false
+            kubeEtcd:
+              enabled: false
+            kubeScheduler:
+              enabled: true
+              service:
+                port: 10252
+                targetPort: 10257
+                selector:
+                  app.kubernetes.io/name: scheduler
+              serviceMonitor:
+                https: true
+                insecureSkipVerify: true
+                metricRelabelings:
+                # Add app label.
+                - targetLabel: app
+                  replacement: kube-scheduler
+                # Add container label.
+                - sourceLabels:
+                  - __meta_kubernetes_pod_container_name
+                  targetLabel: container
+                # Add node label.
+                - sourceLabels:
+                  - __meta_kubernetes_pod_node_name
+                  targetLabel: node
+                # Add node role label.
+                - sourceLabels:
+                  - __meta_kubernetes_node_label_kubernetes_io_role
+                  targetLabel: role
+            kubeProxy:
+              enabled: false
+            prometheusOperator:
+              enabled: true
+              image:
+                tag: v0.58.0
+              serviceMonitor:
+                metricRelabelings:
+                # Add app label.
+                - sourceLabels:
+                  - __meta_kubernetes_pod_label_app_kubernetes_io_name
+                  targetLabel: app
+                  # Add instance label.
+                - action: replace
+                  sourceLabels:
+                  - __meta_kubernetes_pod_label_app_kubernetes_io_instance
+                  targetLabel: instance
+                # Add node label.
+                - sourceLabels:
+                  - __meta_kubernetes_pod_node_name
+                  targetLabel: node
+                # Add node role label.
+                - sourceLabels:
+                  - __meta_kubernetes_node_label_kubernetes_io_role
+                  targetLabel: role
+                # Add team label.
+                - sourceLabels:
+                  - __meta_kubernetes_pod_label_application_giantswarm_io_team
+                  targetLabel: team
+            prometheus:
+              enabled: false
+    # a list of extraConfigs for the App,
+    # It can be secret or configmap
+    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
+    extraConfigs: []
 
   prometheus-agent:
     appName: prometheus-agent
@@ -89,4 +163,38 @@ apps:
     catalog: giantswarm-playground
     enabled: true
     namespace: kube-system
-    version: 0.1.1
+    version: 0.1.4
+    # User values can be provided via a ConfigMap or Secret for each individual app
+    # using the structure shown below.
+    userConfig:
+      configMap:
+        values: |
+          prometheus-agent:
+            serviceMonitor:
+              enabled: true
+              metricRelabelings:
+              # Add app label.
+              - sourceLabels:
+                - __meta_kubernetes_pod_label_app_kubernetes_io_name
+                targetLabel: app
+              # Add instance label.
+              - action: replace
+                sourceLabels:
+                - __meta_kubernetes_pod_label_app_kubernetes_io_instance
+                targetLabel: instance
+              # Add node label.
+              - sourceLabels:
+                - __meta_kubernetes_pod_node_name
+                targetLabel: node
+              # Add node role label.
+              - sourceLabels:
+                - __meta_kubernetes_node_label_kubernetes_io_role
+                targetLabel: role
+              # Add team label.
+              - sourceLabels:
+                - __meta_kubernetes_pod_label_application_giantswarm_io_team
+                targetLabel: team
+    # a list of extraConfigs for the App,
+    # It can be secret or configmap
+    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
+    extraConfigs: {}
