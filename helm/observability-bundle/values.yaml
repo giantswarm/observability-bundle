@@ -129,6 +129,10 @@ apps:
       configMap:
         values: |
           prometheus-agent:
+            serviceMonitorSelector:
+              app: prometheus-agent
+            podMonitorSelector:
+              app: prometheus-agent
             serviceMonitor:
               enabled: true
               relabelings:
