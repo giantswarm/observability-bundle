@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump prometheus-agent to 0.1.5
+
+### Added
+
+- Add selectors for prometheus-agent ServiceMonitors
+
 ## [0.1.1] - 2022-10-26
 
 ### Fixed
