@@ -130,9 +130,11 @@ apps:
         values: |
           prometheus-agent:
             serviceMonitorNamespaceSelector:
-              name: kube-system
+              matchLabels:
+                name: kube-system
             podMonitorNamespaceSelector:
-              name: kube-system
+              matchLabels:
+                name: kube-system
             serviceMonitor:
               enabled: true
               relabelings:
