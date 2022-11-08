@@ -129,10 +129,10 @@ apps:
       configMap:
         values: |
           prometheus-agent:
-            serviceMonitorSelector:
-              app: prometheus-agent
-            podMonitorSelector:
-              app: prometheus-agent
+            serviceMonitorNamespaceSelector:
+              name: kube-system
+            podMonitorNamespaceSelector:
+              name: kube-system
             serviceMonitor:
               enabled: true
               relabelings:
