@@ -122,7 +122,7 @@ apps:
     catalog: giantswarm-playground
     enabled: true
     namespace: kube-system
-    version: 0.1.4
+    version: 0.1.5
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
     userConfig:
