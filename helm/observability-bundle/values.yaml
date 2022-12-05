@@ -129,12 +129,16 @@ apps:
       configMap:
         values: |
           prometheus-agent:
-            serviceMonitorNamespaceSelector:
-              matchLabels:
-                name: kube-system
-            podMonitorNamespaceSelector:
-              matchLabels:
-                name: kube-system
+            serviceMonitorNamespaceSelector: {}
+            serviceMonitorSelector:
+              matchExpressions:
+                - key: "application.giantswarm.io/team"
+                  operator: "Exists"
+            podMonitorNamespaceSelector: {}
+            podMonitorSelector:
+              matchExpressions:
+                - key: "application.giantswarm.io/team"
+                  operator: "Exists"
             serviceMonitor:
               enabled: true
               relabelings:
