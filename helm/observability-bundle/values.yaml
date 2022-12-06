@@ -8,7 +8,9 @@ apps:
     catalog: giantswarm
     enabled: true
     namespace: kube-system
-    version: 2.0.0
+    # used by renovate
+    # repo: giantswarm/prometheus-operator-crd
+    version: 2.0.1
     # User values can be provided via a ConfigMap or Secret for each individual app
     userConfig: {}
     # a list of extraConfigs for the App,
@@ -23,7 +25,9 @@ apps:
     enabled: true
     namespace: kube-system
     skipCRDs: true
-    version: 2.0.1
+    # used by renovate
+    # repo: giantswarm/prometheus-operator-app
+    version: 2.1.2
     userConfig:
       configMap:
         values: |
@@ -122,6 +126,8 @@ apps:
     catalog: giantswarm-playground
     enabled: true
     namespace: kube-system
+    # used by renovate
+    # repo: giantswarm/prometheus-agent-app
     version: 0.1.5
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
