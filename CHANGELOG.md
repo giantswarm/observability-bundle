@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fix `kube-scheduler` port.
 - Fix `org-` namespace detection.
 
 ## [0.1.4] - 2022-12-06

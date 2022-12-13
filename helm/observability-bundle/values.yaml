@@ -76,8 +76,8 @@ apps:
             kubeScheduler:
               enabled: true
               service:
-                port: 10252
-                targetPort: 10257
+                port: 10259
+                targetPort: 10259
                 selector:
                   component: kube-scheduler
               serviceMonitor:
