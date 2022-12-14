@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Push to `control-plane-catalog`.
+
 ## [0.1.5] - 2022-12-14
 
 ### Changed
