@@ -3,8 +3,8 @@ name: observability-bundle
 description: A Helm chart for Giant Swarm's collection of observability tools.
 home: https://github.com/giantswarm/observability-bundle
 sources:
-- https://github.com/giantswarm/observability-bundle
-version: 0.1.5
+  - https://github.com/giantswarm/observability-bundle
+version: 0.1.6
 annotations:
   application.giantswarm.io/app-type: bundle
   application.giantswarm.io/in-cluster-app: "true"
