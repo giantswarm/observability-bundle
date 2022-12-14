@@ -8,7 +8,7 @@ workflows:
       - architect/push-to-app-catalog:
           name: app-catalog
           context: "architect"
-          # executor: "app-build-suite" # uncomment this if you want automatic metadata generation and helm chart linting
+          executor: "app-build-suite"
           app_catalog: "default-catalog"
           app_catalog_test: "default-test-catalog"
           chart: "observability-bundle"
