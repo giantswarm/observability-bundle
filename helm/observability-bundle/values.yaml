@@ -128,7 +128,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-agent-app
-    version: 0.1.6
+    version: 0.1.7
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
     userConfig:
