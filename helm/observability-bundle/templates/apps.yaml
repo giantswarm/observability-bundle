@@ -19,6 +19,8 @@ spec:
   {{- end }}
   install:
     skipCRDs: {{.skipCRDs | default false }}
+    timeout: 10m
+    upgrade: 10m
   kubeConfig:
     {{- if eq $.Release.Namespace "giantswarm" }}  ## Vintage MCs do not have a kubeconfig secret
     inCluster: true
