@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Tuned default helm timeouts
+
 ## [0.1.6] - 2022-12-14
 
 ### Added
