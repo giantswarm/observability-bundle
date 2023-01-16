@@ -10,7 +10,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
-    version: 2.0.1
+    version: 3.0.0
     # User values can be provided via a ConfigMap or Secret for each individual app
     userConfig: {}
     # a list of extraConfigs for the App,
@@ -27,7 +27,7 @@ apps:
     skipCRDs: true
     # used by renovate
     # repo: giantswarm/prometheus-operator-app
-    version: 2.1.2
+    version: 3.0.0
     userConfig:
       configMap:
         values: |
