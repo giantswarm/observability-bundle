@@ -22,6 +22,7 @@ apps:
     appName: prometheus-operator-app
     chartName: prometheus-operator-app
     catalog: giantswarm
+    dependsOn: prometheus-operator-crd
     enabled: true
     namespace: kube-system
     skipCRDs: true
@@ -124,6 +125,7 @@ apps:
     appName: prometheus-agent
     chartName: prometheus-agent
     catalog: giantswarm-playground
+    dependsOn: prometheus-operator-crd
     enabled: true
     namespace: kube-system
     # used by renovate
