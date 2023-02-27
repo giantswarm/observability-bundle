@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- prometheus-operator: drop `apiserver_request_slo_duration_seconds_bucket` metrics from apiserver
+
 ## [0.2.0] - 2023-02-21
 
 ### Changed
