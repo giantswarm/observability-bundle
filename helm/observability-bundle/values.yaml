@@ -171,7 +171,7 @@ apps:
 
   promtail-app:
     appName: promtail-app
-    chartName: promtail-app
+    chartName: promtail
     catalog: giantswarm
     enabled: false
     namespace: kube-system
