@@ -11,6 +11,7 @@ The observability bundle provides necessary components to enable observability c
 * prometheus-operator-crd
 * prometheus-operator-app
 * prometheus-agent
+* promtail-app
 
 
 ## Installing
