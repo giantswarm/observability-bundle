@@ -180,3 +180,19 @@ apps:
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
     extraConfigs: {}
+
+  promtail-app:
+    appName: promtail-app
+    chartName: promtail
+    catalog: giantswarm
+    enabled: false
+    namespace: kube-system
+    # used by renovate
+    # repo: giantswarm/promtail-app
+    version: 1.0.1
+    # User values can be provided via a ConfigMap or Secret for each individual app
+    userConfig: {}
+    # a list of extraConfigs for the App,
+    # It can be secret or configmap
+    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
+    extraConfigs: []
