@@ -1,7 +1,7 @@
 {
   "extends": [
     "config:base",
-    ":reviewer(team:team-hydra)"
+    ":reviewer(team:team-atlas)"
   ],
   "labels": ["dependencies"],
   "dependencyDashboard": true,
