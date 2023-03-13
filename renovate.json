@@ -1,9 +1,9 @@
 {
   "extends": [
     "config:base",
-    ":reviewer(team:team-atlas)"
+    ":reviewer(team:team-hydra)"
   ],
-  "labels": ["dependencies", "renovate"],
+  "labels": ["dependencies"],
   "dependencyDashboard": true,
   "ignorePaths": [
     ".github/workflows/zz_generated.*",
@@ -13,6 +13,14 @@
     "architect",
     "zricethezav/gitleaks-action",
     "actions/setup-go"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^helm\\/.+\\/values\\.yaml$"],
+      "matchStrings": ["repo: (?<depName>.*)\n(\\s)*version: (?<currentValue>.*?)\n"],
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    }
   ],
   "schedule": [ "after 6am on thursday" ]
 }
