@@ -40,6 +40,8 @@ apps:
                 pspEnabled: true
             alertmanager:
               enabled: false
+            coreDns:
+              enabled: true
             grafana:
               enabled: false
             kubeApiServer:
@@ -62,7 +64,7 @@ apps:
                   sourceLabels:
                   - __name__
             kubelet:
-              enabled: false
+              enabled: true
             kubeControllerManager:
               enabled: true
               service:
@@ -81,10 +83,10 @@ apps:
                 - sourceLabels:
                   - __meta_kubernetes_pod_node_name
                   targetLabel: node
-            coreDns:
-              enabled: false
             kubeEtcd:
-              enabled: false
+              enabled: true
+            kubeProxy:
+              enabled: true
             kubeScheduler:
               enabled: true
               service:
@@ -103,8 +105,6 @@ apps:
                 - sourceLabels:
                   - __meta_kubernetes_pod_node_name
                   targetLabel: node
-            kubeProxy:
-              enabled: false
             prometheusOperator:
               enabled: true
               serviceMonitor:
