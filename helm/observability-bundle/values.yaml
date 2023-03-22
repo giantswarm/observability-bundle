@@ -199,8 +199,6 @@ apps:
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
     extraConfigs:
       - kind: secret
-        name: promtail-app-extra-secrets
-        namespace: giantswarm
+        name: logging-secret
       - kind: configMap
-        name: promtail-app-extra-values
-        namespace: giantswarm
+        name: logging-config

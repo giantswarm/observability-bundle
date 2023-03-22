@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add `promtail-app` v1.0.1 with configmap and secret resources.
+- Add `promtail-app` v1.0.1.
 
 ## [0.2.0] - 2023-02-21
 
