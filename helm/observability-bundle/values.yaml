@@ -188,13 +188,68 @@ apps:
     chartName: promtail
     catalog: giantswarm
     enabled: false
-    namespace: kube-system
+    namespace: promtail
     # used by renovate
     # repo: giantswarm/promtail-app
     version: 1.0.1
     # User values can be provided via a ConfigMap or Secret for each individual app
-    userConfig: {}
+    userConfig: {
+      configMap:
+        values: |
+          promtail:
+            rbac:
+              create: true
+              pspEnabled: true
+            extraArgs:
+              - '-log-config-reverse-order'
+            config:
+              clients:
+                - url: https://loki.zj88t.k8s.gorilla.eu-central-1.aws.gigantic.io/loki/api/v1/push
+                  # the whole client config for this URL
+                  # including but not limited to authentication credentials
+                  # is stored in Flux secret
+              snippets:
+                extraScrapeConfigs: |
+                  # this one includes also system logs reported by systemd-journald
+                  - job_name: systemd_journal_run
+                    journal:
+                      path: /run/log/journal
+                      max_age: 12h
+                      json: true
+                    relabel_configs:
+                      - source_labels: ['__journal__systemd_unit']
+                        target_label: 'systemd_unit'
+                      - source_labels: ['__journal__hostname']
+                        target_label: 'hostname'
+                  - job_name: systemd_journal_var
+                    journal:
+                      path: /var/log/journal
+                      max_age: 12h
+                      json: true
+                    relabel_configs:
+                      - source_labels: ['__journal__systemd_unit']
+                        target_label: 'systemd_unit'
+                      - source_labels: ['__journal__hostname']
+                        target_label: 'hostname'
+            extraVolumes:
+              - name: journal-run
+                hostPath:
+                  path: /run/log/journal/
+              - name: journal-var
+                hostPath:
+                  path: /var/log/journal/
+            extraVolumeMounts:
+              - name: journal-run
+                mountPath: /run/log/journal/
+                readOnly: true
+              - name: journal-var
+                mountPath: /var/log/journal/
+                readOnly: true
+    }
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs: []
+    extraConfigs:
+      - kind: secret
+        name: promtail-user-secrets
+        namespace: giantswarm
