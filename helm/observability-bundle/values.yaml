@@ -193,7 +193,7 @@ apps:
     # repo: giantswarm/promtail-app
     version: 1.0.1
     # User values can be provided via a ConfigMap or Secret for each individual app
-    userConfig: 
+    userConfig:
       configMap:
         values: |
           promtail:
