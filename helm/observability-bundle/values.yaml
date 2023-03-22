@@ -1,4 +1,4 @@
-clusterID: &clusterId ""
+clusterID: ""
 organization: ""
 
 apps:
@@ -199,6 +199,6 @@ apps:
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
     extraConfigs:
       - kind: secret
-        name: !join [*clusterId, -logging-secret]
+        name: logging-secret
       - kind: configMap
-        name: !join [*clusterId, -logging-config]
+        name: logging-config
