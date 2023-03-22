@@ -1,6 +1,5 @@
 clusterID: ""
 organization: ""
-clusterIdTpl: "{{ .Values.clusterID }}"
 
 apps:
   prometheus-operator-crd:
@@ -200,6 +199,6 @@ apps:
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
     extraConfigs:
       - kind: secret
-        name: {{ tpl .Values.clusterIdTpl . }}-logging-secret
+        name: logging-secret
       - kind: configMap
-        name: {{ tpl .Values.clusterIdTpl . }}-logging-config
+        name: logging-config
