@@ -193,7 +193,7 @@ apps:
     # repo: giantswarm/promtail-app
     version: 1.0.1
     # User values can be provided via a ConfigMap or Secret for each individual app
-    userConfig: {
+    userConfig: 
       configMap:
         values: |
           promtail:
@@ -245,7 +245,6 @@ apps:
               - name: journal-var
                 mountPath: /var/log/journal/
                 readOnly: true
-    }
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
