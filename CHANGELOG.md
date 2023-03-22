@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add new app dependency mechanism (`app-operator.giantswarm.io/depends-on`) to the prometheus-operator-app and agent so they are not installed until the CRD app is deployed.
 - prometheus-operator: drop `apiserver_request_slo_duration_seconds_bucket` metrics from apiserver
-- upgrade `prometheus-operator-app` and `prometheus-operator-crd` to 4.0.0
+- upgrade `prometheus-operator-app` to 4.0.1 and `prometheus-operator-crd` to 4.0.0
+- upgrade `prometheus-agent` to 0.3.0 to support chinese registry
 
 ### Added
 
