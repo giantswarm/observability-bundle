@@ -188,7 +188,7 @@ apps:
     chartName: promtail
     catalog: giantswarm
     enabled: false
-    namespace: promtail
+    namespace: kube-system
     # used by renovate
     # repo: giantswarm/promtail-app
     version: 1.0.1
