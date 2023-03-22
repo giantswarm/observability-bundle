@@ -199,8 +199,6 @@ apps:
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
     extraConfigs:
       - kind: secret
-        name: {{ $.Values.clusterID }}-logging-secret
-        namespace: {{ $.Release.Namespace }}
+        name: logging-secret
       - kind: configMap
-        name: {{ $.Values.clusterID }}-logging-config
-        namespace: {{ $.Release.Namespace }}
+        name: logging-config
