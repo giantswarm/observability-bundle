@@ -62,8 +62,8 @@ spec:
   {{- end }}
   {{- range $extraConfig := .extraConfigs }}
   - kind: {{ $extraConfig.kind }}
-    name: {{ $.Values.clusterID }}-{{ $extraConfig.name }}
-    namespace: {{ $extraConfig.namespace | default $.Release.Namespace }}
+    name: {{ tpl $extraConfig.name $ }}
+    namespace: {{ tpl $extraConfig.namespace $ }}
   {{- end }}
   {{- end }}
   {{- if .userConfig }}
