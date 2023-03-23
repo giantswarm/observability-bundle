@@ -5,12 +5,12 @@ apps:
   prometheus-operator-crd:
     appName: prometheus-operator-crd
     chartName: prometheus-operator-crd
-    catalog: giantswarm
+    catalog: default
     enabled: true
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
-    version: 3.0.0
+    version: 4.0.0
     # User values can be provided via a ConfigMap or Secret for each individual app
     userConfig: {}
     # a list of extraConfigs for the App,
@@ -21,30 +21,27 @@ apps:
   prometheus-operator-app:
     appName: prometheus-operator-app
     chartName: prometheus-operator-app
-    catalog: giantswarm
+    catalog: default
     dependsOn: prometheus-operator-crd
     enabled: true
     namespace: kube-system
     skipCRDs: true
     # used by renovate
     # repo: giantswarm/prometheus-operator-app
-    version: 3.0.0
+    version: 4.0.1
     userConfig:
       configMap:
         values: |
           prometheus-operator-app:
             defaultRules:
               create: false
-            global:
-              rbac:
-                create: true
-                pspEnabled: true
             alertmanager:
+              enabled: false
+            coreDns:
               enabled: false
             grafana:
               enabled: false
             kubeApiServer:
-              enabled: true
               serviceMonitor:
                 relabelings:
                 # Add app label.
@@ -62,10 +59,7 @@ apps:
                   regex: apiserver_request_slo_duration_seconds_bucket
                   sourceLabels:
                   - __name__
-            kubelet:
-              enabled: false
             kubeControllerManager:
-              enabled: true
               service:
                 port: 10257
                 targetPort: 10257
@@ -82,12 +76,13 @@ apps:
                 - sourceLabels:
                   - __meta_kubernetes_pod_node_name
                   targetLabel: node
-            coreDns:
-              enabled: false
             kubeEtcd:
               enabled: false
+            kubelet:
+              enabled: false
+            kubeProxy:
+              enabled: false
             kubeScheduler:
-              enabled: true
               service:
                 port: 10259
                 targetPort: 10259
@@ -104,10 +99,7 @@ apps:
                 - sourceLabels:
                   - __meta_kubernetes_pod_node_name
                   targetLabel: node
-            kubeProxy:
-              enabled: false
             prometheusOperator:
-              enabled: true
               serviceMonitor:
                 relabelings:
                 # Add app label.
@@ -136,13 +128,13 @@ apps:
   prometheus-agent:
     appName: prometheus-agent
     chartName: prometheus-agent
-    catalog: giantswarm-playground
+    catalog: default
     dependsOn: prometheus-operator-crd
     enabled: true
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-agent-app
-    version: 0.2.0
+    version: 0.3.0
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
     userConfig:

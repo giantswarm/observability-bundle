@@ -7,14 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2023-03-22
+
 ### Changed
 
 - Add new app dependency mechanism (`app-operator.giantswarm.io/depends-on`) to the prometheus-operator-app and agent so they are not installed until the CRD app is deployed.
 - prometheus-operator: drop `apiserver_request_slo_duration_seconds_bucket` metrics from apiserver
+- upgrade `prometheus-operator-app` to 4.0.1 and `prometheus-operator-crd` to 4.0.0
+- upgrade `prometheus-agent` to 0.3.0 to support chinese registry
 
 ### Added
 
-- Add `promtail-app` v1.0.1.
+- Add `promtail-app` v1.0.1 disabled by default.
 
 ## [0.2.0] - 2023-02-21
 
@@ -99,7 +103,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/giantswarm/observability-bundle/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/giantswarm/observability-bundle/compare/v0.1.9...v0.2.0
 [0.1.9]: https://github.com/giantswarm/observability-bundle/compare/v0.1.8...v0.1.9
 [0.1.8]: https://github.com/giantswarm/observability-bundle/compare/v0.1.7...v0.1.8
