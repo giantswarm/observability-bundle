@@ -189,4 +189,10 @@ apps:
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs: []
+    extraConfigs:
+      - kind: secret
+        name: "{{ $.Values.clusterID }}-logging-secret"
+        namespace: "{{ $.Release.Namespace }}"
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-logging-config"
+        namespace: "{{ $.Release.Namespace }}"
