@@ -17,6 +17,9 @@
                         "chartName": {
                             "type": "string"
                         },
+                        "dependsOn": {
+                            "type": "string"
+                        },
                         "enabled": {
                             "type": "boolean"
                         },
@@ -54,6 +57,9 @@
                             "type": "string"
                         },
                         "chartName": {
+                            "type": "string"
+                        },
+                        "dependsOn": {
                             "type": "string"
                         },
                         "enabled": {
@@ -131,7 +137,21 @@
                             "type": "boolean"
                         },
                         "extraConfigs": {
-                            "type": "array"
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "kind": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "namespace": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
                         },
                         "namespace": {
                             "type": "string"

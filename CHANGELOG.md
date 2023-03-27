@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Enable node-exporter by default in prometheus-operator
+
 ### Added
 
 - Add extra configmap and secret to `promtail-app`.
