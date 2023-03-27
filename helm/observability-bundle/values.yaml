@@ -206,7 +206,7 @@ apps:
                   readOnly: true
               prometheus:
                 monitor:
-                  enabled: false   
+                  enabled: false
 
     # a list of extraConfigs for the App,
     # It can be secret or configmap
