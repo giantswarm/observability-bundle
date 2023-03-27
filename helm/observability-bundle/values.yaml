@@ -45,18 +45,12 @@ apps:
                 targetPort: 10257
                 selector:
                   component: kube-controller-manager
-              serviceMonitor:
-                https: true
-                insecureSkipVerify: true
             kubeScheduler:
               service:
                 port: 10259
                 targetPort: 10259
                 selector:
                   component: kube-scheduler
-              serviceMonitor:
-                https: true
-                insecureSkipVerify: true
             prometheus:
               enabled: false
 
