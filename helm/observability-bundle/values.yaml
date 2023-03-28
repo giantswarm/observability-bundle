@@ -39,18 +39,6 @@ apps:
               enabled: false
             grafana:
               enabled: false
-            kubeControllerManager:
-              service:
-                port: 10257
-                targetPort: 10257
-                selector:
-                  component: kube-controller-manager
-            kubeScheduler:
-              service:
-                port: 10259
-                targetPort: 10259
-                selector:
-                  component: kube-scheduler
             prometheus:
               enabled: false
 
