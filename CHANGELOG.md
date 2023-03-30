@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add extra configmap and secret to `promtail-app`.
 
+### Removed
+
+- Moving prometheus-operator-app user-configs to the prometheus-operator-app https://github.com/giantswarm/prometheus-operator-app/pull/249
+
 ## [0.3.0] - 2023-03-22
 
 ### Changed

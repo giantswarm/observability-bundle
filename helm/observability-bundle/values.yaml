@@ -21,14 +21,14 @@ apps:
   prometheus-operator-app:
     appName: prometheus-operator-app
     chartName: prometheus-operator-app
-    catalog: default
+    catalog: default-test
     dependsOn: prometheus-operator-crd
     enabled: true
     namespace: kube-system
     skipCRDs: true
     # used by renovate
     # repo: giantswarm/prometheus-operator-app
-    version: 4.0.1
+    version: 4.0.1-2993f797668c3830b3ac6ec8b7751f13dd24564f
     userConfig:
       configMap:
         values: |
@@ -36,14 +36,13 @@ apps:
             defaultRules:
               create: false
             kubeProxy:
-                enabled: false
+              enabled: false
             alertmanager:
               enabled: false
             grafana:
               enabled: false
             prometheus:
               enabled: false
-
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
