@@ -1,0 +1,83 @@
+apiVersion: v1
+data:
+  values: |
+    apps:
+      prometheus-operator-app:
+        userConfig:
+          configMap:
+            values: |
+              prometheus-operator-app:
+                # Copied from existing userConfig, Giant Swarm is moving it to the app default config
+                kubeApiServer:
+                  serviceMonitor:
+                    relabelings:
+                    # Add app label.
+                    - targetLabel: app
+                      replacement: kubernetes
+                    metricRelabelings:
+                      # Keep from upstream values (https://github.com/prometheus-community/helm-charts/blob/kube-prometheus-stack-44.4.1/charts/kube-prometheus-stack/values.yaml#L967)
+                    - action: drop
+                      regex: apiserver_request_duration_seconds_bucket;(0.15|0.2|0.3|0.35|0.4|0.45|0.6|0.7|0.8|0.9|1.25|1.5|1.75|2|3|3.5|4|4.5|6|7|8|9|15|25|40|50)
+                      sourceLabels:
+                      - __name__
+                      - le
+                    # GS addition to reduce cardinality
+                    - action: drop
+                      regex: apiserver_request_slo_duration_seconds_bucket
+                      sourceLabels:
+                      - __name__
+                kubeControllerManager:
+                  service:
+                    port: 10257
+                    targetPort: 10257
+                    selector:
+                      component: kube-controller-manager
+                  serviceMonitor:
+                    https: true
+                    insecureSkipVerify: true
+                    relabelings:
+                    # Add app label.
+                    - targetLabel: app
+                      replacement: kube-controller-manager
+                    # Add node label.
+                    - sourceLabels:
+                      - __meta_kubernetes_pod_node_name
+                      targetLabel: node
+                kubeScheduler:
+                  service:
+                    port: 10259
+                    targetPort: 10259
+                    selector:
+                      component: kube-scheduler
+                  serviceMonitor:
+                    https: true
+                    insecureSkipVerify: true
+                    relabelings:
+                    # Add app label.
+                    - targetLabel: app
+                      replacement: kube-scheduler
+                    # Add node label.
+                    - sourceLabels:
+                      - __meta_kubernetes_pod_node_name
+                      targetLabel: node
+                prometheus:
+                  enabled: true
+                  ingress:
+                    enabled: true
+                    annotations:
+                      kubernetes.io/tls-acme: "true"
+                    hosts:
+                    - my-prometheus.giantswarm.io
+                    tls:
+                      - secretName: prometheus-tls
+                        hosts:
+                        - my-prometheus.giantswarm.io
+                  podSecurityPolicy:
+                    volumes:
+                      - '*'
+                  serviceAccount:
+                    create: true
+kind: ConfigMap
+metadata:
+  name: clusterID-observability-bundle-user-values
+  namespace: clusterID
