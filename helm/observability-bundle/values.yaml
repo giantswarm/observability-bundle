@@ -21,14 +21,14 @@ apps:
   prometheus-operator-app:
     appName: prometheus-operator-app
     chartName: prometheus-operator-app
-    catalog: default-test
+    catalog: default
     dependsOn: prometheus-operator-crd
     enabled: true
     namespace: kube-system
     skipCRDs: true
     # used by renovate
     # repo: giantswarm/prometheus-operator-app
-    version: 4.0.1-fbf0f46b81728bd7dd21cb579257ebe9262b6767
+    version: 4.1.0
     userConfig:
       configMap:
         values: |
