@@ -1,10 +1,8 @@
 [![CircleCI](https://circleci.com/gh/giantswarm/observability-bundle.svg?style=shield)](https://circleci.com/gh/giantswarm/observability-bundle)
 
-[Read me after cloning this template (GS staff only)](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/adding_app_to_appcatalog/)
-
 # observability-bundle chart
 
-The observability bundle provides necessary components to enable observability capabilities in a workload cluster.
+The observability bundle provides all necessary components to enable observability capabilities in a workload cluster.
 
 ## Apps
 
@@ -12,7 +10,6 @@ The observability bundle provides necessary components to enable observability c
 * prometheus-operator-app
 * prometheus-agent
 * promtail-app
-
 
 ## Installing
 
