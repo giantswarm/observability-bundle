@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2023-04-13
+
 ### Added
 
 - Add extra configmap and secret to `promtail-app`.
@@ -115,7 +117,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/giantswarm/observability-bundle/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/giantswarm/observability-bundle/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/giantswarm/observability-bundle/compare/v0.1.9...v0.2.0
 [0.1.9]: https://github.com/giantswarm/observability-bundle/compare/v0.1.8...v0.1.9
