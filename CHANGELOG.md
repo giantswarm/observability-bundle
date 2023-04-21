@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `prometheus-agent-app` to 0.4.1.
+
 ## [0.4.1] - 2023-04-20
 
 ### Changed
