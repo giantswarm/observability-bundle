@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Upgrade `prometheus-operator-app` to 4.2.3.
+
 ## [0.4.2] - 2023-04-21
 
 ### Changed
