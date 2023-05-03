@@ -57,7 +57,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-agent-app
-    version: 0.4.1
+    version: 0.5.0
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
     userConfig:
@@ -96,7 +96,13 @@ apps:
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs: {}
+    extraConfigs:
+      - kind: secret
+        name: "{{ $.Values.clusterID }}-remote-write-secret"
+        namespace: "{{ $.Release.Namespace }}"
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-remote-write-config"
+        namespace: "{{ $.Release.Namespace }}"
 
   promtail-app:
     appName: promtail-app
