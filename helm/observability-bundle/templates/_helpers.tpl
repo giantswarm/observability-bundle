@@ -17,7 +17,7 @@ Create chart name and version as used by the chart label.
 When apps are created in the org namespace add a cluster prefix.
 */}}
 {{- define "app.name" -}}
-{{- if hasPrefix "org-" .ns -}}
+{{- if ne .cluster .ns -}}
 {{- printf "%s-%s" .cluster .app -}}
 {{- else -}}
 {{- .app -}}
@@ -28,14 +28,11 @@ When apps are created in the org namespace add a cluster prefix.
 Common labels
 */}}
 {{- define "labels.common" -}}
-app.kubernetes.io/name: {{ include "name" . | quote }}
-app.kubernetes.io/instance: {{ .Release.Name | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
-application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
 giantswarm.io/managed-by: {{ .Release.Name | quote }}
 giantswarm.io/cluster: {{ .Values.clusterID | quote }}
 giantswarm.io/organization: {{ .Values.organization | quote }}
 giantswarm.io/service-type: managed
+application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
 helm.sh/chart: {{ include "chart" . | quote }}
 {{- end -}}
-
