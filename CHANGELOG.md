@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Remove custom config in favor of proper extra-config.
-- Upgrade `prometheus-agent-app` to 0.5.0.
+- Upgrade `prometheus-agent-app` to 0.5.1.
 
 ## [0.4.3] - 2023-04-26
 

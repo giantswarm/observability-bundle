@@ -28,9 +28,12 @@ When apps are created in the org namespace add a cluster prefix.
 Common labels
 */}}
 {{- define "labels.common" -}}
+app.kubernetes.io/instance: {{ .Release.Name | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
-giantswarm.io/managed-by: {{ .Release.Name | quote }}
+app.kubernetes.io/part-of: {{ include "name" . | quote }}
+app.kubernetes.io/version: {{ .Chart.Version | quote }}
 giantswarm.io/cluster: {{ .Values.clusterID | quote }}
+giantswarm.io/managed-by: {{ .Release.Name | quote }}
 giantswarm.io/organization: {{ .Values.organization | quote }}
 giantswarm.io/service-type: managed
 application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
