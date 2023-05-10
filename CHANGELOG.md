@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Remove custom config in favor of proper extra-config.
-- Upgrade `prometheus-agent-app` to 0.5.1.
+- Upgrade `prometheus-agent-app` to 0.5.2 to allow sharding capabilities.
+- Upgrade `prometheus-operator-app` to 4.2.4.
 
 ## [0.4.3] - 2023-04-26
 
