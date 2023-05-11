@@ -20,7 +20,7 @@ When apps are created in the org namespace add a cluster prefix.
 {{- if hasPrefix "org-" .ns -}} # for capi MCs and WCs this will be clusterId-appName
 {{- printf "%s-%s" .cluster .app -}}
 {{- else -}}
-{{- .app -}} for the rest (vintage MCs and WCs this will just be .app)
+{{- .app -}} # for vintage MCs and WCs this will just be .app
 {{- end -}}
 {{- end -}}
 
