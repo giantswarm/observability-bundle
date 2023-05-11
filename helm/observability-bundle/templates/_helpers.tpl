@@ -17,7 +17,11 @@ Create chart name and version as used by the chart label.
 When apps are created in the org namespace add a cluster prefix.
 */}}
 {{- define "app.name" -}}
-{{- .app -}}
+{{- if hasPrefix "org-" .ns -}}
+{{- printf "%s-%s" .cluster .app -}}
+{{- else -}}
+{{- .app -}} for the rest (vintage MCs and WCs this will just be .app)
+{{- end -}}
 {{- end -}}
 
 {{/*
