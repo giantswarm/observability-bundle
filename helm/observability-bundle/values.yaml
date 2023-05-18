@@ -28,7 +28,7 @@ apps:
     skipCRDs: true
     # used by renovate
     # repo: giantswarm/prometheus-operator-app
-    version: 4.2.4
+    version: 4.3.0
     userConfig:
       configMap:
         values: |
