@@ -112,7 +112,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/promtail-app
-    version: 1.0.3
+    version: 1.1.0
     # User values can be provided via a ConfigMap or Secret for each individual app
     userConfig: {}
     # a list of extraConfigs for the App,
