@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Upgrade `promtail-app` to 1.1.1.
 - Upgrade `prometheus-operator-app` to 5.0.6.
 
 ## [0.7.0] - 2023-06-12
