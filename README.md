@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/observability-bundle.svg?style=shield)](https://circleci.com/gh/giantswarm/observability-bundle)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/giantswarm/observability-bundle/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/giantswarm/observability-bundle/tree/main)
 
 # observability-bundle chart
 
