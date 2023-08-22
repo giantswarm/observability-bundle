@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Add extra config for `prometheus-operator-app` to be able to enable cilium.
+
+### Changed
+
+- Upgrade `prometheus-operator-app` and `prometheus-operator-crd` to 5.1.0.
+
 ## [0.7.2] - 2023-07-13
 
 ### Changed
