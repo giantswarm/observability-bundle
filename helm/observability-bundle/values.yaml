@@ -1,6 +1,9 @@
 clusterID: ""
 organization: ""
 
+ciliumNetworkPolicy:
+  enabled: false
+
 apps:
   prometheus-operator-crd:
     appName: prometheus-operator-crd
@@ -10,7 +13,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
-    version: 5.0.0
+    version: 5.1.0
     # User values can be provided via a ConfigMap or Secret for each individual app
     userConfig: {}
     # a list of extraConfigs for the App,
@@ -28,25 +31,15 @@ apps:
     skipCRDs: true
     # used by renovate
     # repo: giantswarm/prometheus-operator-app
-    version: 5.0.7
-    userConfig:
-      configMap:
-        values: |
-          prometheus-operator-app:
-            defaultRules:
-              create: false
-            kubeProxy:
-              enabled: false
-            alertmanager:
-              enabled: false
-            grafana:
-              enabled: false
-            prometheus:
-              enabled: false
+    version: 5.1.0
+    userConfig: {}
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs: []
+    extraConfigs:
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-prometheus-operator"
+        namespace: "{{ $.Release.Namespace }}"
 
   prometheus-agent:
     appName: prometheus-agent
