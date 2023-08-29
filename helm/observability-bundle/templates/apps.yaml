@@ -22,7 +22,8 @@ metadata:
   namespace: {{ $.Release.Namespace }}
 spec:
   catalog: {{ .catalog }}
-  {{- if ne $.Release.Namespace "giantswarm" }} ## Vintage MCs do not have this CM
+  ## Vintage MCs do not have this CM
+  {{- if ne $.Release.Namespace "giantswarm" }}
   config:
     configMap:
       name: {{ $.Values.clusterID }}-cluster-values
@@ -34,7 +35,8 @@ spec:
   upgrade: 
     timeout: 10m
   kubeConfig:
-    {{- if eq $.Release.Namespace "giantswarm" }}  ## Vintage MCs do not have a kubeconfig secret
+    ## Vintage MCs do not have a kubeconfig secret
+    {{- if eq $.Release.Namespace "giantswarm" }}
     inCluster: true
     {{- else }}
     context:
@@ -53,6 +55,9 @@ spec:
   - kind: {{ $extraConfig.kind }}
     name: {{ tpl $extraConfig.name $ }}
     namespace: {{ tpl $extraConfig.namespace $ }}
+    {{- if $extraConfig.priority }}
+    priority: {{ $extraConfig.priority }}
+    {{- end }}
   {{- end }}
   {{- end }}
   {{- if .userConfig }}
