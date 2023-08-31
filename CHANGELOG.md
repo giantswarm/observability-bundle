@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `prometheus-agent` to 0.6.0.
+- Upgrade `prometheus-operator-app` and `prometheus-operator-crd` to 6.0.0.
+
 ## [0.7.5] - 2023-08-29
 
 ### Added
