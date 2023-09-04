@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2023-09-04
+
 ### Changed
 
 - Upgrade `prometheus-agent` to 0.6.0.
@@ -198,7 +200,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.7.5...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/giantswarm/observability-bundle/compare/v0.7.5...v0.8.0
 [0.7.5]: https://github.com/giantswarm/observability-bundle/compare/v0.7.4...v0.7.5
 [0.7.4]: https://github.com/giantswarm/observability-bundle/compare/v0.7.3...v0.7.4
 [0.7.3]: https://github.com/giantswarm/observability-bundle/compare/v0.7.2...v0.7.3
