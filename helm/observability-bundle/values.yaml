@@ -13,7 +13,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
-    version: 6.0.0
+    version: 6.1.0
     # User values can be provided via a ConfigMap or Secret for each individual app
     userConfig: {}
     # a list of extraConfigs for the App,
@@ -31,7 +31,7 @@ apps:
     skipCRDs: true
     # used by renovate
     # repo: giantswarm/prometheus-operator-app
-    version: 6.0.0
+    version: 6.1.0
     userConfig: {}
     # a list of extraConfigs for the App,
     # It can be secret or configmap
@@ -50,7 +50,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-agent-app
-    version: 0.6.0
+    version: 0.6.2
     # User values can be provided via a ConfigMap or Secret for each individual app
     # using the structure shown below.
     userConfig: {}
@@ -85,4 +85,7 @@ apps:
         namespace: "{{ $.Release.Namespace }}"
       - kind: configMap
         name: "{{ $.Values.clusterID }}-logging-config"
+        namespace: "{{ $.Release.Namespace }}"
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-promtail-app-extraconfig"
         namespace: "{{ $.Release.Namespace }}"
