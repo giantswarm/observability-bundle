@@ -86,3 +86,6 @@ apps:
       - kind: configMap
         name: "{{ $.Values.clusterID }}-logging-config"
         namespace: "{{ $.Release.Namespace }}"
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-promtail-app-extraconfig"
+        namespace: "{{ $.Release.Namespace }}"
