@@ -4,8 +4,6 @@ data:
     prometheus-operator-app:
       defaultRules:
         create: false
-      kubeProxy:
-        enabled: false
       alertmanager:
         enabled: false
       grafana:
