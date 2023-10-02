@@ -1,6 +1,10 @@
 clusterID: ""
 organization: ""
 
+global:
+  podSecurityStandards:
+    enforced: false
+
 ciliumNetworkPolicy:
   enabled: false
 
@@ -63,6 +67,9 @@ apps:
         namespace: "{{ $.Release.Namespace }}"
       - kind: configMap
         name: "{{ $.Values.clusterID }}-remote-write-config"
+        namespace: "{{ $.Release.Namespace }}"
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-prometheus-agent-extraconfig"
         namespace: "{{ $.Release.Namespace }}"
 
   promtail-app:
