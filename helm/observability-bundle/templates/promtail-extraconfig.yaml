@@ -3,11 +3,15 @@ data:
   values: |
     ciliumNetworkPolicy:
       enabled: {{ .Values.ciliumNetworkPolicy.enabled }}
-    {{ if not .Values.ciliumNetworkPolicy.enabled }}
     promtail:
+      {{- if .Values.global.podSecurityStandards.enforced }}
+      rbac:
+        pspEnabled: false
+      {{- end }}
+      {{- if not .Values.ciliumNetworkPolicy.enabled }}
       networkPolicy:
         enabled: true
-    {{- end }}
+      {{- end }}
 kind: ConfigMap
 metadata:
   name: "{{ $.Values.clusterID }}-promtail-app-extraconfig"

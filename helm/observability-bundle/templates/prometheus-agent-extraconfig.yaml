@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  values: |
+    prometheus-agent:
+      {{- if .Values.global.podSecurityStandards.enforced }}
+      psp:
+        enabled: false
+      {{- end }}
+kind: ConfigMap
+metadata:
+  name: "{{ $.Values.clusterID }}-prometheus-agent-extraconfig"
+  namespace: "{{ $.Release.Namespace }}"

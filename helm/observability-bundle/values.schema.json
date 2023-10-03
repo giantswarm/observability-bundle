@@ -44,17 +44,7 @@
                             "type": "string"
                         },
                         "userConfig": {
-                            "type": "object",
-                            "properties": {
-                                "configMap": {
-                                    "type": "object",
-                                    "properties": {
-                                        "values": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
+                            "type": "object"
                         },
                         "version": {
                             "type": "string"
@@ -80,7 +70,21 @@
                             "type": "boolean"
                         },
                         "extraConfigs": {
-                            "type": "array"
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "kind": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "namespace": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
                         },
                         "namespace": {
                             "type": "string"
@@ -89,17 +93,7 @@
                             "type": "boolean"
                         },
                         "userConfig": {
-                            "type": "object",
-                            "properties": {
-                                "configMap": {
-                                    "type": "object",
-                                    "properties": {
-                                        "values": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
+                            "type": "object"
                         },
                         "version": {
                             "type": "string"
@@ -180,8 +174,29 @@
                 }
             }
         },
+        "ciliumNetworkPolicy": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
         "clusterID": {
             "type": "string"
+        },
+        "global": {
+            "type": "object",
+            "properties": {
+                "podSecurityStandards": {
+                    "type": "object",
+                    "properties": {
+                        "enforced": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
         },
         "organization": {
             "type": "string"
