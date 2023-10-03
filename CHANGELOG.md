@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix missing external labels on the prometheus agent when global.podSecurityStandards.enforced is set to false.
+
 ## [0.8.5] - 2023-10-03
 
 ### Changed
