@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.8] - 2023-10-11
+
 ### Changed
 
 - Upgrade `prometheus-operator-app` to 6.2.1.
@@ -247,7 +249,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.8.7...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.8.8...HEAD
+[0.8.8]: https://github.com/giantswarm/observability-bundle/compare/v0.8.7...v0.8.8
 [0.8.7]: https://github.com/giantswarm/observability-bundle/compare/v0.8.6...v0.8.7
 [0.8.6]: https://github.com/giantswarm/observability-bundle/compare/v0.8.5...v0.8.6
 [0.8.5]: https://github.com/giantswarm/observability-bundle/compare/v0.8.4...v0.8.5
