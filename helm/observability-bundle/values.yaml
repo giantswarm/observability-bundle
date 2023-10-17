@@ -1,15 +1,58 @@
 clusterID: ""
 organization: ""
 
-global:
-  podSecurityStandards:
-    enforced: false
-
-ciliumNetworkPolicy:
-  enabled: false
+userConfig:
+  kubePrometheusStack:
+    configMap:
+      values:
+        global:
+          rbac:
+            pspEnabled: false
+        kube-prometheus-stack:
+          defaultRules:
+            create: false
+          alertmanager:
+            enabled: false
+          grafana:
+            enabled: false
+            rbac:
+              pspEnabled: false
+          kube-state-metrics:
+            podSecurityPolicy:
+              enabled: false
+            networkPolicy:
+              flavor: cilium
+          prometheus-node-exporter:
+            rbac:
+              pspEnabled: false
+          prometheus:
+            enabled: false
+          prometheusOperator:
+            networkPolicy:
+              flavor: cilium
+              matchLabels:
+                app.kubernetes.io/instance: kube-prometheus-stack
+                app.kubernetes.io/part-of: kube-prometheus-stack
+                application.giantswarm.io/team: atlas
+  prometheusAgent:
+    configMap:
+      values:
+        prometheus-agent:
+          psp:
+            enabled: false
+  promtail:
+    configMap:
+      values:
+        ciliumNetworkPolicy:
+          enabled: true
+        promtail:
+          rbac:
+            pspEnabled: false
+          networkPolicy:
+            enabled: false
 
 apps:
-  prometheus-operator-crd:
+  prometheusOperatorCrd:
     appName: prometheus-operator-crd
     chartName: prometheus-operator-crd
     catalog: default
@@ -18,16 +61,10 @@ apps:
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
     version: 6.1.0
-    # User values can be provided via a ConfigMap or Secret for each individual app
-    userConfig: {}
-    # a list of extraConfigs for the App,
-    # It can be secret or configmap
-    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs: []
 
-  prometheus-operator-app:
-    appName: prometheus-operator-app
-    chartName: prometheus-operator-app
+  kubePrometheusStack:
+    appName: kube-prometheus-stack
+    chartName: kube-prometheus-stack
     catalog: default
     dependsOn: prometheus-operator-crd
     enabled: true
@@ -35,18 +72,10 @@ apps:
     skipCRDs: true
     timeout: 15m
     # used by renovate
-    # repo: giantswarm/prometheus-operator-app
-    version: 6.2.1
-    userConfig: {}
-    # a list of extraConfigs for the App,
-    # It can be secret or configmap
-    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs:
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-prometheus-operator"
-        namespace: "{{ $.Release.Namespace }}"
+    # repo: giantswarm/kube-prometheus-stack
+    version: 7.0.0
 
-  prometheus-agent:
+  prometheusAgent:
     appName: prometheus-agent
     chartName: prometheus-agent
     catalog: default
@@ -56,16 +85,10 @@ apps:
     # used by renovate
     # repo: giantswarm/prometheus-agent-app
     version: 0.6.6
-    # User values can be provided via a ConfigMap or Secret for each individual app
-    # using the structure shown below.
-    userConfig: {}
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
     extraConfigs:
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-prometheus-agent-extraconfig"
-        namespace: "{{ $.Release.Namespace }}"
       - kind: secret
         name: "{{ $.Values.clusterID }}-remote-write-secret"
         namespace: "{{ $.Release.Namespace }}"
@@ -73,8 +96,8 @@ apps:
         name: "{{ $.Values.clusterID }}-remote-write-config"
         namespace: "{{ $.Release.Namespace }}"
 
-  promtail-app:
-    appName: promtail-app
+  promtail:
+    appName: promtail
     chartName: promtail
     catalog: giantswarm
     enabled: false
@@ -82,8 +105,6 @@ apps:
     # used by renovate
     # repo: giantswarm/promtail-app
     version: 1.4.1
-    # User values can be provided via a ConfigMap or Secret for each individual app
-    userConfig: {}
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -93,9 +114,6 @@ apps:
         namespace: "{{ $.Release.Namespace }}"
       - kind: configMap
         name: "{{ $.Values.clusterID }}-logging-config"
-        namespace: "{{ $.Release.Namespace }}"
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-promtail-app-extraconfig"
         namespace: "{{ $.Release.Namespace }}"
 
   grafanaAgent:
@@ -107,8 +125,6 @@ apps:
     # used by renovate
     # repo: giantswarm/grafana-agent-app
     version: 0.3.0
-    # User values can be provided via a ConfigMap or Secret for each individual app
-    userConfig: {}
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
