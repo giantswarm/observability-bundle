@@ -17,6 +17,17 @@ data:
         rbac:
           pspEnabled: false
         {{- end }}
+      {{- if or .Values.global.podSecurityStandards.enforced .Values.ciliumNetworkPolicy.enabled }}
+      kube-state-metrics:
+        {{- if .Values.global.podSecurityStandards.enforced }}
+        podSecurityPolicy:
+          enabled: false
+        {{- end }}
+        {{- if .Values.ciliumNetworkPolicy.enabled }}
+        networkPolicy:
+          flavor: cilium
+        {{- end }}
+      {{- end }}
       {{- if .Values.global.podSecurityStandards.enforced }}
       prometheus-node-exporter:
         rbac:
@@ -32,9 +43,6 @@ data:
             app.kubernetes.io/instance: prometheus-operator-app
             app.kubernetes.io/part-of: prometheus-operator-app
             application.giantswarm.io/team: atlas
-      kube-state-metrics:
-        networkPolicy:
-          flavor: cilium
       {{- end }}
 kind: ConfigMap
 metadata:
