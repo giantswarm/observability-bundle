@@ -5,7 +5,7 @@ home: https://github.com/giantswarm/observability-bundle
 kubeVersion: ">=1.19.0-0"
 sources:
   - https://github.com/giantswarm/observability-bundle
-version: 0.8.8
+version: 0.8.9
 annotations:
   application.giantswarm.io/app-type: bundle
   application.giantswarm.io/in-cluster-app: "true"
