@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Disable `kube-state-metrics` psp when `pod security policies` are enforced.
+
 ## [0.8.8] - 2023-10-11
 
 ### Changed
