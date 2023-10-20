@@ -96,3 +96,22 @@ apps:
       - kind: configMap
         name: "{{ $.Values.clusterID }}-promtail-app-extraconfig"
         namespace: "{{ $.Release.Namespace }}"
+
+  grafana-agent-app:
+    appName: grafana-agent-app
+    chartName: grafana-agent
+    catalog: giantswarm
+    enabled: false
+    namespace: kube-system
+    # used by renovate
+    # repo: giantswarm/grafana-agent-app
+    version: 0.2.0
+    # User values can be provided via a ConfigMap or Secret for each individual app
+    userConfig: {}
+    # a list of extraConfigs for the App,
+    # It can be secret or configmap
+    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
+    extraConfigs:
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-grafana-agent-app-extraconfig"
+        namespace: "{{ $.Release.Namespace }}"
