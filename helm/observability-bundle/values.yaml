@@ -97,7 +97,7 @@ apps:
         name: "{{ $.Values.clusterID }}-promtail-app-extraconfig"
         namespace: "{{ $.Release.Namespace }}"
 
-  grafana-agent-app:
+  grafanaAgent:
     appName: grafana-agent
     chartName: grafana-agent
     catalog: giantswarm
