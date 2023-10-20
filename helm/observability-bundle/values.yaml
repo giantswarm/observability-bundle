@@ -98,7 +98,7 @@ apps:
         namespace: "{{ $.Release.Namespace }}"
 
   grafana-agent-app:
-    appName: grafana-agent-app
+    appName: grafana-agent
     chartName: grafana-agent
     catalog: giantswarm
     enabled: false
