@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `grafana-agent-app` to `observability-bundle`.
+
 ## [0.8.9] - 2023-10-18
 
 ### Fixed
