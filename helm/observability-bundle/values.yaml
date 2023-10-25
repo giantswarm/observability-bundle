@@ -115,3 +115,6 @@ apps:
       - kind: configMap
         name: "{{ $.Values.clusterID }}-grafana-agent-config"
         namespace: "{{ $.Release.Namespace }}"
+      - kind: secret
+        name: "{{ $.Values.clusterID }}-grafana-agent-secret"
+        namespace: kube-system
