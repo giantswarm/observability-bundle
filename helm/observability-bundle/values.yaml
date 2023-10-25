@@ -117,4 +117,4 @@ apps:
         namespace: "{{ $.Release.Namespace }}"
       - kind: secret
         name: "{{ $.Values.clusterID }}-grafana-agent-secret"
-        namespace: kube-system
+        namespace: "{{ $.Release.Namespace }}"
