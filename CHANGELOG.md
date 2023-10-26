@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2023-10-26
+
 ### Added
 
 - Add `grafana-agent-app` to `observability-bundle`.
@@ -259,7 +261,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.8.9...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/giantswarm/observability-bundle/compare/v0.8.9...v0.9.0
 [0.8.9]: https://github.com/giantswarm/observability-bundle/compare/v0.8.8...v0.8.9
 [0.8.8]: https://github.com/giantswarm/observability-bundle/compare/v0.8.7...v0.8.8
 [0.8.7]: https://github.com/giantswarm/observability-bundle/compare/v0.8.6...v0.8.7
