@@ -10,6 +10,7 @@ The observability bundle provides all necessary components to enable observabili
 * prometheus-operator-app
 * prometheus-agent
 * promtail-app
+* grafana-agent-app
 
 ## Installing
 

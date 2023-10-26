@@ -105,7 +105,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/grafana-agent-app
-    version: 0.2.0
+    version: 0.2.1
     # User values can be provided via a ConfigMap or Secret for each individual app
     userConfig: {}
     # a list of extraConfigs for the App,
@@ -114,4 +114,7 @@ apps:
     extraConfigs:
       - kind: configMap
         name: "{{ $.Values.clusterID }}-grafana-agent-config"
+        namespace: "{{ $.Release.Namespace }}"
+      - kind: secret
+        name: "{{ $.Values.clusterID }}-grafana-agent-secret"
         namespace: "{{ $.Release.Namespace }}"
