@@ -35,7 +35,7 @@ apps:
     skipCRDs: true
     # used by renovate
     # repo: giantswarm/prometheus-operator-app
-    version: 6.2.1
+    version: 7.0.0
     userConfig: {}
     # a list of extraConfigs for the App,
     # It can be secret or configmap
