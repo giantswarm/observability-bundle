@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.1] - 2023-11-15
+
 ### Fixed
 
 - Extend `prometheus-operator-app` timeout to avoid race condition with VPA causing the app to be stuck in `pending-install` state.
@@ -277,7 +279,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v0.10.1...HEAD
+[0.10.1]: https://github.com/giantswarm/observability-bundle/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/giantswarm/observability-bundle/compare/v0.9.1...v0.10.0
 [0.9.1]: https://github.com/giantswarm/observability-bundle/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/giantswarm/observability-bundle/compare/v0.8.9...v0.9.0
