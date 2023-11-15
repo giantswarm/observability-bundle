@@ -33,6 +33,7 @@ apps:
     enabled: true
     namespace: kube-system
     skipCRDs: true
+    timeout: 15m
     # used by renovate
     # repo: giantswarm/prometheus-operator-app
     version: 6.2.1

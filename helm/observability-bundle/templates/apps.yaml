@@ -31,9 +31,9 @@ spec:
   {{- end }}
   install:
     skipCRDs: {{.skipCRDs | default false }}
-    timeout: 10m
+    timeout: {{ .timeout | default "10m" }}
   upgrade: 
-    timeout: 10m
+    timeout: {{ .timeout | default "10m" }}
   kubeConfig:
     ## Vintage MCs do not have a kubeconfig secret
     {{- if eq $.Release.Namespace "giantswarm" }}
