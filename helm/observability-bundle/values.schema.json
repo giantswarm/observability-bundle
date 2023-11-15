@@ -5,6 +5,49 @@
         "apps": {
             "type": "object",
             "properties": {
+                "grafanaAgent": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "extraConfigs": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "kind": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "namespace": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "userConfig": {
+                            "type": "object"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "prometheus-agent": {
                     "type": "object",
                     "properties": {
@@ -91,6 +134,9 @@
                         },
                         "skipCRDs": {
                             "type": "boolean"
+                        },
+                        "timeout": {
+                            "type": "string"
                         },
                         "userConfig": {
                             "type": "object"

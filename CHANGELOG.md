@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Extend `prometheus-operator-app` timeout to avoid race condition with VPA causing the app to be stuck in `pending-install` state.
+
 ## [0.10.0] - 2023-11-08
 
 ### Changed
