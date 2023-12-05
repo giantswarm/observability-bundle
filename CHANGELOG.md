@@ -31,6 +31,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add `grafana-agent-app` to `observability-bundle`.
 
+### Changed
+
+- *!Breaking change*: Simplify configuration for the bundled apps
+  - Move all user configs from under `apps.appName.userConfig` from string to regular helm values to `appName.userConfig`
+  - Rename `prometheus-operator-app` to `kube-prometheus-stack`
+  - Rename `promtail-app` to `promtail`
+- Enforce `Cilium Network Policy` by default.
+- Enforce `Pod Security Standard` by default.
+
 ## [0.8.9] - 2023-10-18
 
 ### Fixed
