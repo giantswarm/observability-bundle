@@ -60,7 +60,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
-    version: 6.1.0
+    version: 8.0.0
 
   kubePrometheusStack:
     appName: kube-prometheus-stack
@@ -73,7 +73,7 @@ apps:
     timeout: 15m
     # used by renovate
     # repo: giantswarm/kube-prometheus-stack
-    version: 7.0.0
+    version: 8.1.0
 
   prometheusAgent:
     appName: prometheus-agent
