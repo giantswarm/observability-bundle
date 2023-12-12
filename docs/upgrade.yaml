@@ -1,0 +1,26 @@
+# Observability bundle upgrade guide
+
+This document describes the changes that need to be made to the observability bundle to upgrade from one version to another.
+
+## Upgrade from 0.x.y to 1.0.0
+
+### Changes
+
+Release 1.0.0 of the observability bundle brings along a number of breaking changes that need to be addressed when upgrading from 0.x.y.
+
+The main changes are:
+
+- Moving all user configs from under `apps.<appName>.userConfig` from string to regular helm values to `userConfig.<appName>`
+- Renaming of `prometheus-operator-app` to `kube-prometheus-stack`
+- Renaming of `promtail-app` to `promtail`
+
+### Upgrade steps
+
+To ensure a smooth upgrade, you can keep the old and new values along side each other before the upgrade to release 20.0.0 and then remove the old values once the upgrade is complete.
+
+Here is the list of changes that you need to apply to your values file:
+
+- Move all user configs from under `apps.<appName>.userConfig` from string to regular helm values to `userConfig.<appName>` if it applies to your use case
+- Rename `userConfig.prometheus-operator-app.configMap.values.prometheus-operator-app` to `userConfig.prometheus-operator-app.configMap.values.kube-prometheus-stack` if it applies to your use case
+- Rename `userConfig.prometheus-operator-app` to `userConfig.kubePrometheusStack` if it applies to your use case
+- Rename `userConfig.promtail-app` to `userConfig.promtail` if it applies to your use case
