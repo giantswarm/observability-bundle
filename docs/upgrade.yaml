@@ -20,7 +20,98 @@ To ensure a smooth upgrade, you can keep the old and new values along side each 
 
 Here is the list of changes that you need to apply to your values file:
 
-- Move all user configs from under `apps.<appName>.userConfig` from string to regular helm values to `userConfig.<appName>` if it applies to your use case
-- Rename `userConfig.prometheus-operator-app.configMap.values.prometheus-operator-app` to `userConfig.prometheus-operator-app.configMap.values.kube-prometheus-stack` if it applies to your use case
-- Rename `userConfig.prometheus-operator-app` to `userConfig.kubePrometheusStack` if it applies to your use case
+- Copy all user configs from `apps.<appName>.userConfig` to regular helm values to `userConfig.<appName>`. Note that this is now moving from a string template to regular values so it is easier to change the values.
+- Rename from `userConfig.prometheus-operator-app.configMap.values.prometheus-operator-app` to `userConfig.kubePrometheusStack.configMap.values.kube-prometheus-stack`
 - Rename `userConfig.promtail-app` to `userConfig.promtail` if it applies to your use case
+
+```yaml
+apiVersion: v1
+data:
+  values: |
+    userConfig:
+      kubePrometheusStack:
+        configMap:
+          values:
+            kube-prometheus-stack:
+              my-custom-prometheus-operator-config: xxx
+      promtail:
+        configMap:
+          values:
+            my-custom-promtail-config: xxx
+    apps:
+      prometheus-operator-app:
+        userConfig:
+          configMap:
+            values: | ## This is moving from a string to a regular helm value
+              my-custom-prometheus-operator-config: xxx
+      promtail-app:
+        userConfig:
+          configMap:
+            values: | ## This is moving from a string to a regular helm value
+              my-custom-promtail-config: xxx
+kind: ConfigMap
+metadata:
+  name: clusterID-observability-bundle-user-values
+  namespace: clusterID
+```
+
+#### Prometheus Operator namespace override
+
+If you are overriding the namespace for the Prometheus Operator, you will need to edit the configmap like so:
+
+```yaml
+apiVersion: v1
+data:
+  values: |
+    apps:
+      prometheus-operator-app:
+        namespace: monitoring
+      kubePrometheusStack:
+        namespace: monitoring
+kind: ConfigMap
+metadata:
+  name: clusterID-observability-bundle-user-values
+  namespace: clusterID
+```
+
+#### Grafana users
+
+If you are using grafana with persistence enabled, you will need to be careful not to lose your data.
+To that end, you should set the value for both `apps.prometheus-operator-app.userConfig.configMap.values.kube-prometheus-stack.grafana.persistence.existingClaim` and `userConfig.kubePrometheusStack.configMap.values.kube-prometheus-stack.grafana.persistence.existingClaim` to match the name of your existing PVC.
+
+Example:
+
+```yaml
+apiVersion: v1
+data:
+  values: |
+    userConfig:
+      kubePrometheusStack:
+        configMap:
+          values:
+            kube-prometheus-stack:
+              grafana:
+                persistence:
+                  enabled: true
+                  existingClaim: grafana
+    apps:
+      prometheus-operator-app:
+        userConfig:
+          configMap:
+            values: |
+              prometheus-operator-app:
+                grafana:
+                  persistence:
+                    enabled: true
+                    existingClaim: grafana
+kind: ConfigMap
+metadata:
+  name: clusterID-observability-bundle-user-values
+  namespace: clusterID
+```
+
+### Clean up
+
+Once your cluster is upgraded to release 20.0.0 and the observability bundle is upgraded to version 1.0.0, then you can start cleaning up the old configuration by:
+- Removing all `apps.<appName>.userConfig` from your values file
+- Removing the `apps.prometheus-operator-app` section from your values file if it applies.

@@ -73,7 +73,7 @@ apps:
     timeout: 15m
     # used by renovate
     # repo: giantswarm/kube-prometheus-stack
-    version: 8.1.0
+    version: 8.1.1
 
   prometheusAgent:
     appName: prometheus-agent
