@@ -21,7 +21,7 @@ There are several ways to install this app onto a workload cluster.
 
 ## Upgrading
 
-See our [upgrade guide](./docs/upgrade.yaml).
+See our [upgrade guide](./docs/upgrade.md).
 
 ## Configuring
 

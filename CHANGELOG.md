@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- *!Breaking change*: Simplify configuration for the bundled apps. See our [upgrade guide](./docs/upgrade.yaml)
+- *!Breaking change*: Simplify configuration for the bundled apps. See our [upgrade guide](./docs/upgrade.md)
   - Move all user configs from under `apps.<appName>.userConfig` from string to regular helm values to `userConfig.<appName>`
   - Rename `prometheus-operator-app` to `kube-prometheus-stack`
   - Rename `promtail-app` to `promtail`
