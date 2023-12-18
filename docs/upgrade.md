@@ -16,7 +16,7 @@ The main changes are:
 
 ### Upgrade steps
 
-To ensure a smooth upgrade, you can keep the old and new values along side each other before the upgrade to release 20.0.0 and then remove the old values once the upgrade is complete.
+To ensure a smooth upgrade, you can keep the old and new values along side each other before the upgrade to Giant Swarm Platform release 20.0.0 and then remove the old values once the upgrade is complete.
 
 Here is the list of changes that you need to apply to your values file:
 
