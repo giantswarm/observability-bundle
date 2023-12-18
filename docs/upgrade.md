@@ -12,7 +12,8 @@ The main changes are:
 
 - Moving all user configs from under `apps.<appName>.userConfig` from string to regular helm values to `userConfig.<appName>`
 - Renaming of `prometheus-operator-app` to `kube-prometheus-stack`
-- Renaming of `promtail-app` to `promtail`
+- Renaming of `promtail-agent` to `prometheusAgent`
+- Renaming of `prometheus-operator-crd` to `prometheusOperatorCrd`
 
 ### Upgrade steps
 
