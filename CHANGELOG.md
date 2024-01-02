@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enforce `Cilium Network Policy` by default.
 - Enforce `Pod Security Standard` by default.
 - Upgrade `kube-prometheus-stack` to 8.1.0 and `prometheus-operator-crd` to 8.0.0
+- Upgrade `grafana-agent` to 0.3.2.
 
 ## [0.10.1] - 2023-11-15
 
