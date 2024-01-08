@@ -100,6 +100,7 @@ data:
                 persistence:
                   enabled: true
                   existingClaim: grafana
+    # old values, to remove after upgrade
     apps:
       prometheus-operator-app:
         userConfig:
