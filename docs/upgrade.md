@@ -67,8 +67,10 @@ apiVersion: v1
 data:
   values: |
     apps:
+      # old values, to remove after upgrade
       prometheus-operator-app:
         namespace: monitoring
+      # new values, to add before upgrade
       kubePrometheusStack:
         namespace: monitoring
 kind: ConfigMap
