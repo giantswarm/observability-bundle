@@ -29,6 +29,7 @@ Here is the list of changes that you need to apply to your values file:
 apiVersion: v1
 data:
   values: |
+    # new values, to add before upgrade
     userConfig:
       kubePrometheusStack:
         configMap:
