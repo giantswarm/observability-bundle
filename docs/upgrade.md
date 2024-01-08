@@ -90,6 +90,7 @@ Example:
 apiVersion: v1
 data:
   values: |
+    # new values, to add before upgrade
     userConfig:
       kubePrometheusStack:
         configMap:
