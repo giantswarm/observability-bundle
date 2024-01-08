@@ -40,6 +40,7 @@ data:
         configMap:
           values:
             my-custom-promtail-config: xxx
+    # old values, to remove after upgrade
     apps:
       prometheus-operator-app:
         userConfig:
