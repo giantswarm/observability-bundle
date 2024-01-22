@@ -73,7 +73,7 @@ apps:
     timeout: 15m
     # used by renovate
     # repo: giantswarm/kube-prometheus-stack
-    version: 8.1.1
+    version: 8.1.2
 
   prometheusAgent:
     appName: prometheus-agent
@@ -84,7 +84,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-agent-app
-    version: 0.6.6
+    version: 0.6.7
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -104,7 +104,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/promtail-app
-    version: 1.4.1
+    version: 1.5.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -124,7 +124,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/grafana-agent-app
-    version: 0.3.2
+    version: 0.4.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example

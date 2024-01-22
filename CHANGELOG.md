@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2024-01-22
+
+### Changed
+
+- Upgrade `promtail` to 1.5.0.
+- Upgrade `kube-prometheus-stack` to 8.1.2.
+- Upgrade `grafana-agent` to 0.4.0.
+- Upgrade `prometheus-agent` to 0.6.7.
+
 ## [1.0.0] - 2024-01-08
 
 ### Changed
@@ -292,7 +301,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/giantswarm/observability-bundle/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/giantswarm/observability-bundle/compare/v0.10.1...v1.0.0
 [0.10.1]: https://github.com/giantswarm/observability-bundle/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/giantswarm/observability-bundle/compare/v0.9.1...v0.10.0
