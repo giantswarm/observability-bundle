@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Upgrade `promtail` to 1.5.0.
+- Upgrade `kube-prometheus-stack` to 8.1.2.
 
 ## [1.0.0] - 2024-01-08
 
