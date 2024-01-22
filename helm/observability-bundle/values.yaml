@@ -104,7 +104,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/promtail-app
-    version: 1.4.1
+    version: 1.5.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
