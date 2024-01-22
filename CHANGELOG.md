@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `promtail` to 1.5.0.
+- Upgrade `kube-prometheus-stack` to 8.1.2.
+- Upgrade `grafana-agent` to 0.4.0.
+- Upgrade `prometheus-agent` to 0.6.7.
+
 ## [1.0.0] - 2024-01-08
 
 ### Changed
