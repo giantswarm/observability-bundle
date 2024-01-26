@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `kube-prometheus-stack` to 8.1.3 (gsoci registry).
+
 ## [1.1.0] - 2024-01-22
 
 ### Changed
