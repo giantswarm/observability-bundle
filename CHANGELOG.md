@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `kube-prometheus-stack` and `prometheus-operator-crd` to 9.0.0.
+- Add the `global.podSecurityStandards.enforced` value back to be able to work on CAPI WCs.
+
 ## [1.1.1] - 2024-01-30
 
 ### Changed

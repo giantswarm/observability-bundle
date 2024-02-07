@@ -1,0 +1,29 @@
+apiVersion: v1
+data:
+  values: |
+    global:
+      rbac:
+        pspEnabled: {{ not .Values.global.podSecurityStandards.enforced }}
+    kube-prometheus-stack:
+      grafana:
+        rbac:
+          pspEnabled: {{ not .Values.global.podSecurityStandards.enforced }}
+      kube-state-metrics:
+        podSecurityPolicy:
+          enabled: {{ not .Values.global.podSecurityStandards.enforced }}
+      prometheus-node-exporter:
+        rbac:
+          pspEnabled: {{ not .Values.global.podSecurityStandards.enforced }}
+    prometheus-agent:
+      psp:
+        enabled: {{ not .Values.global.podSecurityStandards.enforced }}
+    promtail:
+      rbac:
+        pspEnabled: {{ not .Values.global.podSecurityStandards.enforced }}
+    # For grafana-agent
+    psp:
+      enabled: {{ not .Values.global.podSecurityStandards.enforced }}
+kind: ConfigMap
+metadata:
+  name: "{{ $.Values.clusterID }}-observability-bundle-psp-override"
+  namespace: "{{ $.Release.Namespace }}"

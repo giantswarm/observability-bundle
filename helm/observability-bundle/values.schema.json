@@ -33,6 +33,9 @@
                                     },
                                     "namespace": {
                                         "type": "string"
+                                    },
+                                    "priority": {
+                                        "type": "integer"
                                     }
                                 }
                             }
@@ -62,6 +65,26 @@
                         },
                         "enabled": {
                             "type": "boolean"
+                        },
+                        "extraConfigs": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "kind": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "namespace": {
+                                        "type": "string"
+                                    },
+                                    "priority": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
                         },
                         "namespace": {
                             "type": "string"
@@ -108,6 +131,9 @@
                                     },
                                     "namespace": {
                                         "type": "string"
+                                    },
+                                    "priority": {
+                                        "type": "integer"
                                     }
                                 }
                             }
@@ -171,6 +197,9 @@
                                     },
                                     "namespace": {
                                         "type": "string"
+                                    },
+                                    "priority": {
+                                        "type": "integer"
                                     }
                                 }
                             }
@@ -188,6 +217,19 @@
         "clusterID": {
             "type": "string"
         },
+        "global": {
+            "type": "object",
+            "properties": {
+                "podSecurityStandards": {
+                    "type": "object",
+                    "properties": {
+                        "enforced": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
         "organization": {
             "type": "string"
         },
@@ -203,19 +245,6 @@
                                 "values": {
                                     "type": "object",
                                     "properties": {
-                                        "global": {
-                                            "type": "object",
-                                            "properties": {
-                                                "rbac": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "pspEnabled": {
-                                                            "type": "boolean"
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        },
                                         "kube-prometheus-stack": {
                                             "type": "object",
                                             "properties": {
@@ -240,14 +269,6 @@
                                                     "properties": {
                                                         "enabled": {
                                                             "type": "boolean"
-                                                        },
-                                                        "rbac": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "pspEnabled": {
-                                                                    "type": "boolean"
-                                                                }
-                                                            }
                                                         }
                                                     }
                                                 },
@@ -261,14 +282,6 @@
                                                                     "type": "string"
                                                                 }
                                                             }
-                                                        },
-                                                        "podSecurityPolicy": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "enabled": {
-                                                                    "type": "boolean"
-                                                                }
-                                                            }
                                                         }
                                                     }
                                                 },
@@ -277,19 +290,6 @@
                                                     "properties": {
                                                         "enabled": {
                                                             "type": "boolean"
-                                                        }
-                                                    }
-                                                },
-                                                "prometheus-node-exporter": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "rbac": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "pspEnabled": {
-                                                                    "type": "boolean"
-                                                                }
-                                                            }
                                                         }
                                                     }
                                                 },
@@ -328,34 +328,6 @@
                         }
                     }
                 },
-                "prometheusAgent": {
-                    "type": "object",
-                    "properties": {
-                        "configMap": {
-                            "type": "object",
-                            "properties": {
-                                "values": {
-                                    "type": "object",
-                                    "properties": {
-                                        "prometheus-agent": {
-                                            "type": "object",
-                                            "properties": {
-                                                "psp": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "enabled": {
-                                                            "type": "boolean"
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "promtail": {
                     "type": "object",
                     "properties": {
@@ -380,14 +352,6 @@
                                                     "type": "object",
                                                     "properties": {
                                                         "enabled": {
-                                                            "type": "boolean"
-                                                        }
-                                                    }
-                                                },
-                                                "rbac": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "pspEnabled": {
                                                             "type": "boolean"
                                                         }
                                                     }
