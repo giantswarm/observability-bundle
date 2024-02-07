@@ -17,6 +17,9 @@
                         "chartName": {
                             "type": "string"
                         },
+                        "dependsOn": {
+                            "type": "string"
+                        },
                         "enabled": {
                             "type": "boolean"
                         },
@@ -179,6 +182,9 @@
                             "type": "string"
                         },
                         "chartName": {
+                            "type": "string"
+                        },
+                        "dependsOn": {
                             "type": "string"
                         },
                         "enabled": {
