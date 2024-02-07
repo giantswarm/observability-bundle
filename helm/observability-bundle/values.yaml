@@ -98,6 +98,7 @@ apps:
     appName: promtail
     chartName: promtail
     catalog: giantswarm
+    dependsOn: prometheus-operator-crd
     enabled: false
     namespace: kube-system
     # used by renovate
@@ -122,6 +123,7 @@ apps:
     appName: grafana-agent
     chartName: grafana-agent
     catalog: giantswarm
+    dependsOn: prometheus-operator-crd
     enabled: false
     namespace: kube-system
     # used by renovate
