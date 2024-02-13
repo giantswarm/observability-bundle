@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Upgrade `promtail` to 1.5.1.
+- Upgrade `grafana-agent` to 0.4.1.
 
 ## [1.2.1] - 2024-02-07
 
