@@ -58,7 +58,7 @@ apps:
     skipCRDs: true
     timeout: 15m
     # used by renovate
-    # repo: giantswarm/kube-prometheus-stack
+    # repo: giantswarm/kube-prometheus-stack-app
     version: 9.0.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
