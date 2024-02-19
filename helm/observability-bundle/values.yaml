@@ -78,7 +78,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-agent-app
-    version: 0.6.7
+    version: 0.6.8
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
