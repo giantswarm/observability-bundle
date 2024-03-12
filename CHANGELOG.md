@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Upgrade `promtail` to 1.5.2.
+  - Adjust CPU settings
+  - Set RAM limit to 2x requests
 
 ## [1.3.0] - 2024-03-06
 
