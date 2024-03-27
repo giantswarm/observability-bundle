@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `grafana-agent` to 0.4.3.
+  - This version upgrade consists in internal changes
+
 ## [1.3.2] - 2024-03-13
 
 ### Changed
