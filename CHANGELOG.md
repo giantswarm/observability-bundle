@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Upgrade `grafana-agent` to 0.4.3.
   - This version upgrade consists in internal changes
+- Upgrade `kube-prometheus-stack` to 9.1.1
 
 ## [1.3.2] - 2024-03-13
 
