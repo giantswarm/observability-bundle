@@ -46,7 +46,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
-    version: 9.0.0
+    version: 10.0.0
 
   kubePrometheusStack:
     appName: kube-prometheus-stack
