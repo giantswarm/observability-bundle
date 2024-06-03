@@ -116,6 +116,31 @@ metadata:
   name: clusterID-observability-bundle-user-values
   namespace: clusterID
 ```
+#### VPA users
+
+If you are using `VerticalPodAutoscaler` CRs to scale your Prometheus resources vertically, you will have to adjust your VerticalPodAutoscaler resources.
+
+This is needed because the scale subresouce was added to the Prometheus CRs in latest Prometheus Operator release.
+
+You need to set the Prometheus `spec.shard: 1` and change the VPA CR `targetRef` from:
+
+```
+  targetRef:
+    apiVersion: apps/v1
+    kind: StatefulSet
+    name: prometheus-whatever-name
+```
+
+To:
+
+```
+  targetRef:
+    apiVersion: monitoring.coreos.com/v1
+    kind: Prometheus
+    name: whatever-name
+```
+
+If you want to know more, feel free to check this issue: https://github.com/prometheus-operator/prometheus-operator/issues/6291#issuecomment-1936007444.
 
 ### Clean up
 
