@@ -137,7 +137,7 @@ To:
   targetRef:
     apiVersion: monitoring.coreos.com/v1
     kind: Prometheus
-    name: whatever-name
+    name: prometheus-whatever-name
 ```
 
 If you want to know more, feel free to check this issue: https://github.com/prometheus-operator/prometheus-operator/issues/6291#issuecomment-1936007444.
