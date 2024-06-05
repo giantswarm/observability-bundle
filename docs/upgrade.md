@@ -120,24 +120,25 @@ metadata:
 
 If you are using `VerticalPodAutoscaler` CRs to scale your Prometheus resources vertically, you will have to adjust your VerticalPodAutoscaler resources.
 
-This is needed because the scale subresouce was added to the Prometheus CRs in latest Prometheus Operator release.
+Starting from version v0.71.x of the Prometheus Operator, Prometheus CRs now support the scale subresource. 
+For the vertical-pod-autoscaler to work, you need to adjust a couple of things.
 
-You need to set the Prometheus `spec.shard: 1` and change the VPA CR `targetRef` from:
+Your `Prometheus` CRs shard must be set (if that is not already the case) with:
 
+```diff
+    spec:
++    shard: 1
 ```
-  targetRef:
-    apiVersion: apps/v1
-    kind: StatefulSet
-    name: prometheus-whatever-name
-```
 
-To:
+Your `VerticalPodAutoscaler` CRs `targetRef` field needs to be updated with:
 
-```
-  targetRef:
-    apiVersion: monitoring.coreos.com/v1
-    kind: Prometheus
-    name: prometheus-whatever-name
+```diff
+    targetRef:
+-    apiVersion: apps/v1
+-    kind: StatefulSet
++    apiVersion: monitoring.coreos.com/v1
++    kind: Prometheus
+     name: prometheus-whatever-name
 ```
 
 If you want to know more, feel free to check this issue: https://github.com/prometheus-operator/prometheus-operator/issues/6291#issuecomment-1936007444.
