@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Upgrade `kube-prometheus-stack` to 10.1.0 and `prometheus-operator-crd` to 10.0.0. This upgrade mainly consists in:
-  - kube-prometheus-stack dependency chart upgraded from [56.21.2](https://github.com/prometheus-community/helm-charts/releases/tag/kube-prometheus-stack-56.21.2) to [58.5.3](https://github.com/prometheus-community/helm-charts/releases/tag/kube-prometheus-stack-58.5.3)
+- Upgrade `kube-prometheus-stack` to 10.2.0 and `prometheus-operator-crd` to 10.0.0. This upgrade mainly consists in:
+  - kube-prometheus-stack dependency chart upgraded from [56.21.2](https://github.com/prometheus-community/helm-charts/releases/tag/kube-prometheus-stack-56.21.2) to [58.7.2](https://github.com/prometheus-community/helm-charts/releases/tag/kube-prometheus-stack-58.7.2)
   - prometheus upgrade from 2.50.1 to 2.52.0
   - thanos ruler upgrade from 0.34.1 to 0.35.0
   - kube-state-metrics from 2.10.0 to 2.12.0
