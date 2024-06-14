@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - thanos ruler upgrade from 0.34.1 to 0.35.0
   - kube-state-metrics from 2.10.0 to 2.12.0
   - prometheus-operator from 0.71.2 to 0.73.2 also adding Scrape Class support
+- Upgrade `grafana-agent` from 0.4.3 to 0.4.4
+  - This version enables the override the grafana agent `CiliumNetworkPolicy` egress and ingress sections.
 
 ## [1.3.4] - 2024-04-04
 
