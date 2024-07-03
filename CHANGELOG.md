@@ -7,14 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2024-07-03
+
 ### Changed
 
-- Upgrade `kube-prometheus-stack` to 10.2.0 and `prometheus-operator-crd` to 10.0.0. This upgrade mainly consists in:
-  - kube-prometheus-stack dependency chart upgraded from [56.21.2](https://github.com/prometheus-community/helm-charts/releases/tag/kube-prometheus-stack-56.21.2) to [58.7.2](https://github.com/prometheus-community/helm-charts/releases/tag/kube-prometheus-stack-58.7.2)
-  - prometheus upgrade from 2.50.1 to 2.52.0
-  - thanos ruler upgrade from 0.34.1 to 0.35.0
+- Upgrade `kube-prometheus-stack` to 11.0.0 and `prometheus-operator-crd` to 11.0.0. This upgrade mainly consists in:
+  - kube-prometheus-stack dependency chart upgraded from [56.21.2](https://github.com/prometheus-community/helm-charts/releases/tag/kube-prometheus-stack-56.21.2) to [61.0.0](https://github.com/prometheus-community/helm-charts/releases/tag/kube-prometheus-stack-61.0.0)
+  - prometheus upgrade from 2.50.1 to [2.53.0](https://github.com/prometheus-community/helm-charts/releases/tag/prometheus-25.22.0)
+  - thanos ruler upgrade from 0.34.1 to [0.35.1](https://github.com/thanos-io/thanos/releases/tag/v0.35.1)
   - kube-state-metrics from 2.10.0 to 2.12.0
-  - prometheus-operator from 0.71.2 to 0.73.2 also adding Scrape Class support
+  - prometheus-operator from 0.71.2 [0.75.0](https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.75.0) - adding remoteWrite.proxyFromEnvironment and Scrape Class support
+  - prometheus-node-exporter upgraded from 1.8.0 to [1.8.1](https://github.com/prometheus/node_exporter/releases/tag/v1.8.1)
 - Upgrade `grafana-agent` from 0.4.3 to 0.4.4
   - This version enables the override the grafana agent `CiliumNetworkPolicy` egress and ingress sections.
 
@@ -384,7 +387,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.3.4...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/giantswarm/observability-bundle/compare/v1.3.4...v1.4.0
 [1.3.4]: https://github.com/giantswarm/observability-bundle/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/giantswarm/observability-bundle/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/giantswarm/observability-bundle/compare/v1.3.1...v1.3.2
