@@ -38,6 +38,30 @@ userConfig:
             enabled: false
 
 apps:
+  alloy:
+    appName: alloy
+    chartName: alloy
+    catalog: giantswarm
+    enabled: false
+    namespace: kube-system
+    # used by renovate
+    # repo: giantswarm/alloy-app
+    version: 0.2.0
+    # a list of extraConfigs for the App,
+    # It can be secret or configmap
+    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
+    extraConfigs:
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-observability-bundle-psp-override"
+        namespace: "{{ $.Release.Namespace }}"
+        priority: 150
+      - kind: secret
+        name: "{{ $.Values.clusterID }}-logging-secret"
+        namespace: "{{ $.Release.Namespace }}"
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-logging-config"
+        namespace: "{{ $.Release.Namespace }}"
+
   prometheusOperatorCrd:
     appName: prometheus-operator-crd
     chartName: prometheus-operator-crd
