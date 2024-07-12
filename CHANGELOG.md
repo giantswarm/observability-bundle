@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- prometheus-operator will not check promql syntax for prometheusRules that are labelled `application.giantswarm.io/prometheus-rule-kind: loki`
+
 ## [1.4.0] - 2024-07-03
 
 ### Changed
