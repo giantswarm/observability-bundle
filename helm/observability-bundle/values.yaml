@@ -45,8 +45,8 @@ userConfig:
             enabled: false
 
 apps:
-  alloy:
-    appName: alloy
+  alloy-logs:
+    appName: alloy-logs
     chartName: alloy
     catalog: giantswarm
     enabled: false
