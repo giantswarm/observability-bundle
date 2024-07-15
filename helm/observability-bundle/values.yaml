@@ -58,10 +58,6 @@ apps:
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
     extraConfigs:
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-observability-bundle-psp-override"
-        namespace: "{{ $.Release.Namespace }}"
-        priority: 150
       - kind: secret
         name: "{{ $.Values.clusterID }}-logging-secret"
         namespace: "{{ $.Release.Namespace }}"
