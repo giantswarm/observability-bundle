@@ -6,6 +6,7 @@ The observability bundle provides all necessary components to enable observabili
 
 ## Apps
 
+* alloy-app
 * prometheus-operator-crd
 * prometheus-operator-app
 * prometheus-agent
