@@ -8,7 +8,7 @@ The observability bundle provides all necessary components to enable observabili
 
 * alloy-app
 * prometheus-operator-crd
-kube-prometheus-stack-app
+* kube-prometheus-stack-app
 * prometheus-agent
 * promtail-app
 * grafana-agent-app
