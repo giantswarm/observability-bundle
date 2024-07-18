@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `alloy` v0.3.0 as `alloy-logs`
+
 ### Changed
 
 - prometheus-operator will not check promql syntax for prometheusRules that are labelled `application.giantswarm.io/prometheus-rule-kind: loki`
