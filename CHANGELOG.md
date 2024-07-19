@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.5.1] - 2024-07-19
 
+### Changed
+
+- Upgrade `prometheus-operator-crd` to 11.0.1.
+
 ## [1.5.0] - 2024-07-18
 
 ### Added
