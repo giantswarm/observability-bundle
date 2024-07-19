@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.1] - 2024-07-19
+
+### Changed
+
+- Upgrade `prometheus-operator-crd` to 11.0.1.
+
 ## [1.5.0] - 2024-07-18
 
 ### Added
@@ -397,7 +403,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.5.1...HEAD
+[1.5.1]: https://github.com/giantswarm/observability-bundle/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/giantswarm/observability-bundle/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/giantswarm/observability-bundle/compare/v1.3.4...v1.4.0
 [1.3.4]: https://github.com/giantswarm/observability-bundle/compare/v1.3.3...v1.3.4
