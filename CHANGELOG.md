@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Fix CNP issues (allow traffic from pods in kube-system to nginx-ingress-controller)
+  - Upgrade `grafana-agent` to 0.4.5.
+  - Upgrade `alloy` to 0.3.1.
+  - Upgrade `promtail` to 1.5.4.
+
 ## [1.5.1] - 2024-07-19
 
 ### Changed
