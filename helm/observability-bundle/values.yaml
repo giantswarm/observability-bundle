@@ -53,7 +53,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.3.0
+    version: 0.3.1
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -130,7 +130,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/promtail-app
-    version: 1.5.3
+    version: 1.5.4
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -155,7 +155,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/grafana-agent-app
-    version: 0.4.4
+    version: 0.4.5
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example

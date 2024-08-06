@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Rename `alloy-logs` app to camel case `alloyLogs`.
 
+## [1.5.2] - 2024-07-24
+
+### Changed
+
+- Fix CNP issues (allow traffic from pods in kube-system to nginx-ingress-controller)
+  - Upgrade `grafana-agent` to 0.4.5.
+  - Upgrade `alloy` to 0.3.1.
+  - Upgrade `promtail` to 1.5.4.
+
 ## [1.5.1] - 2024-07-19
 
 ### Changed
@@ -407,7 +416,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.5.1...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.5.2...HEAD
+[1.5.2]: https://github.com/giantswarm/observability-bundle/compare/v1.5.1...v1.5.2
 [1.5.1]: https://github.com/giantswarm/observability-bundle/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/giantswarm/observability-bundle/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/giantswarm/observability-bundle/compare/v1.3.4...v1.4.0
