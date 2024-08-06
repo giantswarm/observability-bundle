@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `alloy` v0.3.1 as `alloy-metrics`
+
 ## [1.5.2] - 2024-07-24
 
 ### Changed
