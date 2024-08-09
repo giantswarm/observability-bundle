@@ -59,10 +59,10 @@ apps:
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
     extraConfigs:
       - kind: secret
-        name: "{{ $.Values.clusterID }}-logging-secret"
+        name: "{{ $.Values.clusterID }}-monitoring"
         namespace: "{{ $.Release.Namespace }}"
       - kind: configMap
-        name: "{{ $.Values.clusterID }}-logging-config"
+        name: "{{ $.Values.clusterID }}-monitoring"
         namespace: "{{ $.Release.Namespace }}"
 
   alloyMetrics:
