@@ -78,9 +78,6 @@ apps:
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
     extraConfigs:
-      - kind: secret
-        name: "{{ $.Values.clusterID }}-monitoring-secret"
-        namespace: "{{ $.Release.Namespace }}"
       - kind: configMap
         name: "{{ $.Values.clusterID }}-monitoring-config"
         namespace: "{{ $.Release.Namespace }}"
