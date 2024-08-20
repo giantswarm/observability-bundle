@@ -7,11 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Disable usage reporting to GrafanaLabs by:
+  - Bumping `alloyLogs` and `alloyMetrics` to v0.4.1.
+  - Bumping `grafanaAgent` to v0.4.6.
+
 ## [1.6.0] - 2024-08-20
 
 ### Added
 
-- Add `alloy` v0.4.0 as `alloyMetrics`
+- Add `alloy` v0.4.0 as `alloyMetrics`.
+
+### Changed
+
+- Bump `alloyLogs` to v0.4.0.
 
 ## [1.5.3] - 2024-08-08
 
