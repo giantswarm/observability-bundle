@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add `alloy` v0.4.0 as `alloy-metrics`
+- Add `alloy` v0.4.0 as `alloyMetrics`
 
 ## [1.5.3] - 2024-08-08
 
