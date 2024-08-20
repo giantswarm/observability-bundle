@@ -73,7 +73,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.3.1-b59f95cc8e975aa23bdd4ae55933d1b806fc91b4
+    version: 0.4.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
