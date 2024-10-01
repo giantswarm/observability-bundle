@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade alloy-logs to allow passing PodLogs via helm chart values
+
 ## [1.6.2] - 2024-09-17
 
 ### Fixed
