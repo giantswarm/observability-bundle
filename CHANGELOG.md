@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `alloyLogs` to v0.5.2-2981da813949183205f2c7091b8968a294f28fcf
+
 ## [1.6.2] - 2024-09-17
 
 ### Fixed

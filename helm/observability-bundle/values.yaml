@@ -48,12 +48,12 @@ apps:
   alloyLogs:
     appName: alloy-logs
     chartName: alloy
-    catalog: giantswarm
+    catalog: giantswarm-test
     enabled: false
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.4.1
+    version: 0.5.2-2981da813949183205f2c7091b8968a294f28fcf
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
