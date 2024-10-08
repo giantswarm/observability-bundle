@@ -48,7 +48,7 @@ apps:
   alloyLogs:
     appName: alloy-logs
     chartName: alloy
-    catalog: giantswarm-test
+    catalog: giantswarm
     enabled: false
     namespace: kube-system
     # used by renovate
