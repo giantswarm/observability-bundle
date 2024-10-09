@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Upgrade `alloyLogs` to v0.6.0
+- Upgrade `alloyLogs` to v0.6.1
   - Allow passing PodLogs via helm chart values
   - Upgrade to Alloy v1.4.2 which fixes a bug with component reload/evaluation and keeping Alloy up-to-date
   - Fixes an issue with CiliumNetworkPolicy preventing Alloy to run in clustering mode
