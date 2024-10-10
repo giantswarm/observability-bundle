@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Upgrade `prometheus-agent` from v0.6.9 to v0.7.0.
+  - Adds extraArgs to be able to use nice features like wal truncation
+
 ## [1.7.0] - 2024-10-09
 
 ### Changed
