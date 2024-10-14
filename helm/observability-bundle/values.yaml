@@ -93,7 +93,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
-    version: 11.0.1
+    version: 12.0.0
 
   kubePrometheusStack:
     appName: kube-prometheus-stack
