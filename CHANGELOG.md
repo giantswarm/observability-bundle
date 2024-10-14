@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Upgrade `prometheus-agent` from v0.6.9 to v0.7.0.
   - Adds extraArgs to be able to use nice features like wal truncation
+- upgrade `kube-prometheus-stack` from 61.0.0 to 65.1.1
+  - prometheus-operator CRDs from 0.73.0 to 0.75.0
+  - prometheus-operator from 0.75.0 to 0.77.1
+  - prometheus upgraded from 2.53.0 to 2.54.1
+  - grafana from 8.2.0 to 8.5.0
+  - thanos ruler upgraded from 0.35.1 to 0.36.1
+  - prometheus-node-exporter upgraded from 1.8.1 to 1.8.2
 
 ## [1.7.0] - 2024-10-09
 
