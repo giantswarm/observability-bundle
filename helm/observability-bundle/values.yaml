@@ -49,6 +49,7 @@ apps:
     appName: alloy-logs
     chartName: alloy
     catalog: giantswarm
+    dependsOn: prometheus-operator-crd
     enabled: false
     namespace: kube-system
     # used by renovate
@@ -69,6 +70,7 @@ apps:
     appName: alloy-metrics
     chartName: alloy
     catalog: giantswarm
+    dependsOn: prometheus-operator-crd
     enabled: false
     namespace: kube-system
     # used by renovate
