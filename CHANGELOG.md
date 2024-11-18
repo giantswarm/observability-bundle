@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `alloy` v0.7.0 as `alloyEvents`.
+
 ### Changed
 
 - Upgrade `alloy-logs` and `alloy-metrics` to chart 0.7.0.

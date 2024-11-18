@@ -45,6 +45,27 @@ userConfig:
             enabled: false
 
 apps:
+  alloyEvents:
+    appName: alloy-events
+    chartName: alloy
+    catalog: giantswarm
+    dependsOn: prometheus-operator-crd
+    enabled: false
+    namespace: kube-system
+    # used by renovate
+    # repo: giantswarm/alloy-app
+    version: 0.7.0
+    # a list of extraConfigs for the App,
+    # It can be secret or configmap
+    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
+    extraConfigs:
+      - kind: secret
+        name: "{{ $.Values.clusterID }}-events-logger-secret"
+        namespace: "{{ $.Release.Namespace }}"
+      - kind: configMap
+        name: "{{ $.Values.clusterID }}-events-logger-config"
+        namespace: "{{ $.Release.Namespace }}"
+
   alloyLogs:
     appName: alloy-logs
     chartName: alloy
