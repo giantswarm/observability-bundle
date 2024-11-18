@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `alloy-logs` and `alloy-metrics` to chart 0.7.0.
+  - Bumps `alloy` from 1.4.2 to 1.5.0
+
 ## [1.8.0] - 2024-10-30
 
 ### Changed
