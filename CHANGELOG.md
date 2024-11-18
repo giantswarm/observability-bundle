@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- upgrade `kube-prometheus-stack` from 65.1.1 to 66.2.1
+  - prometheus-operator CRDs from 0.75.0 to 0.78.1
+  - prometheus-operator from 0.77.1 to 0.78.1
+  - prometheus from 2.54.1 to 2.55.1
+  - kube-state-metrics from 2.13.0 to 2.14.0
+  - grafana from 8.5.0 to 8.6.0
+
 ## [1.8.0] - 2024-10-30
 
 ### Changed
