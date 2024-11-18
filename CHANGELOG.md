@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `alloy` v0.6.1 as `alloyEvents`.
+
 ## [1.8.0] - 2024-10-30
 
 ### Changed
