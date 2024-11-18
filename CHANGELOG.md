@@ -7,8 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `alloy` v0.7.0 as `alloyEvents`.
+
 ### Changed
 
+- Upgrade `alloy-logs` and `alloy-metrics` to chart 0.7.0.
+  - Bumps `alloy` from 1.4.2 to 1.5.0
 - upgrade `kube-prometheus-stack` from 65.1.1 to 66.2.1
   - prometheus-operator CRDs from 0.75.0 to 0.78.1
   - prometheus-operator from 0.77.1 to 0.78.1
