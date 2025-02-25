@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.9.0] - 2024-11-18
 
+### Changed
+
+- Upgrade `alloy` to chart 0.8.0.
+  - Bumps `alloy` from to 1.5.0 to 1.6.1
+
 ### Added
 
 - Add `alloy` v0.7.0 as `alloyEvents`.
