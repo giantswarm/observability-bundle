@@ -9,8 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.10.0] - 2025-02-26
 
-## [1.9.0] - 2024-11-18
-
 ### Changed
 
 - Upgrade `alloy` to chart 0.8.0.
@@ -18,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade `kube-prometheus-stack` from 66.2.1 to 69.5.1
   - Bumps prometheus-operator to 0.80.1
   - Bumps prometheus to 3.0.1
+
+## [1.9.0] - 2024-11-18
 
 ### Added
 
