@@ -29,7 +29,7 @@ userConfig:
                     operator: NotIn
                     values:
                       - loki
-                  - key: observability.giantswarm.io/rule-kind
+                  - key: observability.giantswarm.io/rule-type
                     operator: NotIn
                     values:
                       - logs
