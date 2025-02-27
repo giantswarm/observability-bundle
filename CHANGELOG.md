@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.11.0] - 2025-02-27
+
 ### Changed
 
 - prometheus-operator will not check promql syntax for prometheusRules that are labelled `observability.giantswarm.io/rule-type: logs`
@@ -502,7 +504,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.10.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.11.0...HEAD
+[1.11.0]: https://github.com/giantswarm/observability-bundle/compare/v1.10.0...v1.11.0
 [1.10.0]: https://github.com/giantswarm/observability-bundle/compare/v1.9.0...v1.10.0
 [1.9.0]: https://github.com/giantswarm/observability-bundle/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/giantswarm/observability-bundle/compare/v1.7.0...v1.8.0
