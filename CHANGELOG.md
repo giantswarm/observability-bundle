@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - prometheus-operator will not check promql syntax for prometheusRules that are labelled `observability.giantswarm.io/rule-type: logs`
+- Upgrade `alloy` to chart 0.9.0.
+  - Bumps `alloy` from to 1.5.1 to 1.7.1
 
 ## [1.10.0] - 2025-02-26
 
