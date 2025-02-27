@@ -29,6 +29,10 @@ userConfig:
                     operator: NotIn
                     values:
                       - loki
+                  - key: observability.giantswarm.io/rule-type
+                    operator: NotIn
+                    values:
+                      - logs
             networkPolicy:
               flavor: cilium
               matchLabels:
