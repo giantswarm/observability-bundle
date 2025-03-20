@@ -45,3 +45,59 @@ giantswarm.io/service-type: managed
 application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
 helm.sh/chart: {{ include "chart" . | quote }}
 {{- end -}}
+
+{{/*
+Creates a customRules RBAC entry for KSM to be able to scrape the custom resource.
+*/}}
+{{- define "ksm.customResourcesRbac" -}}
+apiGroups:
+  - {{ .apiGroup }}
+resources:
+  - {{ .kind }}
+verbs: [ "list", "watch" ]
+{{- end -}}
+
+{{/*
+Creates a KSM custom resource entry.
+*/}}
+{{- define "ksm.customResourcesSpec" -}}
+groupVersionKind:
+  group: {{ .apiGroup }}
+  kind: {{ .kind }}
+  version: {{ .version }}
+metricNamePrefix: {{ printf "%s_%s" .group .name }}
+{{ .Files.Get (printf "ksm-configuration/%s_%s.yaml" .group .name) }}
+{{- end -}}
+
+{{/*
+Since the Helm values merging won't concatenate nested lists, we need to do it manually.
+This helper will merge the KSM custom resources configuration defined in the release values with the ones in the ksm-configuration folder.
+*/}}
+{{- define "ksm.customResources" -}}
+{{- $ksmCustomResourcesRbac := list -}}
+{{- $ksmCustomResourcesSpec := list -}}
+{{- range $group, $component := .Values.kubeStateMetricsCustomResources -}}
+  {{- range $key, $val := $component -}}
+    {{- if $.Files.Get (printf "ksm-configuration/%s_%s.yaml" $group $key) -}}
+      {{- $ksmCustomResourcesRbac = append $ksmCustomResourcesRbac (include "ksm.customResourcesRbac" $val | fromYaml) -}}
+      {{- $ksmCustomResourcesSpec = append $ksmCustomResourcesSpec (include "ksm.customResourcesSpec" (dict "Files" $.Files "group" $group "name" $key "apiGroup" $val.apiGroup "kind" $val.kind "version" $val.version) | fromYaml) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $ksmUserConfig := default (dict) (index (default (dict) (index (default (dict) (((.Values.userConfig).kubePrometheusStack).configMap).values) "kube-prometheus-stack")) "kube-state-metrics") -}}
+
+{{- if gt (len $ksmCustomResourcesSpec) 0 -}}
+kube-prometheus-stack:
+  kube-state-metrics:
+    rbac:
+      extraRules:
+      {{- concat (default (list) ((($ksmUserConfig).rbac).extraRules)) $ksmCustomResourcesRbac | toYaml | nindent 8 }}
+    customResourceState:
+      enabled: true
+      config:
+        spec:
+          resources:
+          {{- concat (default (list) ((((($ksmUserConfig).customResourceState).config).spec).resources)) $ksmCustomResourcesSpec | toYaml | nindent 12 }}
+{{- end -}}
+{{- end -}}
