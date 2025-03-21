@@ -371,6 +371,12 @@
                     }
                 }
             }
+        },
+        "kubeStateMetricsCustomResources": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     }
 }

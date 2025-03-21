@@ -31,3 +31,16 @@ See our [upgrade guide](./docs/upgrade.md).
 for each app you can use `userConfig` to supply values
 or `extraConfigs` as secret or configmap
 
+#### Monitoring Custom Resources in Kube State Metrics (KSM)
+
+You can enable various Custom Resources in KSM to generate metrics from them. The list of supported Custom Resources is in the `helm/observability-bundle/ksm-configurations` folder.
+To enable a specific resource just add its name (matching the filename - without extension) in the `kubeStateMetricsCustomResources` Helm value. e.g.
+
+```yaml
+kubeStateMetricsCustomResources:
+  - flux_gitrepository_v1
+  - capi_machinedeployment_v1beta1
+  - capi_kubeadmcontrolplane_v1beta1
+```
+
+The generated KSM configuration will be merged with the provided in `userConfig.kubePrometheusStack.configMap.values.kube-prometheus-stack.kube-state-metrics`.
