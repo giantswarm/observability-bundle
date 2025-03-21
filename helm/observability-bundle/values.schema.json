@@ -373,32 +373,9 @@
             }
         },
         "kubeStateMetricsCustomResources": {
-            "type": "object",
-            "patternProperties": {
-                "^[a-zA-Z0-9_-]+$": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[a-zA-Z0-9_-]+$": {
-                            "type": "object",
-                            "properties": {
-                                "group": {
-                                    "type": "string"
-                                },
-                                "kind": {
-                                    "type": "string"
-                                },
-                                "version": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "group",
-                                "kind",
-                                "version"
-                            ]
-                        }
-                    }
-                }
+            "type": "array",
+            "items": {
+                "type": "string"
             }
         }
     }

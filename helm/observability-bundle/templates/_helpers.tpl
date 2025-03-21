@@ -47,41 +47,17 @@ helm.sh/chart: {{ include "chart" . | quote }}
 {{- end -}}
 
 {{/*
-Creates a customRules RBAC entry for KSM to be able to scrape the custom resource.
-*/}}
-{{- define "ksm.customResourcesRbac" -}}
-apiGroups:
-  - {{ .apiGroup }}
-resources:
-  - {{ .kind }}
-verbs: [ "list", "watch" ]
-{{- end -}}
-
-{{/*
-Creates a KSM custom resource entry.
-*/}}
-{{- define "ksm.customResourcesSpec" -}}
-groupVersionKind:
-  group: {{ .apiGroup }}
-  kind: {{ .kind }}
-  version: {{ .version }}
-metricNamePrefix: {{ printf "%s_%s" .group .name }}
-{{ .Files.Get (printf "ksm-configuration/%s_%s.yaml" .group .name) }}
-{{- end -}}
-
-{{/*
 Since the Helm values merging won't concatenate nested lists, we need to do it manually.
 This helper will merge the KSM custom resources configuration defined in the release values with the ones in the ksm-configuration folder.
 */}}
 {{- define "ksm.customResources" -}}
 {{- $ksmCustomResourcesRbac := list -}}
 {{- $ksmCustomResourcesSpec := list -}}
-{{- range $group, $component := .Values.kubeStateMetricsCustomResources -}}
-  {{- range $key, $val := $component -}}
-    {{- if $.Files.Get (printf "ksm-configuration/%s_%s.yaml" $group $key) -}}
-      {{- $ksmCustomResourcesRbac = append $ksmCustomResourcesRbac (include "ksm.customResourcesRbac" $val | fromYaml) -}}
-      {{- $ksmCustomResourcesSpec = append $ksmCustomResourcesSpec (include "ksm.customResourcesSpec" (dict "Files" $.Files "group" $group "name" $key "apiGroup" $val.apiGroup "kind" $val.kind "version" $val.version) | fromYaml) -}}
-    {{- end -}}
+{{- range $component := .Values.kubeStateMetricsCustomResources -}}
+  {{- if $.Files.Get (printf "ksm-configurations/%s.yaml" $component) -}}
+    {{- $componentConfig := tpl ($.Files.Get (printf "ksm-configurations/%s.yaml" $component)) . | fromYaml -}}
+    {{- $ksmCustomResourcesRbac = concat $ksmCustomResourcesRbac $componentConfig.rbac -}}
+    {{- $ksmCustomResourcesSpec = concat $ksmCustomResourcesSpec $componentConfig.resources -}}
   {{- end -}}
 {{- end -}}
 

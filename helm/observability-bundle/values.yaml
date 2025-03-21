@@ -219,19 +219,9 @@ apps:
         namespace: "{{ $.Release.Namespace }}"
 
 # # List of CRs to monitor
-# # This list is defined in the config repo per installation and will be merged together with
-# # default values from the config repo.
-# # Failure handling:
-# # - It's possible to define a monitoredResources, even if it's not implemented in the
-# #   app itself. If no configuration file under helm/cluster-api-monitoring/configuration
-# #   for such a metric isn't defined, the monitoredResource will get ignored.
+# # The supported pre-configured CRs are defined in the ksm-configurations directory.
+# # This list defines the CRs to enable, which will be merged with the user provided values for KSM.
+# # If a CR is not defined in the ksm-configurations directory, it will be ignored.
 # kubeStateMetricsCustomResources:
-#   # first level of the map can be seen as a "group" to combine/organize multiple CRs.
-#   # This will lead to the first part of the generated metric name e.g. `flux_`
-#   flux:
-#     # second level of the map should be used to name (in singular) the name of the CR.
-#     # This will lead to second part of the generated metric name e.g. `flux_gitrepository_`
-#     gitrepository:
-#       group: samplecontroller.k8s.io # group is the API group the CR belongs to
-#       kind: Foo # kind is the kind of the CR
-#       version: v1alpha1 # version is the version of the CR
+#   # This will be the prefix of the generated metrics name for this resource (without the API version). e.g. flux_gitrepository_
+#   - flux_gitrepository_v1

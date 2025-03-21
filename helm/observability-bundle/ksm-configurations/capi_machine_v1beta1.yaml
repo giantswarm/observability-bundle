@@ -1,0 +1,198 @@
+rbac:
+  - apiGroups:
+      - cluster.x-k8s.io
+    resources:
+      - machines
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: cluster.x-k8s.io
+      kind: Machine
+      version: v1beta1
+    metricNamePrefix: capi_machine
+    labelsFromPath:
+      cluster_name:
+        - spec
+        - clusterName
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+      uid:
+        - metadata
+        - uid
+    metrics:
+      - name: info
+        help: Information about a machine.
+        each:
+          info:
+            labelsFromPath:
+              container_runtime_version:
+                - status
+                - nodeInfo
+                - containerRuntimeVersion
+              failure_domain:
+                - spec
+                - failureDomain
+              kernel_version:
+                - status
+                - nodeInfo
+                - kernelVersion
+              kubelet_version:
+                - status
+                - nodeInfo
+                - kubeletVersion
+              kube_proxy_version:
+                - status
+                - nodeInfo
+                - kubeProxyVersion
+              os_image:
+                - status
+                - nodeInfo
+                - osImage
+              provider_id:
+                - spec
+                - providerID
+              version:
+                - spec
+                - version
+              bootstrap_reference_kind:
+                - spec
+                - bootstrap
+                - configRef
+                - kind
+              bootstrap_reference_name:
+                - spec
+                - bootstrap
+                - configRef
+                - name
+              infrastructure_reference_kind:
+                - spec
+                - infrastructureRef
+                - kind
+              infrastructure_reference_name:
+                - spec
+                - infrastructureRef
+                - name
+              control_plane_name:
+                - metadata
+                - labels
+                - cluster.x-k8s.io/control-plane-name
+          type: Info
+      - name: addresses
+        help: Address information about a machine.
+        each:
+          info:
+            path:
+              - status
+              - addresses
+            labelsFromPath:
+              type:
+                - type
+              address:
+                - address
+          type: Info
+      - name: status_noderef
+        help: Information about the node reference of a machine.
+        each:
+          info:
+            labelsFromPath:
+              node_name:
+                - status
+                - nodeRef
+                - name
+              node_uid:
+                - status
+                - nodeRef
+                - uid
+          type: Info
+      - name: status_phase
+        help: The machines current phase.
+        each:
+          stateSet:
+            labelName: phase
+            list:
+              - Pending
+              - Provisioning
+              - Provisioned
+              - Running
+              - Deleting
+              - Deleted
+              - Failed
+              - Unknown
+            path:
+              - status
+              - phase
+          type: StateSet
+      - name: created
+        help: Unix creation timestamp.
+        each:
+          gauge:
+            path:
+              - metadata
+              - creationTimestamp
+          type: Gauge
+      - name: annotation_paused
+        help: Whether the machine is paused and any of its resources will not be processed by the controllers.
+        each:
+          info:
+            path:
+              - metadata
+              - annotations
+              - cluster.x-k8s.io/paused
+            labelsFromPath:
+              paused_value: []
+          type: Info
+      - name: status_condition
+        help: The condition of a machine.
+        each:
+          stateSet:
+            labelName: status
+            labelsFromPath:
+              type:
+                - type
+            list:
+              - "True"
+              - "False"
+              - Unknown
+            path:
+              - status
+              - conditions
+            valueFrom:
+              - status
+          type: StateSet
+      - name: status_condition_last_transition_time
+        help: The condition last transition time of a machine.
+        each:
+          gauge:
+            labelsFromPath:
+              type:
+                - type
+              status:
+                - status
+            path:
+              - status
+              - conditions
+            valueFrom:
+              - lastTransitionTime
+          type: Gauge
+      - name: owner
+        help: Owner references.
+        each:
+          info:
+            labelsFromPath:
+              owner_is_controller:
+                - controller
+              owner_kind:
+                - kind
+              owner_name:
+                - name
+              owner_uid:
+                - uid
+            path:
+              - metadata
+              - ownerReferences
+          type: Info
