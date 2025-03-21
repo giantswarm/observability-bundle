@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `kube-prometheus-stack` from 69.5.1 to 70.1.1
+  - Bumps prometheus-operator to 0.81.0
+  - Bumps prometheus to 3.2.1
+
 ## [1.11.0] - 2025-02-27
 
 ### Changed
