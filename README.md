@@ -38,9 +38,9 @@ To enable a specific resource just add its name (matching the filename - without
 
 ```yaml
 kubeStateMetricsCustomResources:
-  - flux_gitrepository_v1
-  - capi_machinedeployment_v1beta1
-  - capi_kubeadmcontrolplane_v1beta1
+  flux_gitrepository_v1: true
+  capi_machinedeployment_v1beta1: true
+  capi_kubeadmcontrolplane_v1beta1: true
 ```
 
 The generated KSM configuration will be merged with the provided in `userConfig.kubePrometheusStack.configMap.values.kube-prometheus-stack.kube-state-metrics`.

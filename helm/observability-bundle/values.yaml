@@ -218,10 +218,11 @@ apps:
         name: "{{ $.Values.clusterID }}-grafana-agent-secret"
         namespace: "{{ $.Release.Namespace }}"
 
-# # List of CRs to monitor
+# # CRs to monitor through kube-state-metrics.
 # # The supported pre-configured CRs are defined in the ksm-configurations directory.
 # # This list defines the CRs to enable, which will be merged with the user provided values for KSM.
 # # If a CR is not defined in the ksm-configurations directory, it will be ignored.
 # kubeStateMetricsCustomResources:
 #   # This will be the prefix of the generated metrics name for this resource (without the API version). e.g. flux_gitrepository_
-#   - flux_gitrepository_v1
+#   # A truthy value will enable the monitoring of this resource.
+#   flux_gitrepository_v1: true
