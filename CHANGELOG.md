@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add support for enabling pre-configured custom resources in KSM
+
 ## [1.12.0] - 2025-03-21
 
 ### Changed
