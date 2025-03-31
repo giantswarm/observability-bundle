@@ -53,15 +53,15 @@ This helper will merge the KSM custom resources configuration defined in the rel
 {{- define "ksm.customResources" -}}
 {{- $ksmCustomResourcesRbac := list -}}
 {{- $ksmCustomResourcesSpec := list -}}
-{{- range $component, $enabled := .Values.kubeStateMetricsCustomResources -}}
+{{- range $component, $enabled := $.Values.kubeStateMetricsCustomResources -}}
   {{- if and $enabled ($.Files.Get (printf "ksm-configurations/%s.yaml" $component)) -}}
-    {{- $componentConfig := tpl ($.Files.Get (printf "ksm-configurations/%s.yaml" $component)) . | fromYaml -}}
+    {{- $componentConfig := tpl ($.Files.Get (printf "ksm-configurations/%s.yaml" $component)) $ | fromYaml -}}
     {{- $ksmCustomResourcesRbac = concat $ksmCustomResourcesRbac $componentConfig.rbac -}}
     {{- $ksmCustomResourcesSpec = concat $ksmCustomResourcesSpec $componentConfig.resources -}}
   {{- end -}}
 {{- end -}}
 
-{{- $ksmUserConfig := default (dict) (index (default (dict) (index (default (dict) (((.Values.userConfig).kubePrometheusStack).configMap).values) "kube-prometheus-stack")) "kube-state-metrics") -}}
+{{- $ksmUserConfig := default (dict) (index (default (dict) (index (default (dict) ((($.Values.userConfig).kubePrometheusStack).configMap).values) "kube-prometheus-stack")) "kube-state-metrics") -}}
 
 {{- if gt (len $ksmCustomResourcesSpec) 0 -}}
 kube-prometheus-stack:
