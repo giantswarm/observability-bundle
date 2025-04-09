@@ -1,0 +1,26 @@
+rbac:
+  - apiGroups:
+      - image.toolkit.fluxcd.io
+    resources:
+      - imagerepositories
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: image.toolkit.fluxcd.io
+      kind: ImageRepository
+      version: v1beta2
+    metricNamePrefix: flux_imagerepository
+    metrics:
+      - name: "resource_info"
+        help: "The current state of a Flux ImageRepository resource."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              name: [metadata, name]
+        labelsFromPath:
+          exported_namespace: [metadata, namespace]
+          ready: [status, conditions, "[type=Ready]", status]
+          suspended: [spec, suspend]
+          image: [spec, image]
