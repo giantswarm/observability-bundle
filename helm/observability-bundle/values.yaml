@@ -225,7 +225,7 @@ apps:
 # #
 # # This chart will enable some CRs by default, depending on various conditions.
 # # If the cluster is an MC (.Values.managementCluster == .Values.cluster_ID), the flux CRs and the CAPI provider-specific CRs will be enabled.
-# kubeStateMetricsCustomResources:
+kubeStateMetricsCustomResources: {}
 #   # This will be the prefix of the generated metrics name for this resource (without the API version). e.g. flux_gitrepository_
 #   # A truthy value will enable the monitoring of this resource.
 #   flux_gitrepository_v1: true
