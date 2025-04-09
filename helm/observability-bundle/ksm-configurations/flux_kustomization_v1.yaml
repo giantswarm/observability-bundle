@@ -1,0 +1,27 @@
+rbac:
+  - apiGroups:
+      - kustomize.toolkit.fluxcd.io
+    resources:
+      - kustomizations
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: kustomize.toolkit.fluxcd.io
+      kind: Kustomization
+      version: v1
+    metricNamePrefix: flux_kustomization
+    metrics:
+      - name: "resource_info"
+        help: "The current state of a Flux Kustomization resource."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              name: [metadata, name]
+        labelsFromPath:
+          exported_namespace: [metadata, namespace]
+          ready: [status, conditions, "[type=Ready]", status]
+          suspended: [spec, suspend]
+          revision: [status, lastAppliedRevision]
+          source_name: [spec, sourceRef, name]

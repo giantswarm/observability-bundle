@@ -30,4 +30,3 @@ See our [upgrade guide](./docs/upgrade.md).
 
 for each app you can use `userConfig` to supply values
 or `extraConfigs` as secret or configmap
-

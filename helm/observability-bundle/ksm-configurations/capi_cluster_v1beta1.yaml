@@ -1,0 +1,143 @@
+rbac:
+  - apiGroups:
+      - cluster.x-k8s.io
+    resources:
+      - clusters
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: cluster.x-k8s.io
+      kind: Cluster
+      version: v1beta1
+    metricNamePrefix: capi_cluster
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+      uid:
+        - metadata
+        - uid
+      release_version:
+        - metadata
+        - labels
+        - release.giantswarm.io/version
+    metrics:
+      - name: info
+        help: Information about a cluster.
+        each:
+          info:
+            labelsFromPath:
+              topology_version:
+                - spec
+                - topology
+                - version
+              topology_class:
+                - spec
+                - topology
+                - class
+              control_plane_endpoint_host:
+                - spec
+                - controlPlaneEndpoint
+                - host
+              control_plane_endpoint_port:
+                - spec
+                - controlPlaneEndpoint
+                - port
+              control_plane_reference_kind:
+                - spec
+                - controlPlaneRef
+                - kind
+              control_plane_reference_name:
+                - spec
+                - controlPlaneRef
+                - name
+              infrastructure_reference_kind:
+                - spec
+                - infrastructureRef
+                - kind
+              infrastructure_reference_name:
+                - spec
+                - infrastructureRef
+                - name
+          type: Info
+      - name: spec_paused
+        help: Whether the cluster is paused and any of its resources will not be processed by the controllers.
+        each:
+          gauge:
+            nilIsZero: true
+            path:
+              - spec
+              - paused
+          type: Gauge
+      - name: status_phase
+        help: The clusters current phase.
+        each:
+          stateSet:
+            labelName: phase
+            list:
+              - Pending
+              - Provisioning
+              - Provisioned
+              - Deleting
+              - Failed
+              - Unknown
+            path:
+              - status
+              - phase
+          type: StateSet
+      - name: created
+        help: Unix creation timestamp.
+        each:
+          gauge:
+            path:
+              - metadata
+              - creationTimestamp
+          type: Gauge
+      - name: annotation_paused
+        help: Whether the cluster is paused and any of its resources will not be processed by the controllers.
+        each:
+          info:
+            path:
+              - metadata
+              - annotations
+              - cluster.x-k8s.io/paused
+            labelsFromPath:
+              paused_value: []
+          type: Info
+      - name: status_condition
+        help: The condition of a cluster.
+        each:
+          stateSet:
+            labelName: status
+            labelsFromPath:
+              type:
+                - type
+            list:
+              - "True"
+              - "False"
+              - Unknown
+            path:
+              - status
+              - conditions
+            valueFrom:
+              - status
+          type: StateSet
+      - name: status_condition_last_transition_time
+        help: The condition last transition time of a cluster.
+        each:
+          gauge:
+            labelsFromPath:
+              type:
+                - type
+              status:
+                - status
+            path:
+              - status
+              - conditions
+            valueFrom:
+              - lastTransitionTime
+          type: Gauge

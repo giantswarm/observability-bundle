@@ -1,0 +1,76 @@
+rbac:
+  - apiGroups:
+      - infrastructure.cluster.x-k8s.io
+    resources:
+      - vcdclusters
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: infrastructure.cluster.x-k8s.io
+      kind: VCDCluster
+      version: v1beta2
+    metricNamePrefix: capi_vcdcluster
+    labelsFromPath:
+      name: [metadata, name]
+      namespace: [metadata, namespace]
+      cluster_name: [metadata, name]
+    metrics:
+      - name: info
+        help: Information about a vcdcluster.
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              site: [spec, site]
+              rde_id: [spec, rdeId]
+              control_plane_endpoint_ip: [spec, controlPlaneEndpoint, host]
+              control_plane_endpoint_port: [spec, controlPlaneEndpoint, port]
+              org: [spec, org]
+              ovdc: [spec, ovdc]
+              ovdc_network: [spec, ovdcNetwork]
+              vip_subnet: [spec, loadBalancerConfigSpec, vipSubnet]
+      - name: annotation_paused
+        help: Whether the vcdcluster is paused and any of its resources will not be processed by the controllers.
+        each:
+          info:
+            path:
+              - metadata
+              - annotations
+              - cluster.x-k8s.io/paused
+            labelsFromPath:
+              paused_value: []
+          type: Info
+      - name: status_conditions
+        help: The conditions of a vcdcluster.
+        each:
+          type: StateSet
+          stateSet:
+            path:
+              - status
+              - conditions
+            list:
+              - "True"
+              - "False"
+              - "Unknown"
+            valueFrom:
+              - status
+            labelName: status
+            labelsFromPath:
+              type: [type]
+      - name: created
+        each:
+          gauge:
+            path:
+              - metadata
+              - creationTimestamp
+          type: Gauge
+        help: Unix creation timestamp.
+      - name: status_ready
+        help: Information if the provider resource is ready.
+        each:
+          type: Gauge
+          gauge:
+            path:
+              - status
+              - ready

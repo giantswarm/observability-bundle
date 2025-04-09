@@ -1,0 +1,26 @@
+rbac:
+  - apiGroups:
+      - notification.toolkit.fluxcd.io
+    resources:
+      - receivers
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: notification.toolkit.fluxcd.io
+      kind: Receiver
+      version: v1
+    metricNamePrefix: flux_receiver
+    metrics:
+      - name: "resource_info"
+        help: "The current state of a Flux Receiver resource."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              name: [metadata, name]
+        labelsFromPath:
+          exported_namespace: [metadata, namespace]
+          ready: [status, conditions, "[type=Ready]", status]
+          suspended: [spec, suspend]
+          webhook_path: [status, webhookPath]

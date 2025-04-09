@@ -45,3 +45,34 @@ giantswarm.io/service-type: managed
 application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
 helm.sh/chart: {{ include "chart" . | quote }}
 {{- end -}}
+
+{{/*
+Since the Helm values merging won't concatenate nested lists, we need to do it manually.
+This helper will merge the KSM custom resources configuration defined in the release values with the ones in the ksm-configuration folder.
+*/}}
+{{- define "ksm.customResources" -}}
+{{- $ksmCustomResourcesRbac := list -}}
+{{- $ksmCustomResourcesSpec := list -}}
+
+{{ range $path, $content := .Files.Glob "ksm-configurations/**.yaml" }}
+  {{- $componentConfig := $content | toString | fromYaml -}}
+  {{- $ksmCustomResourcesRbac = concat $ksmCustomResourcesRbac $componentConfig.rbac -}}
+  {{- $ksmCustomResourcesSpec = concat $ksmCustomResourcesSpec $componentConfig.resources -}}
+{{ end }}
+
+{{- $ksmUserConfig := default (dict) (index (default (dict) (index (default (dict) ((($.Values.userConfig).kubePrometheusStack).configMap).values) "kube-prometheus-stack")) "kube-state-metrics") -}}
+
+{{- if gt (len $ksmCustomResourcesSpec) 0 -}}
+kube-prometheus-stack:
+  kube-state-metrics:
+    rbac:
+      extraRules:
+      {{- concat $ksmCustomResourcesRbac (default (list) ((($ksmUserConfig).rbac).extraRules)) | toYaml | nindent 8 }}
+    customResourceState:
+      enabled: true
+      config:
+        spec:
+          resources:
+          {{- concat $ksmCustomResourcesSpec (default (list) ((((($ksmUserConfig).customResourceState).config).spec).resources)) | toYaml | nindent 12 }}
+{{- end -}}
+{{- end -}}

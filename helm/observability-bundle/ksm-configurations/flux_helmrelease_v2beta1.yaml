@@ -1,0 +1,28 @@
+rbac:
+  - apiGroups:
+      - helm.toolkit.fluxcd.io
+    resources:
+      - helmreleases
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: helm.toolkit.fluxcd.io
+      kind: HelmRelease
+      version: v2beta1
+    metricNamePrefix: flux_helmrelease
+    metrics:
+      - name: "resource_info"
+        help: "The current state of a Flux HelmRelease resource."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              name: [metadata, name]
+        labelsFromPath:
+          exported_namespace: [metadata, namespace]
+          ready: [status, conditions, "[type=Ready]", status]
+          suspended: [spec, suspend]
+          revision: [status, lastAppliedRevision]
+          chart_name: [spec, chart, spec, chart]
+          chart_source_name: [spec, chart, spec, sourceRef, name]
