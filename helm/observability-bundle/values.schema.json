@@ -371,14 +371,6 @@
                     }
                 }
             }
-        },
-        "kubeStateMetricsCustomResources": {
-            "type": "object",
-            "patternProperties": {
-                "^[a-zA-Z0-9-]+$": {
-                    "type": "boolean"
-                }
-            }
         }
     }
 }
