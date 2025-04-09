@@ -67,12 +67,12 @@ kube-prometheus-stack:
   kube-state-metrics:
     rbac:
       extraRules:
-      {{- concat (default (list) ((($ksmUserConfig).rbac).extraRules)) $ksmCustomResourcesRbac | toYaml | nindent 8 }}
+      {{- concat $ksmCustomResourcesRbac (default (list) ((($ksmUserConfig).rbac).extraRules)) | toYaml | nindent 8 }}
     customResourceState:
       enabled: true
       config:
         spec:
           resources:
-          {{- concat (default (list) ((((($ksmUserConfig).customResourceState).config).spec).resources)) $ksmCustomResourcesSpec | toYaml | nindent 12 }}
+          {{- concat $ksmCustomResourcesSpec (default (list) ((((($ksmUserConfig).customResourceState).config).spec).resources)) | toYaml | nindent 12 }}
 {{- end -}}
 {{- end -}}
