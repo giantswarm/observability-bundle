@@ -1,0 +1,24 @@
+rbac:
+  - apiGroups:
+      - notification.toolkit.fluxcd.io
+    resources:
+      - alerts
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: notification.toolkit.fluxcd.io
+      kind: Alert
+      version: v1beta2
+    metricNamePrefix: flux_alert
+    metrics:
+      - name: "resource_info"
+        help: "The current state of a Flux Alert resource."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              name: [metadata, name]
+        labelsFromPath:
+          exported_namespace: [metadata, namespace]
+          suspended: [spec, suspend]
