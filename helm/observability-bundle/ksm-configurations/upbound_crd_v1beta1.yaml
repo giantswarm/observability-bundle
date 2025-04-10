@@ -32,9 +32,6 @@ resources:
       name:
         - metadata
         - name
-      uid:
-        - metadata
-        - uid
     metrics:
       - name: "labels"
         help: "Kubernetes labels converted to Prometheus labels."
@@ -53,9 +50,6 @@ resources:
       name:
         - metadata
         - name
-      uid:
-        - metadata
-        - uid
     metrics:
       - name: "labels"
         help: "Kubernetes labels converted to Prometheus labels."
@@ -74,9 +68,6 @@ resources:
       name:
         - metadata
         - name
-      uid:
-        - metadata
-        - uid
     metrics:
       - name: "labels"
         help: "Kubernetes labels converted to Prometheus labels."
@@ -95,9 +86,6 @@ resources:
       name:
         - metadata
         - name
-      uid:
-        - metadata
-        - uid
     metrics:
       - name: "labels"
         help: "Kubernetes labels converted to Prometheus labels."
@@ -116,9 +104,6 @@ resources:
       name:
         - metadata
         - name
-      uid:
-        - metadata
-        - uid
     metrics:
       - name: "labels"
         help: "Kubernetes labels converted to Prometheus labels."
@@ -137,9 +122,6 @@ resources:
       name:
         - metadata
         - name
-      uid:
-        - metadata
-        - uid
     metrics:
       - name: "labels"
         help: "Kubernetes labels converted to Prometheus labels."
