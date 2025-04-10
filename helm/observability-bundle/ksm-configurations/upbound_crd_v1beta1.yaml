@@ -40,7 +40,7 @@ resources:
           stateSet:
             labelName: status
             path: [status, conditions, "[type=Ready]", status]
-            list: [True, False]
+            list: ["True", "False"]
         labelsFromPath:
           name: [metadata, name]
           label_*: [metadata, labels]
@@ -51,7 +51,7 @@ resources:
           stateSet:
             labelName: status
             path: [status, conditions, "[type=Synced]", status]
-            list: [True, False]
+            list: ["True", "False"]
         labelsFromPath:
           name: [metadata, name]
           label_*: [metadata, labels]
