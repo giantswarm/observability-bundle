@@ -1,0 +1,151 @@
+rbac:
+  - apiGroups:
+      - iam.aws.upbound.io
+    resources:
+      - roles
+    verbs: ["list", "watch"]
+  - apiGroups:
+      - sqs.aws.upbound.io
+    resources:
+      - queues
+      - queuepolicies
+    verbs: ["list", "watch"]
+  - apiGroups:
+      - cloudwatchevents.aws.upbound.io
+    resources:
+      - rules
+      - targets
+    verbs: ["list", "watch"]
+  - apiGroups:
+      - ec2.aws.upbound.io
+    resources:
+      - securitygroups
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: iam.aws.upbound.io
+      kind: Role
+      version: v1beta1
+    metricNamePrefix: iam_aws_upbound_role
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      uid:
+        - metadata
+        - uid
+    metrics:
+      - name: "labels"
+        help: "Kubernetes labels converted to Prometheus labels."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              label_*: [metadata, labels]
+              name: [metadata, name]
+  - groupVersionKind:
+      group: sqs.aws.upbound.io
+      kind: Queue
+      version: v1beta1
+    metricNamePrefix: sqs_aws_upbound_queue
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      uid:
+        - metadata
+        - uid
+    metrics:
+      - name: "labels"
+        help: "Kubernetes labels converted to Prometheus labels."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              label_*: [metadata, labels]
+              name: [metadata, name]
+  - groupVersionKind:
+      group: sqs.aws.upbound.io
+      kind: QueuePolicy
+      version: v1beta1
+    metricNamePrefix: sqs_aws_upbound_queuepolicy
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      uid:
+        - metadata
+        - uid
+    metrics:
+      - name: "labels"
+        help: "Kubernetes labels converted to Prometheus labels."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              label_*: [metadata, labels]
+              name: [metadata, name]
+  - groupVersionKind:
+      group: cloudwatchevents.aws.upbound.io
+      kind: Rule
+      version: v1beta1
+    metricNamePrefix: cloudwatchevents_aws_upbound_rule
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      uid:
+        - metadata
+        - uid
+    metrics:
+      - name: "labels"
+        help: "Kubernetes labels converted to Prometheus labels."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              label_*: [metadata, labels]
+              name: [metadata, name]
+  - groupVersionKind:
+      group: cloudwatchevents.aws.upbound.io
+      kind: Target
+      version: v1beta1
+    metricNamePrefix: cloudwatchevents_aws_upbound_target
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      uid:
+        - metadata
+        - uid
+    metrics:
+      - name: "labels"
+        help: "Kubernetes labels converted to Prometheus labels."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              label_*: [metadata, labels]
+              name: [metadata, name]
+  - groupVersionKind:
+      group: ec2.aws.upbound.io
+      kind: SecurityGroup
+      version: v1beta1
+    metricNamePrefix: ec2_aws_upbound_securitygroup
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      uid:
+        - metadata
+        - uid
+    metrics:
+      - name: "labels"
+        help: "Kubernetes labels converted to Prometheus labels."
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              label_*: [metadata, labels]
+              name: [metadata, name]
