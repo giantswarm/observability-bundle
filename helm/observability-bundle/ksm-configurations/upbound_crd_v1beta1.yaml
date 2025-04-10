@@ -33,101 +33,115 @@ resources:
         - metadata
         - name
     metrics:
-      - name: "labels"
-        help: "Kubernetes labels converted to Prometheus labels."
+      - name: "ready"
+        help: "Metric containing ready status of Crossplane CRD conditions."
         each:
-          type: Info
-          info:
-            labelsFromPath:
-              label_*: [metadata, labels]
-              name: [metadata, name]
-  - groupVersionKind:
-      group: sqs.aws.upbound.io
-      kind: Queue
-      version: v1beta1
-    metricNamePrefix: sqs_aws_upbound_queue
-    labelsFromPath:
-      name:
-        - metadata
-        - name
-    metrics:
-      - name: "labels"
-        help: "Kubernetes labels converted to Prometheus labels."
+          type: StateSet
+          stateSet:
+            labelName: status
+            path: [status, conditions, "[type=Ready]", status]
+            list: [True, False]
+        labelsFromPath:
+          name: [metadata, name]
+          label_*: [metadata, labels]
+      - name: "synced"
+        help: "Metric containing synced status of Crossplane CRD conditions."
         each:
-          type: Info
-          info:
-            labelsFromPath:
-              label_*: [metadata, labels]
-              name: [metadata, name]
-  - groupVersionKind:
-      group: sqs.aws.upbound.io
-      kind: QueuePolicy
-      version: v1beta1
-    metricNamePrefix: sqs_aws_upbound_queuepolicy
-    labelsFromPath:
-      name:
-        - metadata
-        - name
-    metrics:
-      - name: "labels"
-        help: "Kubernetes labels converted to Prometheus labels."
-        each:
-          type: Info
-          info:
-            labelsFromPath:
-              label_*: [metadata, labels]
-              name: [metadata, name]
-  - groupVersionKind:
-      group: cloudwatchevents.aws.upbound.io
-      kind: Rule
-      version: v1beta1
-    metricNamePrefix: cloudwatchevents_aws_upbound_rule
-    labelsFromPath:
-      name:
-        - metadata
-        - name
-    metrics:
-      - name: "labels"
-        help: "Kubernetes labels converted to Prometheus labels."
-        each:
-          type: Info
-          info:
-            labelsFromPath:
-              label_*: [metadata, labels]
-              name: [metadata, name]
-  - groupVersionKind:
-      group: cloudwatchevents.aws.upbound.io
-      kind: Target
-      version: v1beta1
-    metricNamePrefix: cloudwatchevents_aws_upbound_target
-    labelsFromPath:
-      name:
-        - metadata
-        - name
-    metrics:
-      - name: "labels"
-        help: "Kubernetes labels converted to Prometheus labels."
-        each:
-          type: Info
-          info:
-            labelsFromPath:
-              label_*: [metadata, labels]
-              name: [metadata, name]
-  - groupVersionKind:
-      group: ec2.aws.upbound.io
-      kind: SecurityGroup
-      version: v1beta1
-    metricNamePrefix: ec2_aws_upbound_securitygroup
-    labelsFromPath:
-      name:
-        - metadata
-        - name
-    metrics:
-      - name: "labels"
-        help: "Kubernetes labels converted to Prometheus labels."
-        each:
-          type: Info
-          info:
-            labelsFromPath:
-              label_*: [metadata, labels]
-              name: [metadata, name]
+          type: StateSet
+          stateSet:
+            labelName: status
+            path: [status, conditions, "[type=Synced]", status]
+            list: [True, False]
+        labelsFromPath:
+          name: [metadata, name]
+          label_*: [metadata, labels]
+  # - groupVersionKind:
+  #     group: sqs.aws.upbound.io
+  #     kind: Queue
+  #     version: v1beta1
+  #   metricNamePrefix: sqs_aws_upbound_queue
+  #   labelsFromPath:
+  #     name:
+  #       - metadata
+  #       - name
+  #   metrics:
+  #     - name: "status"
+  #       help: "Metric containing status of Crossplane CRD conditions."
+  #       each:
+  #         type: Info
+  #         info:
+  #           labelsFromPath:
+  #             label_*: [metadata, labels]
+  #             name: [metadata, name]
+  # - groupVersionKind:
+  #     group: sqs.aws.upbound.io
+  #     kind: QueuePolicy
+  #     version: v1beta1
+  #   metricNamePrefix: sqs_aws_upbound_queuepolicy
+  #   labelsFromPath:
+  #     name:
+  #       - metadata
+  #       - name
+  #   metrics:
+  #     - name: "status"
+  #       help: "Metric containing status of Crossplane CRD conditions."
+  #       each:
+  #         type: Info
+  #         info:
+  #           labelsFromPath:
+  #             label_*: [metadata, labels]
+  #             name: [metadata, name]
+  # - groupVersionKind:
+  #     group: cloudwatchevents.aws.upbound.io
+  #     kind: Rule
+  #     version: v1beta1
+  #   metricNamePrefix: cloudwatchevents_aws_upbound_rule
+  #   labelsFromPath:
+  #     name:
+  #       - metadata
+  #       - name
+  #   metrics:
+  #     - name: "status"
+  #       help: "Metric containing status of Crossplane CRD conditions."
+  #       each:
+  #         type: Info
+  #         info:
+  #           labelsFromPath:
+  #             label_*: [metadata, labels]
+  #             name: [metadata, name]
+  # - groupVersionKind:
+  #     group: cloudwatchevents.aws.upbound.io
+  #     kind: Target
+  #     version: v1beta1
+  #   metricNamePrefix: cloudwatchevents_aws_upbound_target
+  #   labelsFromPath:
+  #     name:
+  #       - metadata
+  #       - name
+  #   metrics:
+  #     - name: "status"
+  #       help: "Metric containing status of Crossplane CRD conditions."
+  #       each:
+  #         type: Info
+  #         info:
+  #           labelsFromPath:
+  #             label_*: [metadata, labels]
+  #             name: [metadata, name]
+  # - groupVersionKind:
+  #     group: ec2.aws.upbound.io
+  #     kind: SecurityGroup
+  #     version: v1beta1
+  #   metricNamePrefix: ec2_aws_upbound_securitygroup
+  #   labelsFromPath:
+  #     name:
+  #       - metadata
+  #       - name
+  #   metrics:
+  #     - name: "status"
+  #       help: "Metric containing status of Crossplane CRD conditions."
+  #       each:
+  #         type: Info
+  #         info:
+  #           labelsFromPath:
+  #             label_*: [metadata, labels]
+  #             name: [metadata, name]
