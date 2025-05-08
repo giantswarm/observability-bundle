@@ -16,50 +16,7 @@ workflows:
         filters:
           tags:
             only: /^v.*/
-
           branches:
             ignore:
             - main
             - master
-    - architect/push-to-app-catalog:
-        name: control-plane-app-catalog
-        context: architect
-        executor: app-build-suite
-        app_catalog: control-plane-catalog
-        app_catalog_test: control-plane-test-catalog
-        chart: observability-bundle
-        filters:
-          tags:
-            only: /^v.*/
-
-          branches:
-            ignore:
-            - main
-            - master
-    - architect/push-to-app-collection:
-        name: aws-app-collection
-        context: architect
-        app_name: observability-bundle
-        app_namespace: giantswarm
-        app_collection_repo: aws-app-collection
-        requires:
-        - app-catalog
-        filters:
-          branches:
-            ignore: /.*/
-          tags:
-            only: /^v.*/
-
-    - architect/push-to-app-collection:
-        name: azure-app-collection
-        context: architect
-        app_name: observability-bundle
-        app_namespace: giantswarm
-        app_collection_repo: azure-app-collection
-        requires:
-        - app-catalog
-        filters:
-          branches:
-            ignore: /.*/
-          tags:
-            only: /^v.*/
