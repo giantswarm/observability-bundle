@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.14.0] - 2025-05-13
+
 ## [1.13.0] - 2025-04-10
 
 ### Added
@@ -519,7 +521,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.13.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.14.0...HEAD
+[1.14.0]: https://github.com/giantswarm/observability-bundle/compare/v1.13.0...v1.14.0
 [1.13.0]: https://github.com/giantswarm/observability-bundle/compare/v1.12.0...v1.13.0
 [1.12.0]: https://github.com/giantswarm/observability-bundle/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/giantswarm/observability-bundle/compare/v1.10.0...v1.11.0
