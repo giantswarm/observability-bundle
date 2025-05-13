@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add support for enabling pre-configured custom resources in KSM
 - Add metrics containing labels for Crossplane resources
 
+### Changed
+
+- Upgrade `kube-prometheus-stack` to 72.3.0
+  - Bumps prometheus-operator to 0.82.0
+
 ## [1.12.0] - 2025-03-21
 
 ### Changed
