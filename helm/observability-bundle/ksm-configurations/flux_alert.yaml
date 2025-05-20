@@ -1,19 +1,19 @@
 rbac:
   - apiGroups:
-      - image.toolkit.fluxcd.io
+      - notification.toolkit.fluxcd.io
     resources:
-      - imagepolicies
+      - alerts
     verbs: ["list", "watch"]
 
 resources:
   - groupVersionKind:
-      group: image.toolkit.fluxcd.io
-      kind: ImagePolicy
-      version: v1beta2
-    metricNamePrefix: flux_imagepolicy
+      group: notification.toolkit.fluxcd.io
+      kind: Alert
+      version: "*"
+    metricNamePrefix: gotk
     metrics:
       - name: "resource_info"
-        help: "The current state of a Flux ImagePolicy resource."
+        help: "The current state of a Flux Alert resource."
         each:
           type: Info
           info:
@@ -21,6 +21,4 @@ resources:
               name: [metadata, name]
         labelsFromPath:
           exported_namespace: [metadata, namespace]
-          ready: [status, conditions, "[type=Ready]", status]
           suspended: [spec, suspend]
-          source_name: [spec, imageRepositoryRef, name]

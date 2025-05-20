@@ -1,19 +1,19 @@
 rbac:
   - apiGroups:
-      - notification.toolkit.fluxcd.io
+      - source.toolkit.fluxcd.io
     resources:
-      - alerts
+      - ocirepositories
     verbs: ["list", "watch"]
 
 resources:
   - groupVersionKind:
-      group: notification.toolkit.fluxcd.io
-      kind: Alert
+      group: source.toolkit.fluxcd.io
+      kind: OCIRepository
       version: v1beta2
-    metricNamePrefix: flux_alert
+    metricNamePrefix: gotk
     metrics:
       - name: "resource_info"
-        help: "The current state of a Flux Alert resource."
+        help: "The current state of a Flux OCIRepository resource."
         each:
           type: Info
           info:
@@ -21,4 +21,7 @@ resources:
               name: [metadata, name]
         labelsFromPath:
           exported_namespace: [metadata, namespace]
+          ready: [status, conditions, "[type=Ready]", status]
           suspended: [spec, suspend]
+          revision: [status, artifact, revision]
+          url: [spec, url]

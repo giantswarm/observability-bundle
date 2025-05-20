@@ -1,19 +1,19 @@
 rbac:
   - apiGroups:
-      - source.toolkit.fluxcd.io
+      - image.toolkit.fluxcd.io
     resources:
-      - helmrepositories
+      - imagerepositories
     verbs: ["list", "watch"]
 
 resources:
   - groupVersionKind:
-      group: source.toolkit.fluxcd.io
-      kind: HelmRepository
-      version: v1beta2
-    metricNamePrefix: flux_helmrepository
+      group: image.toolkit.fluxcd.io
+      kind: ImageRepository
+      version: "*"
+    metricNamePrefix: gotk
     metrics:
       - name: "resource_info"
-        help: "The current state of a Flux HelmRepository resource."
+        help: "The current state of a Flux ImageRepository resource."
         each:
           type: Info
           info:
@@ -23,5 +23,4 @@ resources:
           exported_namespace: [metadata, namespace]
           ready: [status, conditions, "[type=Ready]", status]
           suspended: [spec, suspend]
-          revision: [status, artifact, revision]
-          url: [spec, url]
+          image: [spec, image]

@@ -2,18 +2,18 @@ rbac:
   - apiGroups:
       - notification.toolkit.fluxcd.io
     resources:
-      - receivers
+      - providers
     verbs: ["list", "watch"]
 
 resources:
   - groupVersionKind:
       group: notification.toolkit.fluxcd.io
-      kind: Receiver
-      version: v1
-    metricNamePrefix: flux_receiver
+      kind: Provider
+      version: "*"
+    metricNamePrefix: gotk
     metrics:
       - name: "resource_info"
-        help: "The current state of a Flux Receiver resource."
+        help: "The current state of a Flux Provider resource."
         each:
           type: Info
           info:
@@ -21,6 +21,4 @@ resources:
               name: [metadata, name]
         labelsFromPath:
           exported_namespace: [metadata, namespace]
-          ready: [status, conditions, "[type=Ready]", status]
           suspended: [spec, suspend]
-          webhook_path: [status, webhookPath]
