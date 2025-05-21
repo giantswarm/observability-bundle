@@ -2,18 +2,18 @@ rbac:
   - apiGroups:
       - source.toolkit.fluxcd.io
     resources:
-      - ocirepositories
+      - gitrepositories
     verbs: ["list", "watch"]
 
 resources:
   - groupVersionKind:
       group: source.toolkit.fluxcd.io
-      kind: OCIRepository
-      version: v1beta2
-    metricNamePrefix: flux_ocirepository
+      kind: GitRepository
+      version: "*"
+    metricNamePrefix: gotk
     metrics:
       - name: "resource_info"
-        help: "The current state of a Flux OCIRepository resource."
+        help: "The current state of a Flux GitRepository resource."
         each:
           type: Info
           info:

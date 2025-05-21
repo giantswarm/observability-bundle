@@ -9,8 +9,8 @@ resources:
   - groupVersionKind:
       group: kustomize.toolkit.fluxcd.io
       kind: Kustomization
-      version: v1
-    metricNamePrefix: flux_kustomization
+      version: "*"
+    metricNamePrefix: gotk
     metrics:
       - name: "resource_info"
         help: "The current state of a Flux Kustomization resource."

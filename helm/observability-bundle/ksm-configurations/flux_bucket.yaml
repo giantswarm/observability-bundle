@@ -2,18 +2,18 @@ rbac:
   - apiGroups:
       - source.toolkit.fluxcd.io
     resources:
-      - gitrepositories
+      - buckets
     verbs: ["list", "watch"]
 
 resources:
   - groupVersionKind:
       group: source.toolkit.fluxcd.io
-      kind: GitRepository
-      version: v1
-    metricNamePrefix: flux_gitrepository
+      kind: Bucket
+      version: "*"
+    metricNamePrefix: gotk
     metrics:
       - name: "resource_info"
-        help: "The current state of a Flux GitRepository resource."
+        help: "The current state of a Flux Bucket resource."
         each:
           type: Info
           info:
@@ -24,4 +24,5 @@ resources:
           ready: [status, conditions, "[type=Ready]", status]
           suspended: [spec, suspend]
           revision: [status, artifact, revision]
-          url: [spec, url]
+          endpoint: [spec, endpoint]
+          bucket_name: [spec, bucketName]
