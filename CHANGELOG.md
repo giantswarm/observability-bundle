@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade alloy-app from 0.10.0 to 0.11.0
+-  This bumps the version of Alloy from 1.8.3 to 1.9.0
+
 ## [1.15.0] - 2025-06-02
 
 ### Changed
