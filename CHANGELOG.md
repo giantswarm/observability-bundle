@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.15.0] - 2025-06-02
+
+### Changed
+
+- Upgrade `alloy-app` from 0.9.0 to 0.10.0
+  - This bumps the version of Alloy from 1.7.1 to 1.8.3
+
 ## [1.14.1] - 2025-05-21
 
 ### Changed
@@ -16,6 +23,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.14.0] - 2025-05-13
 
+### Changed
+
+- Upgrade `kube-prometheus-stack` to 72.3.0
+  - Bumps prometheus-operator to 0.82.0
+  - Bumps prometheus-operator CRDs to 0.82.0
+  
 ## [1.13.0] - 2025-04-10
 
 ### Added
@@ -533,7 +546,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.14.1...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.15.0...HEAD
+[1.15.0]: https://github.com/giantswarm/observability-bundle/compare/v1.14.1...v1.15.0
 [1.14.1]: https://github.com/giantswarm/observability-bundle/compare/v1.14.0...v1.14.1
 [1.14.0]: https://github.com/giantswarm/observability-bundle/compare/v1.13.0...v1.14.0
 [1.13.0]: https://github.com/giantswarm/observability-bundle/compare/v1.12.0...v1.13.0
