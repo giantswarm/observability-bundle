@@ -40,7 +40,7 @@ apps:
   alloyEvents:
     appName: alloy-events
     chartName: alloy
-    catalog: giantswarm
+    catalog: default
     dependsOn: prometheus-operator-crd
     enabled: false
     namespace: kube-system
@@ -61,7 +61,7 @@ apps:
   alloyLogs:
     appName: alloy-logs
     chartName: alloy
-    catalog: giantswarm
+    catalog: default
     dependsOn: prometheus-operator-crd
     enabled: false
     namespace: kube-system
@@ -82,7 +82,7 @@ apps:
   alloyMetrics:
     appName: alloy-metrics
     chartName: alloy
-    catalog: giantswarm
+    catalog: default
     dependsOn: prometheus-operator-crd
     enabled: false
     namespace: kube-system
