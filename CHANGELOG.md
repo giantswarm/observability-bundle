@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.16.1] - 2025-06-03
+
 ### Fixed
 
 - Fix catalog for alloy apps as it is now pushed to the default catalog.
@@ -557,7 +559,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.16.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v1.16.1...HEAD
+[1.16.1]: https://github.com/giantswarm/observability-bundle/compare/v1.16.0...v1.16.1
 [1.16.0]: https://github.com/giantswarm/observability-bundle/compare/v1.15.0...v1.16.0
 [1.15.0]: https://github.com/giantswarm/observability-bundle/compare/v1.14.1...v1.15.0
 [1.14.1]: https://github.com/giantswarm/observability-bundle/compare/v1.14.0...v1.14.1
