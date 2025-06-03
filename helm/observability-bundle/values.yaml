@@ -42,7 +42,7 @@ apps:
     chartName: alloy
     catalog: giantswarm
     dependsOn: prometheus-operator-crd
-    enabled: false
+    enabled: true
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
@@ -63,7 +63,7 @@ apps:
     chartName: alloy
     catalog: giantswarm
     dependsOn: prometheus-operator-crd
-    enabled: false
+    enabled: true
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
@@ -84,7 +84,7 @@ apps:
     chartName: alloy
     catalog: giantswarm
     dependsOn: prometheus-operator-crd
-    enabled: false
+    enabled: true
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
