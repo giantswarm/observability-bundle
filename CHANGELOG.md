@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix catalog for alloy apps as it is now pushed to the default catalog.
+
 ## [1.16.0] - 2025-06-02
 
 ### Changed
