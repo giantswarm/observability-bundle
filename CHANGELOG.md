@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Clean up old and deprecated telemetry collectors:
+  - `promtail`
+  - `grafana-agent`
+  - `promtheus-agent`
+- Disable PodSecurityPolicies by default as PodSecurityPolicies are deprecated and removed in Kubernetes v1.25+ clusters
+
 ## [1.16.1] - 2025-06-03
 
 ### Fixed
@@ -17,15 +25,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Upgrade alloy-app from 0.10.0 to 0.11.0
--  This bumps the version of Alloy from 1.8.3 to 1.9.0
+- Upgrade `alloy-app` from 0.10.0 to 0.11.0
+-  This bumps the version of `Alloy` from 1.8.3 to 1.9.0
 
 ## [1.15.0] - 2025-06-02
 
 ### Changed
 
 - Upgrade `alloy-app` from 0.9.0 to 0.10.0
-  - This bumps the version of Alloy from 1.7.1 to 1.8.3
+  - This bumps the version of `Alloy` from 1.7.1 to 1.8.3
 
 ## [1.14.1] - 2025-05-21
 
