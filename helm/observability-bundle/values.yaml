@@ -1,10 +1,6 @@
 clusterID: ""
 organization: ""
 
-global:
-  podSecurityStandards:
-    enforced: false
-
 userConfig:
   kubePrometheusStack:
     configMap:
@@ -39,14 +35,6 @@ userConfig:
                 app.kubernetes.io/instance: kube-prometheus-stack
                 app.kubernetes.io/part-of: kube-prometheus-stack
                 application.giantswarm.io/team: atlas
-  promtail:
-    configMap:
-      values:
-        ciliumNetworkPolicy:
-          enabled: true
-        promtail:
-          networkPolicy:
-            enabled: false
 
 apps:
   alloyEvents:
@@ -133,87 +121,5 @@ apps:
     timeout: 15m
     # used by renovate
     # repo: giantswarm/kube-prometheus-stack-app
-    version: 16.0.0
-    # a list of extraConfigs for the App,
-    # It can be secret or configmap
-    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs:
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-observability-bundle-psp-override"
-        namespace: "{{ $.Release.Namespace }}"
-        priority: 150
-
-  prometheusAgent:
-    appName: prometheus-agent
-    chartName: prometheus-agent
-    catalog: default
-    dependsOn: prometheus-operator-crd
-    enabled: true
-    namespace: kube-system
-    # used by renovate
-    # repo: giantswarm/prometheus-agent-app
-    version: 0.7.0
-    # a list of extraConfigs for the App,
-    # It can be secret or configmap
-    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs:
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-observability-bundle-psp-override"
-        namespace: "{{ $.Release.Namespace }}"
-        priority: 150
-      - kind: secret
-        name: "{{ $.Values.clusterID }}-remote-write-secret"
-        namespace: "{{ $.Release.Namespace }}"
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-remote-write-config"
-        namespace: "{{ $.Release.Namespace }}"
-
-  promtail:
-    appName: promtail
-    chartName: promtail
-    catalog: giantswarm
-    dependsOn: prometheus-operator-crd
-    enabled: false
-    namespace: kube-system
-    # used by renovate
-    # repo: giantswarm/promtail-app
-    version: 1.5.4
-    # a list of extraConfigs for the App,
-    # It can be secret or configmap
-    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs:
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-observability-bundle-psp-override"
-        namespace: "{{ $.Release.Namespace }}"
-        priority: 150
-      - kind: secret
-        name: "{{ $.Values.clusterID }}-logging-secret"
-        namespace: "{{ $.Release.Namespace }}"
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-logging-config"
-        namespace: "{{ $.Release.Namespace }}"
-
-  grafanaAgent:
-    appName: grafana-agent
-    chartName: grafana-agent
-    catalog: giantswarm
-    dependsOn: prometheus-operator-crd
-    enabled: false
-    namespace: kube-system
-    # used by renovate
-    # repo: giantswarm/grafana-agent-app
-    version: 0.4.6
-    # a list of extraConfigs for the App,
-    # It can be secret or configmap
-    # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
-    extraConfigs:
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-observability-bundle-psp-override"
-        namespace: "{{ $.Release.Namespace }}"
-        priority: 150
-      - kind: configMap
-        name: "{{ $.Values.clusterID }}-grafana-agent-config"
-        namespace: "{{ $.Release.Namespace }}"
-      - kind: secret
-        name: "{{ $.Values.clusterID }}-grafana-agent-secret"
-        namespace: "{{ $.Release.Namespace }}"
+    version: 16.1.0
+    extraConfigs: []
