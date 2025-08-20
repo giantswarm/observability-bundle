@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `kube-prometheus-stack` to 76.4.0
+  - Bumps prometheus-operator and CRDs to 0.84.1
+  - Bumps prometheus to 3.5.0
+
 ## [2.0.0] - 2025-06-03
 
 ### Removed
@@ -51,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade `kube-prometheus-stack` to 72.3.0
   - Bumps prometheus-operator to 0.82.0
   - Bumps prometheus-operator CRDs to 0.82.0
-  
+
 ## [1.13.0] - 2025-04-10
 
 ### Added
