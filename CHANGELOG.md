@@ -11,10 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Upgrade `kube-prometheus-stack` to 76.4.0
-  - Bumps prometheus-operator and CRDs to 0.84.1
+- Upgrade `kube-prometheus-stack` to 77.0.1
+  - Bumps prometheus-operator and CRDs to 0.85.0
   - Bumps prometheus to 3.5.0
-- Update alloy-app to 0.12.1
+- Update alloy-app to 0.13.0
   - Bumps alloy to 1.10.1
 
 ## [2.0.0] - 2025-06-03
