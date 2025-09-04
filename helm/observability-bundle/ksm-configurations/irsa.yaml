@@ -1,0 +1,35 @@
+rbac:
+  - apiGroups:
+      - crossplane.giantswarm.io
+    resources:
+      - irsaclaims
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: crossplane.giantswarm.io
+      kind: IRSAClaim
+      version: v1
+    metricNamePrefix: irsaclaim
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+    metrics:
+      - name: status_conditions
+        help: The conditions of an IRSAClaim.
+        each:
+          type: StateSet
+          stateSet:
+            path:
+              - status
+              - conditions
+            list:
+              - "True"
+              - "False"
+              - "Unknown"
+            valueFrom:
+              - status
+            labelName: status
+            labelsFromPath:
+              type: [type]
