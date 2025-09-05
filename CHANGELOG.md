@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.1] - 2025-09-05
+
 ### Added
 
 - Add KSM metrics for IRSAClaim objects
@@ -591,7 +593,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.2.1...HEAD
+[2.2.1]: https://github.com/giantswarm/observability-bundle/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/giantswarm/observability-bundle/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/giantswarm/observability-bundle/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/giantswarm/observability-bundle/compare/v1.16.1...v2.0.0
