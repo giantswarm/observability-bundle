@@ -1,0 +1,39 @@
+rbac:
+  - apiGroups:
+      - postgresql.cnpg.io
+    resources:
+      - clusters
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: postgresql.cnpg.io
+      version: v1
+      kind: Cluster
+
+    labelsFromPath:
+      namespace: [metadata, namespace]
+      cluster: [metadata, name]
+
+    metrics:
+      # 1. Info / identity metric with status.phase label
+      - name: kube_cnpg_cluster_status_info
+        help: "Static info about a CloudNativePG Cluster including its status phase."
+        each:
+          type: Gauge
+          value: 1
+        labelsFromPath:
+          phase: [status, phase]
+
+      # 2. Desired vs ready instances
+      - name: kube_cnpg_cluster_spec_instances
+        help: "The desired number of instances for this CloudNativePG cluster (spec.instances)."
+        each:
+          type: Gauge
+          valueFromPath: [spec, instances]
+
+      - name: kube_cnpg_cluster_status_ready_instances
+        help: "The number of ready instances of the CloudNativePG cluster (status.readyInstances)."
+        each:
+          type: Gauge
+          valueFromPath: [status, readyInstances]
