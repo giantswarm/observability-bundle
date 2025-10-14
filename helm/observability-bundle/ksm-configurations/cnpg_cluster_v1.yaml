@@ -23,15 +23,3 @@ resources:
           value: 1
         labelsFromPath:
           phase: [status, phase]
-
-      - name: kube_cnpg_cluster_spec_instances
-        help: "The desired number of instances for this CloudNativePG cluster (spec.instances)."
-        each:
-          type: Gauge
-          valueFrom: '{{ if .spec.instances }}{{ .spec.instances }}{{ else }}0{{ end }}'
-
-      - name: kube_cnpg_cluster_status_ready_instances
-        help: "The number of ready instances of the CloudNativePG cluster (status.readyInstances)."
-        each:
-          type: Gauge
-          valueFrom: '{{ if .status.readyInstances }}{{ .status.readyInstances }}{{ else }}0{{ end }}'
