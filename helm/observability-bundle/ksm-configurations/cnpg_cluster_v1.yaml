@@ -10,16 +10,22 @@ resources:
       group: postgresql.cnpg.io
       version: v1
       kind: Cluster
-
+    metricNamePrefix: kube_cnpg
     labelsFromPath:
-      namespace: [metadata, namespace]
-      cluster: [metadata, name]
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
 
     metrics:
-      - name: kube_cnpg_cluster_info
-        help: "Info about a CloudNativePG Cluster including its status phase."
-        type: Info
+      - name: cluster_info
+        help: Info about a CloudNativePG Cluster including its status phase.
         each:
           info:
             labelsFromPath:
-              phase: [status, phase]
+              phase: 
+                - status
+                - phase
+          type: Info
