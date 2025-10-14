@@ -19,7 +19,7 @@ resources:
       - name: kube_cnpg_cluster_status_info
         help: "Static info about a CloudNativePG Cluster including its status phase."
         each:
-          type: Gauge
-          value: 1
+          gauge:
+            value: 1
         labelsFromPath:
           phase: [status, phase]
