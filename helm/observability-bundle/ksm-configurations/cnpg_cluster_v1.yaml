@@ -16,10 +16,10 @@ resources:
       cluster: [metadata, name]
 
     metrics:
-      - name: kube_cnpg_cluster_status_info
-        help: "Static info about a CloudNativePG Cluster including its status phase."
+      - name: kube_cnpg_cluster_info
+        help: "Info about a CloudNativePG Cluster including its status phase."
+        type: Info
         each:
-          gauge:
-            value: 1
-        labelsFromPath:
-          phase: [status, phase]
+          info:
+            labelsFromPath:
+              phase: [status, phase]
