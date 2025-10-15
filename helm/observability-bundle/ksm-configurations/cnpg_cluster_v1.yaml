@@ -1,0 +1,31 @@
+rbac:
+  - apiGroups:
+      - postgresql.cnpg.io
+    resources:
+      - clusters
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: postgresql.cnpg.io
+      version: v1
+      kind: Cluster
+    metricNamePrefix: kube_cnpg
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+
+    metrics:
+      - name: cluster_info
+        help: Info about a CloudNativePG Cluster including its status phase.
+        each:
+          info:
+            labelsFromPath:
+              phase: 
+                - status
+                - phase
+          type: Info
