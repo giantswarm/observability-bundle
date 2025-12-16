@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `kube-prometheus-stack-app` to 19.0.0
+- Update alloy-app to 0.16.0
+  - Bumps alloy to 1.12.0
+
 ## [2.3.2] - 2025-10-15
 
 ### Added
