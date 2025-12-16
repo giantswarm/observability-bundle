@@ -1,0 +1,37 @@
+rbac:
+  - apiGroups:
+      - monitoring.coreos.com
+    resources:
+      - servicemonitors
+      - podmonitors
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: monitoring.coreos.com
+      kind: ServiceMonitor
+      version: v1
+    metrics:
+      - name: info
+        help: "Information about ServiceMonitor resources"
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              resource_app: [metadata, labels, "app.kubernetes.io/instance"]
+              resource_name: [metadata, name]
+              resource_namespace: [metadata, namespace]
+  - groupVersionKind:
+      group: monitoring.coreos.com
+      kind: PodMonitor
+      version: v1
+    metrics:
+      - name: info
+        help: "Information about PodMonitor resources"
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              resource_app: [metadata, labels, "app.kubernetes.io/instance"]
+              resource_name: [metadata, name]
+              resource_namespace: [metadata, namespace]
