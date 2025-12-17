@@ -1,0 +1,29 @@
+rbac:
+  - apiGroups:
+      - monitoring.coreos.com
+    resources:
+      - podmonitors
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: monitoring.coreos.com
+      kind: PodMonitor
+      version: v1
+    metricNamePrefix: kube_podmonitor
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+      tenant:
+        - metadata
+        - labels
+        - observability.giantswarm.io/tenant
+    metrics:
+      - name: info
+        help: Information about a PodMonitor.
+        each:
+          type: Info

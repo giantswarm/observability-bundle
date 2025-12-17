@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add KSM configurations for PodMonitors, ServiceMonitors, and PodLogs info metrics with tenant label extraction
+
 ## [2.4.0] - 2025-12-16
 
 ### Changed
