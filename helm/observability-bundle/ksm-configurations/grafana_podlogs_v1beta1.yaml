@@ -1,0 +1,34 @@
+rbac:
+  - apiGroups:
+      - monitoring.grafana.com
+    resources:
+      - podlogs
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: monitoring.grafana.com
+      kind: PodLogs
+      version: v1alpha2
+    metricNamePrefix: kube_podlogs
+    metrics:
+      - name: info
+        help: Information about a PodLogs resource.
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              name:
+                - metadata
+                - name
+              namespace:
+                - metadata
+                - namespace
+              tenant:
+                - metadata
+                - labels
+                - observability.giantswarm.io/tenant
+              team:
+                - metadata
+                - labels
+                - application.giantswarm.io/team
