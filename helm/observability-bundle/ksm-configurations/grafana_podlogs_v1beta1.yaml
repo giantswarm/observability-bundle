@@ -1,29 +1,34 @@
 rbac:
   - apiGroups:
-      - loki.grafana.com
+      - monitoring.grafana.com
     resources:
       - podlogs
     verbs: ["list", "watch"]
 
 resources:
   - groupVersionKind:
-      group: loki.grafana.com
+      group: monitoring.grafana.com
       kind: PodLogs
-      version: v1beta1
+      version: v1alpha2
     metricNamePrefix: kube_podlogs
-    labelsFromPath:
-      name:
-        - metadata
-        - name
-      namespace:
-        - metadata
-        - namespace
-      tenant:
-        - metadata
-        - labels
-        - observability.giantswarm.io/tenant
     metrics:
       - name: info
         help: Information about a PodLogs resource.
         each:
           type: Info
+          info:
+            labelsFromPath:
+              name:
+                - metadata
+                - name
+              namespace:
+                - metadata
+                - namespace
+              tenant:
+                - metadata
+                - labels
+                - observability.giantswarm.io/tenant
+              team:
+                - metadata
+                - labels
+                - application.giantswarm.io/team

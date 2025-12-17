@@ -11,19 +11,24 @@ resources:
       kind: ServiceMonitor
       version: v1
     metricNamePrefix: kube_servicemonitor
-    labelsFromPath:
-      name:
-        - metadata
-        - name
-      namespace:
-        - metadata
-        - namespace
-      tenant:
-        - metadata
-        - labels
-        - observability.giantswarm.io/tenant
     metrics:
       - name: info
         help: Information about a ServiceMonitor.
         each:
           type: Info
+          info:
+            labelsFromPath:
+              name:
+                - metadata
+                - name
+              namespace:
+                - metadata
+                - namespace
+              tenant:
+                - metadata
+                - labels
+                - observability.giantswarm.io/tenant
+              team:
+                - metadata
+                - labels
+                - application.giantswarm.io/team

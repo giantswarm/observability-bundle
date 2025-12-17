@@ -11,19 +11,24 @@ resources:
       kind: PodMonitor
       version: v1
     metricNamePrefix: kube_podmonitor
-    labelsFromPath:
-      name:
-        - metadata
-        - name
-      namespace:
-        - metadata
-        - namespace
-      tenant:
-        - metadata
-        - labels
-        - observability.giantswarm.io/tenant
     metrics:
       - name: info
         help: Information about a PodMonitor.
         each:
           type: Info
+          info:
+            labelsFromPath:
+              name:
+                - metadata
+                - name
+              namespace:
+                - metadata
+                - namespace
+              tenant:
+                - metadata
+                - labels
+                - observability.giantswarm.io/tenant
+              team:
+                - metadata
+                - labels
+                - application.giantswarm.io/team
