@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add KSM metrics for ServiceMonitor and PodMonitor resources
+- Add KSM metrics `kube_servicemonitor_info` and `kube_podmonitor_info` for ServiceMonitor and PodMonitor resources
 
 ## [2.3.2] - 2025-10-15
 
