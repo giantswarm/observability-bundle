@@ -11,6 +11,7 @@ resources:
       group: monitoring.coreos.com
       kind: ServiceMonitor
       version: v1
+    metricNamePrefix: kube_servicemonitor
     metrics:
       - name: info
         help: "Information about ServiceMonitor resources"
@@ -25,6 +26,7 @@ resources:
       group: monitoring.coreos.com
       kind: PodMonitor
       version: v1
+    metricNamePrefix: kube_podmonitor
     metrics:
       - name: info
         help: "Information about PodMonitor resources"
