@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add KSM metrics `kube_servicemonitor_info` and `kube_podmonitor_info` for ServiceMonitor and PodMonitor resources
 
+## [2.4.0] - 2025-12-16
+
+### Changed
+
+- Upgrade `kube-prometheus-stack-app` to 19.0.0
+- Update alloy-app to 0.16.0
+  - Bumps alloy to 1.12.0
+
 ## [2.3.2] - 2025-10-15
 
 ### Added
@@ -624,7 +632,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.3.2...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.4.0...HEAD
+[2.4.0]: https://github.com/giantswarm/observability-bundle/compare/v2.3.2...v2.4.0
 [2.3.2]: https://github.com/giantswarm/observability-bundle/compare/v2.3.1...v2.3.2
 [2.3.1]: https://github.com/giantswarm/observability-bundle/compare/v2.3.0...v2.3.1
 [2.3.0]: https://github.com/giantswarm/observability-bundle/compare/v2.2.2...v2.3.0
