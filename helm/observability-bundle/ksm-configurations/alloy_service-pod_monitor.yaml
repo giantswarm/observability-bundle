@@ -29,7 +29,7 @@ resources:
     metricNamePrefix: kube_podmonitor
     metrics:
       - name: info
-        help: "Information about PodMonitor resources"
+        help: "Information about a PodMonitor resource"
         each:
           type: Info
           info:
