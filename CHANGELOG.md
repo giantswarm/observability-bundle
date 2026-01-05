@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add KSM configurations for PodMonitors, ServiceMonitors, and PodLogs info metrics with tenant label extraction
 
+## [2.4.1] - 2025-12-29
+
+### Fixed
+
+- Fixed KSM metrics for endpoints
+
 ## [2.4.0] - 2025-12-16
 
 ### Changed
@@ -632,7 +638,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.4.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.4.1...HEAD
+[2.4.1]: https://github.com/giantswarm/observability-bundle/compare/v2.4.0...v2.4.1
 [2.4.0]: https://github.com/giantswarm/observability-bundle/compare/v2.3.2...v2.4.0
 [2.3.2]: https://github.com/giantswarm/observability-bundle/compare/v2.3.1...v2.3.2
 [2.3.1]: https://github.com/giantswarm/observability-bundle/compare/v2.3.0...v2.3.1

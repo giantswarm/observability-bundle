@@ -121,5 +121,5 @@ apps:
     timeout: 15m
     # used by renovate
     # repo: giantswarm/kube-prometheus-stack-app
-    version: 19.0.0
+    version: 19.0.1
     extraConfigs: []
