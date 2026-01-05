@@ -14,7 +14,7 @@ resources:
     metricNamePrefix: kube_servicemonitor
     metrics:
       - name: info
-        help: "Information about ServiceMonitor resources"
+        help: "Information about a ServiceMonitor resource"
         each:
           type: Info
           info:
