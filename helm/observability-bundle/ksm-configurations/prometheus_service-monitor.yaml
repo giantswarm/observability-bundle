@@ -3,7 +3,6 @@ rbac:
       - monitoring.coreos.com
     resources:
       - servicemonitors
-      - podmonitors
     verbs: ["list", "watch"]
 
 resources:
@@ -15,36 +14,6 @@ resources:
     metrics:
       - name: info
         help: "Information about a ServiceMonitor resource"
-        each:
-          type: Info
-          info:
-            labelsFromPath:
-              name:
-                - metadata
-                - name
-              namespace:
-                - metadata
-                - namespace
-              tenant:
-                - metadata
-                - labels
-                - observability.giantswarm.io/tenant
-              team:
-                - metadata
-                - labels
-                - application.giantswarm.io/team
-              app_instance:
-                - metadata
-                - labels
-                - app.kubernetes.io/instance
-  - groupVersionKind:
-      group: monitoring.coreos.com
-      kind: PodMonitor
-      version: v1
-    metricNamePrefix: kube_podmonitor
-    metrics:
-      - name: info
-        help: "Information about a PodMonitor resource"
         each:
           type: Info
           info:
