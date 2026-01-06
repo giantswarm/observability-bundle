@@ -19,9 +19,24 @@ resources:
           type: Info
           info:
             labelsFromPath:
-              resource_app: [metadata, labels, "app.kubernetes.io/instance"]
-              resource_name: [metadata, name]
-              resource_namespace: [metadata, namespace]
+              name:
+                - metadata
+                - name
+              namespace:
+                - metadata
+                - namespace
+              tenant:
+                - metadata
+                - labels
+                - observability.giantswarm.io/tenant
+              team:
+                - metadata
+                - labels
+                - application.giantswarm.io/team
+              app_instance:
+                - metadata
+                - labels
+                - app.kubernetes.io/instance
   - groupVersionKind:
       group: monitoring.coreos.com
       kind: PodMonitor
@@ -34,6 +49,21 @@ resources:
           type: Info
           info:
             labelsFromPath:
-              resource_app: [metadata, labels, "app.kubernetes.io/instance"]
-              resource_name: [metadata, name]
-              resource_namespace: [metadata, namespace]
+              name:
+                - metadata
+                - name
+              namespace:
+                - metadata
+                - namespace
+              tenant:
+                - metadata
+                - labels
+                - observability.giantswarm.io/tenant
+              team:
+                - metadata
+                - labels
+                - application.giantswarm.io/team
+              app_instance:
+                - metadata
+                - labels
+                - app.kubernetes.io/instance
