@@ -8,7 +8,7 @@ rbac:
 resources:
   - groupVersionKind:
       group: monitoring.grafana.com
-      kind: PodLog
+      kind: PodLogs
       version: v1alpha2
     metricNamePrefix: kube_podlog
     metrics:
