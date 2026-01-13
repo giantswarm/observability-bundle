@@ -449,14 +449,14 @@ rbac:
   - apiGroups:
       - gateway.networking.k8s.io
     resources:
-      - "gateways"
-      - "gatewayclasss"
-      - "httproutes"
-      - "grpcroutes"
-      - "tcproutes"
-      - "tlsroutes"
-      - "udproutes"
-      - "backendtlspolicys"
+      - gateways
+      - gatewayclasses
+      - httproutes
+      - grpcroutes
+      - tcproutes
+      - tlsroutes
+      - udproutes
+      - backendtlspolicies
     verbs:
       - list
       - watch
