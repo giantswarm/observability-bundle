@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.6.0] - 2026-01-28
+
 ### Added
 
 - Add KSM metrics for Gateway API resources
@@ -645,7 +647,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.5.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.6.0...HEAD
+[2.6.0]: https://github.com/giantswarm/observability-bundle/compare/v2.5.0...v2.6.0
 [2.5.0]: https://github.com/giantswarm/observability-bundle/compare/v2.4.1...v2.5.0
 [2.4.1]: https://github.com/giantswarm/observability-bundle/compare/v2.4.0...v2.4.1
 [2.4.0]: https://github.com/giantswarm/observability-bundle/compare/v2.3.2...v2.4.0
