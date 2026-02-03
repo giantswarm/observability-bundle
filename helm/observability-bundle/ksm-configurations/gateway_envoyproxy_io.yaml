@@ -1,0 +1,284 @@
+resources:
+  - groupVersionKind:
+      group: gateway.envoyproxy.io
+      kind: "EnvoyProxy"
+      version: "v1alpha1"
+    metricNamePrefix: envoygateway_envoyproxy
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "info"
+        help: "EnvoyProxy information"
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              merge_gateways: [spec, mergeGateways]
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+  - groupVersionKind:
+      group: gateway.envoyproxy.io
+      kind: "SecurityPolicy"
+      version: "v1alpha1"
+    metricNamePrefix: envoygateway_securitypolicy
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "info"
+        help: "SecurityPolicy information"
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              target_kind: [spec, targetRef, kind]
+              target_name: [spec, targetRef, name]
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+  - groupVersionKind:
+      group: gateway.envoyproxy.io
+      kind: "BackendTrafficPolicy"
+      version: "v1alpha1"
+    metricNamePrefix: envoygateway_backendtrafficpolicy
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "info"
+        help: "BackendTrafficPolicy information"
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              target_kind: [spec, targetRef, kind]
+              target_name: [spec, targetRef, name]
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+  - groupVersionKind:
+      group: gateway.envoyproxy.io
+      kind: "ClientTrafficPolicy"
+      version: "v1alpha1"
+    metricNamePrefix: envoygateway_clienttrafficpolicy
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "info"
+        help: "ClientTrafficPolicy information"
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              target_kind: [spec, targetRef, kind]
+              target_name: [spec, targetRef, name]
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+  - groupVersionKind:
+      group: gateway.envoyproxy.io
+      kind: "EnvoyExtensionPolicy"
+      version: "v1alpha1"
+    metricNamePrefix: envoygateway_envoyextensionpolicy
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "info"
+        help: "EnvoyExtensionPolicy information"
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              target_kind: [spec, targetRef, kind]
+              target_name: [spec, targetRef, name]
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+  - groupVersionKind:
+      group: gateway.envoyproxy.io
+      kind: "EnvoyPatchPolicy"
+      version: "v1alpha1"
+    metricNamePrefix: envoygateway_envoypatchpolicy
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "info"
+        help: "EnvoyPatchPolicy information"
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              target_kind: [spec, targetRef, kind]
+              target_name: [spec, targetRef, name]
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+  - groupVersionKind:
+      group: gateway.envoyproxy.io
+      kind: "HTTPRouteFilter"
+      version: "v1alpha1"
+    metricNamePrefix: envoygateway_httproutefilter
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "info"
+        help: "HTTPRouteFilter information"
+        each:
+          type: Info
+          info:
+            labelsFromPath: {}
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+  - groupVersionKind:
+      group: gateway.envoyproxy.io
+      kind: "Backend"
+      version: "v1alpha1"
+    metricNamePrefix: envoygateway_backend
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "info"
+        help: "Backend information"
+        each:
+          type: Info
+          info:
+            labelsFromPath:
+              type: [spec, type]
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+rbac:
+  - apiGroups:
+      - gateway.envoyproxy.io
+    resources:
+      - envoyproxies
+      - securitypolicies
+      - backendtrafficpolicies
+      - clienttrafficpolicies
+      - envoyextensionpolicies
+      - envoypatchpolicies
+      - httproutefilters
+      - backends
+    verbs:
+      - list
+      - watch
