@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add KSM metrics for Envoy Gateway resources.
 
+### Changed
+
+- Migrate sub-apps from App CRs to Flux HelmRelease CRs.
+- Add pre-upgrade migration hook to safely clean up Chart CRs during the transition.
+
 ## [2.6.0] - 2026-01-28
 
 ### Added
