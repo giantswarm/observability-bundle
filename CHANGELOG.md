@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add missing Backstage managed annotation.
 - Add KSM metrics for Envoy Gateway resources.
 
 ### Changed
@@ -18,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update alloy-app to 0.16.1
 - Update kube-prometheus-stack to 19.0.2
 - Update prometheus-operator-crd to 19.0.1
+
+### Fixed
+
+- Fix chart annotations to match with the new OCI format
 
 ## [2.6.0] - 2026-01-28
 
