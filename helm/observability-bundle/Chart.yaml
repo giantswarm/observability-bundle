@@ -9,6 +9,5 @@ sources:
 version: 2.6.0
 annotations:
   io.giantswarm.application.app-type: bundle
-  io.giantswarm.application.audience: all
   io.giantswarm.application.managed: "true"
   io.giantswarm.application.team: atlas
