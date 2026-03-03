@@ -7,9 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.7.0] - 2026-03-03
+
 ### Added
 
 - Add KSM metrics for Envoy Gateway resources.
+- Add `application.giantswarm.io/team` annotation from HelmReleases as label to KSM emitted metrics.
+
+### Changed
+
+- Change team annotation in `Chart.yaml` to OpenContainers format (`io.giantswarm.application.team`).
+- Update alloy-app to 0.17.1
+- Update kube-prometheus-stack to 20.0.0
+- Update prometheus-operator-crd to 20.0.0
 
 ### Changed
 
@@ -655,7 +665,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.6.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.7.0...HEAD
+[2.7.0]: https://github.com/giantswarm/observability-bundle/compare/v2.6.0...v2.7.0
 [2.6.0]: https://github.com/giantswarm/observability-bundle/compare/v2.5.0...v2.6.0
 [2.5.0]: https://github.com/giantswarm/observability-bundle/compare/v2.4.1...v2.5.0
 [2.4.1]: https://github.com/giantswarm/observability-bundle/compare/v2.4.0...v2.4.1

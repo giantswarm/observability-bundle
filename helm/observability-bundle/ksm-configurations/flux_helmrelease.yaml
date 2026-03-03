@@ -26,3 +26,4 @@ resources:
           revision: [status, lastAppliedRevision]
           chart_name: [spec, chart, spec, chart]
           chart_source_name: [spec, chart, spec, sourceRef, name]
+          team: [metadata, annotations, "application.giantswarm.io/team"]
