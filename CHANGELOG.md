@@ -15,9 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Change team annotation in `Chart.yaml` to OpenContainers format (`io.giantswarm.application.team`).
-- Update alloy-app to 0.16.1
-- Update kube-prometheus-stack to 19.0.2
-- Update prometheus-operator-crd to 19.0.1
+- Update alloy-app to 0.17.1
+- Update kube-prometheus-stack to 20.0.0
+- Update prometheus-operator-crd to 20.0.0
 
 ## [2.6.0] - 2026-01-28
 
