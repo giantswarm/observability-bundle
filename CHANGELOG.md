@@ -31,6 +31,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update kube-prometheus-stack to 20.0.0
 - Update prometheus-operator-crd to 20.0.0
 
+### Changed
+
+- Migrate sub-apps from App CRs to Flux HelmRelease CRs.
+
 ## [2.6.0] - 2026-01-28
 
 ### Added
