@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update dependency giantswarm/kube-prometheus-stack-app to v20.2.0
+- Migrate sub-apps from App CRs to Flux HelmRelease CRs.
 
 ## [2.8.0] - 2026-03-04
 
@@ -30,10 +31,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update alloy-app to 0.17.1
 - Update kube-prometheus-stack to 20.0.0
 - Update prometheus-operator-crd to 20.0.0
-
-### Changed
-
-- Migrate sub-apps from App CRs to Flux HelmRelease CRs.
 
 ## [2.6.0] - 2026-01-28
 
