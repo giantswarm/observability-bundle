@@ -109,6 +109,7 @@ apps:
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
     version: 20.0.0
+    extraConfigs: []
 
   kubePrometheusStack:
     appName: kube-prometheus-stack

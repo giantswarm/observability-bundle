@@ -50,7 +50,7 @@ spec:
     remediation:
       retries: -1
   valuesFrom:
-  {{- range $extraConfig := .extraConfigs }}
+  {{- range $extraConfig := (.extraConfigs | default list) }}
   {{- $kind := $extraConfig.kind }}
   {{- if eq $kind "configMap" }}{{ $kind = "ConfigMap" }}{{ else if eq $kind "secret" }}{{ $kind = "Secret" }}{{ end }}
   - kind: {{ $kind }}
