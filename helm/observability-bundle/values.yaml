@@ -87,7 +87,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.17.1-b5f0a87a9460ef20e0bdefc40b40d85e27e69efb
+    version: 0.17.1-c8f3c3b356567e82785671be54115b8520db9e74
 
   alloyMetrics:
     appName: alloy-metrics
