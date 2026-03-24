@@ -79,6 +79,16 @@ apps:
         name: "{{ $.Values.clusterID }}-logging-config"
         namespace: "{{ $.Release.Namespace }}"
 
+  alloyPodLogsCrds:
+    appName: alloy-podlogs-crds
+    chartName: alloy-podlogs-crds
+    catalog: default-test
+    enabled: true
+    namespace: kube-system
+    # used by renovate
+    # repo: giantswarm/alloy-app
+    version: 0.17.1-7b7236dd1e1a98c1d6776306bbfb4d2ff79ee221
+
   alloyMetrics:
     appName: alloy-metrics
     chartName: alloy
