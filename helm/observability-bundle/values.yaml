@@ -107,7 +107,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.16.1
+    version: 0.18.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -128,7 +128,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.16.1
+    version: 0.18.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -149,7 +149,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.16.1
+    version: 0.18.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -169,7 +169,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
-    version: 19.0.1
+    version: 20.0.0
 
   kubePrometheusStack:
     appName: kube-prometheus-stack
@@ -182,5 +182,5 @@ apps:
     timeout: 15m
     # used by renovate
     # repo: giantswarm/kube-prometheus-stack-app
-    version: 19.0.2
+    version: 20.2.0
     extraConfigs: []
