@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add Backstage audience annotations.
+- Add managementCluster: "" as a top-level value (populated from the cluster chart via defaultValues)
+- Moves full KSM metricRelabelings ownership from kube-prometheus-stack-app into observability-bundle
+
 ### Changed
 
 - Update dependency giantswarm/kube-prometheus-stack-app to v20.2.0
@@ -22,7 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add Backstage audience annotations.
 - Add KSM metrics for Envoy Gateway resources.
 - Add `application.giantswarm.io/team` annotation from HelmReleases as label to KSM emitted metrics.
 
