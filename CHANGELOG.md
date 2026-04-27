@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove 'cluster-values' ConfigMap reference from HelmReleases.
 - Add new `alloy-podlogs-crds` chart.
 - Update alloy-app to 0.18.0
+- Change `apps[].dependsOn` to a list of strings to support multiple dependencies per HelmRelease.
 
 ## [2.8.0] - 2026-03-04
 

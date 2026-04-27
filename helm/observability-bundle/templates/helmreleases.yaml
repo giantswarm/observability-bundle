@@ -32,8 +32,10 @@ spec:
     name: {{ $appName }}
   {{- if .dependsOn }}
   dependsOn:
-  - name: {{ $.Values.clusterID }}-{{ .dependsOn }}
+  {{- range $dep := .dependsOn }}
+  - name: {{ $.Values.clusterID }}-{{ $dep }}
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   {{- end }}
   kubeConfig:
     secretRef:
