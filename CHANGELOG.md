@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add Backstage audience annotations.
+- Add managementCluster: "" as a top-level value (populated from the cluster chart via defaultValues)
+- Moves full KSM metricRelabelings ownership from kube-prometheus-stack-app into observability-bundle
+
 ### Changed
 
 - Update dependency giantswarm/kube-prometheus-stack-app to v20.2.0
