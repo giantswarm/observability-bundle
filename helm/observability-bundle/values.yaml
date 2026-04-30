@@ -41,7 +41,9 @@ apps:
     appName: alloy-events
     chartName: alloy
     catalog: default
-    dependsOn: prometheus-operator-crd
+    dependsOn:
+      - prometheus-operator-crd
+      - kyverno-crds
     enabled: true
     namespace: kube-system
     # used by renovate
@@ -62,7 +64,9 @@ apps:
     appName: alloy-logs
     chartName: alloy
     catalog: default
-    dependsOn: prometheus-operator-crd
+    dependsOn:
+      - prometheus-operator-crd
+      - kyverno-crds
     enabled: true
     namespace: kube-system
     # used by renovate
@@ -79,11 +83,23 @@ apps:
         name: "{{ $.Values.clusterID }}-logging-config"
         namespace: "{{ $.Release.Namespace }}"
 
+  alloyPodLogsCrds:
+    appName: alloy-podlogs-crds
+    chartName: alloy-podlogs-crds
+    catalog: default
+    enabled: true
+    namespace: kube-system
+    # used by renovate
+    # repo: giantswarm/alloy-app
+    version: 0.18.0-1692c07d1e5c0e9243191a6ed4fe24c46f09bd21
+
   alloyMetrics:
     appName: alloy-metrics
     chartName: alloy
     catalog: default
-    dependsOn: prometheus-operator-crd
+    dependsOn:
+      - prometheus-operator-crd
+      - kyverno-crds
     enabled: true
     namespace: kube-system
     # used by renovate
@@ -109,12 +125,14 @@ apps:
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
     version: 20.0.0
+    extraConfigs: []
 
   kubePrometheusStack:
     appName: kube-prometheus-stack
     chartName: kube-prometheus-stack
     catalog: default
-    dependsOn: prometheus-operator-crd
+    dependsOn:
+      - prometheus-operator-crd
     enabled: true
     namespace: kube-system
     skipCRDs: true

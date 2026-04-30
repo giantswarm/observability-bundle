@@ -18,7 +18,10 @@
                             "type": "string"
                         },
                         "dependsOn": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         },
                         "enabled": {
                             "type": "boolean"
@@ -61,7 +64,10 @@
                             "type": "string"
                         },
                         "dependsOn": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         },
                         "enabled": {
                             "type": "boolean"
@@ -104,7 +110,10 @@
                             "type": "string"
                         },
                         "dependsOn": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         },
                         "enabled": {
                             "type": "boolean"
@@ -147,7 +156,10 @@
                             "type": "string"
                         },
                         "dependsOn": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         },
                         "enabled": {
                             "type": "boolean"

@@ -10,7 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update dependency giantswarm/kube-prometheus-stack-app to v20.2.0
+- Migrate sub-apps from App CRs to Flux HelmRelease CRs.
+- Remove 'cluster-values' ConfigMap reference from HelmReleases.
+- Add new `alloy-podlogs-crds` chart.
 - Update alloy-app to 0.18.0
+- Change `apps[].dependsOn` to a list of strings to support multiple dependencies per HelmRelease.
 
 ## [2.8.0] - 2026-03-04
 
