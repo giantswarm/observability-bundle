@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- HelmReleases: add `remediation.remediateLastFailure: false` to install and upgrade blocks so Flux helm-controller skips rollback on failure and re-attempts the upgrade on its next reconcile interval. Avoids the wedge that occurs when adopting chart-operator-installed v1 releases.
 - Update dependency giantswarm/kube-prometheus-stack-app to v20.2.0
 - Migrate sub-apps from App CRs to Flux HelmRelease CRs.
 - Remove 'cluster-values' ConfigMap reference from HelmReleases.
