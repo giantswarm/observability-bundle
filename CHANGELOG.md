@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Add `kyverno` to `dependsOn` of `alloy-events`, `alloy-logs`, and `alloy-metrics` HelmReleases. Each `alloy` chart upgrade applies a `PolicyException` that triggers Kyverno's validating webhook; without this dep the apply can race kyverno's own admission-controller rolling restart and fail with a webhook-unreachable error.
 - Update dependency giantswarm/kube-prometheus-stack-app to v20.2.0
 - Migrate sub-apps from App CRs to Flux HelmRelease CRs.
 - Remove 'cluster-values' ConfigMap reference from HelmReleases.

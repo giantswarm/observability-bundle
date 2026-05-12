@@ -44,7 +44,6 @@ apps:
     dependsOn:
       - prometheus-operator-crd
       - kyverno-crds
-      - kyverno
     enabled: true
     namespace: kube-system
     # used by renovate
@@ -68,7 +67,6 @@ apps:
     dependsOn:
       - prometheus-operator-crd
       - kyverno-crds
-      - kyverno
     enabled: true
     namespace: kube-system
     # used by renovate
@@ -102,7 +100,6 @@ apps:
     dependsOn:
       - prometheus-operator-crd
       - kyverno-crds
-      - kyverno
     enabled: true
     namespace: kube-system
     # used by renovate
