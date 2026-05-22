@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update dependency kube-prometheus-stack-app and prometheus-operator-crd to v21.0.0
-- Update alloy-app to 0.18.0
+- Update alloy-app to 0.19.0
 
 ## [2.8.0] - 2026-03-04
 
