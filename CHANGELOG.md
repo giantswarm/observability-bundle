@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Migrate sub-apps from App CRs to Flux HelmRelease CRs.
+- Remove 'cluster-values' ConfigMap reference from HelmReleases.
+- Add new `alloy-podlogs-crds` chart.
+
+## [2.9.0] - 2026-05-22
+
 ### Added
 
 - Add Backstage audience annotations.
@@ -15,13 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- HelmReleases: add `remediation.remediateLastFailure: false` to install and upgrade blocks so Flux helm-controller skips rollback on failure and re-attempts the upgrade on its next reconcile interval. Avoids the wedge that occurs when adopting chart-operator-installed v1 releases.
-- Update dependency giantswarm/kube-prometheus-stack-app to v20.2.0
-- Migrate sub-apps from App CRs to Flux HelmRelease CRs.
-- Remove 'cluster-values' ConfigMap reference from HelmReleases.
-- Add new `alloy-podlogs-crds` chart.
 - Update alloy-app to 0.18.0
-- Change `apps[].dependsOn` to a list of strings to support multiple dependencies per HelmRelease.
+- Update dependency kube-prometheus-stack-app and prometheus-operator-crd to v21.0.0
+- Update alloy-app to 0.19.0
 
 ## [2.8.0] - 2026-03-04
 
@@ -683,7 +687,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.8.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.9.0...HEAD
+[2.9.0]: https://github.com/giantswarm/observability-bundle/compare/v2.8.0...v2.9.0
 [2.8.0]: https://github.com/giantswarm/observability-bundle/compare/v2.7.0...v2.8.0
 [2.7.0]: https://github.com/giantswarm/observability-bundle/compare/v2.6.0...v2.7.0
 [2.6.0]: https://github.com/giantswarm/observability-bundle/compare/v2.5.0...v2.6.0
