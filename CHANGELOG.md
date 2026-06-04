@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Migrate sub-apps from App CRs to Flux HelmRelease CRs.
+- Remove 'cluster-values' ConfigMap reference from HelmReleases.
+- Add new `alloy-podlogs-crds` chart.
+- Update alloy-app to 0.20.0
+
 ## [2.9.0] - 2026-05-22
 
 ### Added
