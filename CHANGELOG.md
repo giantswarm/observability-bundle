@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-06-04
+
 ### Changed
 
 - Migrate sub-apps from App CRs to Flux HelmRelease CRs.
@@ -687,7 +689,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v2.9.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/giantswarm/observability-bundle/compare/v2.9.0...v3.0.0
 [2.9.0]: https://github.com/giantswarm/observability-bundle/compare/v2.8.0...v2.9.0
 [2.8.0]: https://github.com/giantswarm/observability-bundle/compare/v2.7.0...v2.8.0
 [2.7.0]: https://github.com/giantswarm/observability-bundle/compare/v2.6.0...v2.7.0
