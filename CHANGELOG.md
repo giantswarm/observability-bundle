@@ -696,7 +696,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
 [Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.0.1...HEAD
-[3.0.1]: https://github.com/giantswarm/observability-bundle/compare/v3.0.1...v3.0.1
 [3.0.1]: https://github.com/giantswarm/observability-bundle/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/giantswarm/observability-bundle/compare/v2.9.0...v3.0.0
 [2.9.0]: https://github.com/giantswarm/observability-bundle/compare/v2.8.0...v2.9.0
