@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - HelmReleases: honor the App platform `priority` field (1-150, default 25) on `extraConfigs` entries. `spec.valuesFrom` now reproduces the App platform merge order — all configMaps before all secrets (a secret always overrides a configMap), each kind ordered by priority around the user-config layer — preserving the App CR merge semantics after the migration. ([giantswarm#36096](https://github.com/giantswarm/giantswarm/issues/36096))
 
+## [3.0.1] - 2026-06-16
+
+### Changed
+
+- Update `alloy-app` to 0.21.0
+
 ## [3.0.0] - 2026-06-04
 
 ### Changed
@@ -693,7 +699,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.0.1...HEAD
+[3.0.1]: https://github.com/giantswarm/observability-bundle/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/giantswarm/observability-bundle/compare/v2.9.0...v3.0.0
 [2.9.0]: https://github.com/giantswarm/observability-bundle/compare/v2.8.0...v2.9.0
 [2.8.0]: https://github.com/giantswarm/observability-bundle/compare/v2.7.0...v2.8.0
