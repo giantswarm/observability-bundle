@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Deploy `kube-state-metrics` as a standalone app (`kube-state-metrics-app` `1.6.0`) instead of bundling it inside `kube-prometheus-stack`.
+
+### Changed
+
+- Disable the `kube-state-metrics` subchart in `kube-prometheus-stack` and move its config (network policy, ServiceMonitor metric relabelings, custom-resource-state configs and RBAC) to the standalone app.
+- Re-point the `ksm.customResources` helper at the standalone `kube-state-metrics` app values.
+
 ## [3.0.1] - 2026-06-16
 
 ### Changed

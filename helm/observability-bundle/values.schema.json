@@ -203,6 +203,38 @@
                             "type": "string"
                         }
                     }
+                },
+                "kubeStateMetrics": {
+                    "type": "object",
+                    "properties": {
+                        "appName": {
+                            "type": "string"
+                        },
+                        "catalog": {
+                            "type": "string"
+                        },
+                        "chartName": {
+                            "type": "string"
+                        },
+                        "dependsOn": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "extraConfigs": {
+                            "type": "array"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
                 }
             }
         },
@@ -334,6 +366,14 @@
                                     }
                                 }
                             }
+                        }
+                    }
+                },
+                "kubeStateMetrics": {
+                    "type": "object",
+                    "properties": {
+                        "configMap": {
+                            "type": "object"
                         }
                     }
                 }
