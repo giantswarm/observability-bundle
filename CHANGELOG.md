@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Deploy `kube-state-metrics` as a standalone app (`kube-state-metrics-app` `1.6.0`) instead of bundling it inside `kube-prometheus-stack`.
+- Deploy `kube-state-metrics` as a standalone app (`kube-state-metrics-app` `0.2.0`) instead of bundling it inside `kube-prometheus-stack`.
 
 ### Changed
 

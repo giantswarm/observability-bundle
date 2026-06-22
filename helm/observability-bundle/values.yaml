@@ -236,5 +236,5 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/kube-state-metrics-app
-    version: 1.6.0
+    version: 0.2.0
     extraConfigs: []
