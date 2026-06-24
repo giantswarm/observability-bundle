@@ -61,19 +61,18 @@ This helper will merge the KSM custom resources configuration defined in the rel
   {{- $ksmCustomResourcesSpec = concat $ksmCustomResourcesSpec $componentConfig.resources -}}
 {{ end }}
 
-{{- $ksmUserConfig := default (dict) (index (default (dict) (index (default (dict) ((($.Values.userConfig).kubePrometheusStack).configMap).values) "kube-prometheus-stack")) "kube-state-metrics") -}}
+{{- $ksmUserConfig := default (dict) (index (default (dict) ((($.Values.userConfig).kubeStateMetrics).configMap).values) "kube-state-metrics") -}}
 
 {{- if gt (len $ksmCustomResourcesSpec) 0 -}}
-kube-prometheus-stack:
-  kube-state-metrics:
-    rbac:
-      extraRules:
-      {{- concat $ksmCustomResourcesRbac (default (list) ((($ksmUserConfig).rbac).extraRules)) | toYaml | nindent 8 }}
-    customResourceState:
-      enabled: true
-      config:
-        spec:
-          resources:
-          {{- concat $ksmCustomResourcesSpec (default (list) ((((($ksmUserConfig).customResourceState).config).spec).resources)) | toYaml | nindent 12 }}
+kube-state-metrics:
+  rbac:
+    extraRules:
+    {{- concat $ksmCustomResourcesRbac (default (list) ((($ksmUserConfig).rbac).extraRules)) | toYaml | nindent 6 }}
+  customResourceState:
+    enabled: true
+    config:
+      spec:
+        resources:
+        {{- concat $ksmCustomResourcesSpec (default (list) ((((($ksmUserConfig).customResourceState).config).spec).resources)) | toYaml | nindent 10 }}
 {{- end -}}
 {{- end -}}

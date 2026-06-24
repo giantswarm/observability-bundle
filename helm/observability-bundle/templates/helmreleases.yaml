@@ -100,7 +100,7 @@ metadata:
   namespace: {{ $.Release.Namespace }}
 data:
   values: |
-{{- if eq $key "kubePrometheusStack" }}
+{{- if eq $key "kubeStateMetrics" }}
   {{- (tpl (deepCopy .configMap.values | merge (include "ksm.customResources" $ | fromYaml) | toYaml | toString) $) | nindent 4 }}
 {{- else }}
   {{- (tpl (.configMap.values | toYaml | toString) $) | nindent 4 }}

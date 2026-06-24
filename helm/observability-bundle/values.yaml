@@ -13,11 +13,54 @@ userConfig:
             enabled: false
           grafana:
             enabled: false
-          kube-state-metrics:
+          # kube-state-metrics is now deployed as a standalone app (see the
+          # `kubeStateMetrics` app entry and its userConfig below). Disable the
+          # copy bundled inside kube-prometheus-stack.
+          kubeStateMetrics:
+            enabled: false
+          prometheus:
+            enabled: false
+          prometheusOperator:
+            admissionWebhooks:
+              objectSelector:
+                matchExpressions:
+                  - key: application.giantswarm.io/prometheus-rule-kind
+                    operator: NotIn
+                    values:
+                      - loki
+                  - key: observability.giantswarm.io/rule-type
+                    operator: NotIn
+                    values:
+                      - logs
             networkPolicy:
               flavor: cilium
-            prometheus:
-              monitor:
+              matchLabels:
+                app.kubernetes.io/instance: kube-prometheus-stack
+                app.kubernetes.io/part-of: kube-prometheus-stack
+                application.giantswarm.io/team: atlas
+
+  # Config for the standalone kube-state-metrics app (extracted from
+  # kube-prometheus-stack). The CRS custom resources and rbac extraRules are
+  # injected on top of this via the `ksm.customResources` helper.
+  kubeStateMetrics:
+    configMap:
+      values:
+        kube-state-metrics:
+          networkPolicy:
+            flavor: cilium
+          rbac:
+            # Kept here so the ksm.customResources helper concatenates it with the
+            # custom-resource-state rules (the helper replaces the chart default).
+            extraRules:
+            - apiGroups: ["autoscaling.k8s.io"]
+              resources:
+                - verticalpodautoscalers
+              verbs: ["list", "watch"]
+          prometheus:
+            monitor:
+              # chart 7.x reads relabelings from the per-endpoint `http` block first,
+              # so the full list must live here (it overrides the app default).
+              http:
                 metricRelabelings:
                   # GS addition to reduce cardinality
                   # drop unused kube-state-metrics metrics with the highest cardinality as they increase Prometheus memory usage
@@ -76,26 +119,6 @@ userConfig:
                     regex: "capi_cluster_.+;{{ $.Values.managementCluster }}"
                     targetLabel: cluster_type
                     replacement: management_cluster
-          prometheus:
-            enabled: false
-          prometheusOperator:
-            admissionWebhooks:
-              objectSelector:
-                matchExpressions:
-                  - key: application.giantswarm.io/prometheus-rule-kind
-                    operator: NotIn
-                    values:
-                      - loki
-                  - key: observability.giantswarm.io/rule-type
-                    operator: NotIn
-                    values:
-                      - logs
-            networkPolicy:
-              flavor: cilium
-              matchLabels:
-                app.kubernetes.io/instance: kube-prometheus-stack
-                app.kubernetes.io/part-of: kube-prometheus-stack
-                application.giantswarm.io/team: atlas
 
 apps:
   alloyEvents:
@@ -201,4 +224,17 @@ apps:
     # used by renovate
     # repo: giantswarm/kube-prometheus-stack-app
     version: 21.0.0
+    extraConfigs: []
+
+  kubeStateMetrics:
+    appName: kube-state-metrics
+    chartName: kube-state-metrics
+    catalog: default
+    dependsOn:
+      - prometheus-operator-crd
+    enabled: true
+    namespace: kube-system
+    # used by renovate
+    # repo: giantswarm/kube-state-metrics-app
+    version: 0.2.0
     extraConfigs: []
