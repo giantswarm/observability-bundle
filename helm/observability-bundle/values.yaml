@@ -185,7 +185,7 @@ apps:
     namespace: kube-system
     # used by renovate
     # repo: giantswarm/prometheus-operator-crd
-    version: 21.0.0
+    version: 22.0.0
     extraConfigs: []
 
   kubePrometheusStack:
