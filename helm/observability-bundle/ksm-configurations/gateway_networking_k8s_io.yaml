@@ -2,7 +2,7 @@ resources:
   - groupVersionKind:
       group: gateway.networking.k8s.io
       kind: "Gateway"
-      version: "v1beta1"
+      version: "v1"
     metricNamePrefix: gatewayapi_gateway
     labelsFromPath:
       name:
@@ -75,7 +75,7 @@ resources:
   - groupVersionKind:
       group: gateway.networking.k8s.io
       kind: "GatewayClass"
-      version: "v1beta1"
+      version: "v1"
     metricNamePrefix: gatewayapi_gatewayclass
     labelsFromPath:
       name:
@@ -122,7 +122,7 @@ resources:
   - groupVersionKind:
       group: gateway.networking.k8s.io
       kind: "HTTPRoute"
-      version: "v1beta1"
+      version: "v1"
     metricNamePrefix: gatewayapi_httproute
     labelsFromPath:
       name:
@@ -183,7 +183,7 @@ resources:
   - groupVersionKind:
       group: gateway.networking.k8s.io
       kind: "GRPCRoute"
-      version: "v1alpha2"
+      version: "v1"
     metricNamePrefix: gatewayapi_grpcroute
     labelsFromPath:
       name:
@@ -297,7 +297,7 @@ resources:
   - groupVersionKind:
       group: gateway.networking.k8s.io
       kind: "TLSRoute"
-      version: "v1alpha2"
+      version: "v1"
     metricNamePrefix: gatewayapi_tlsroute
     labelsFromPath:
       name:
@@ -411,7 +411,7 @@ resources:
   - groupVersionKind:
       group: gateway.networking.k8s.io
       kind: "BackendTLSPolicy"
-      version: "v1alpha2"
+      version: "v1"
     metricNamePrefix: gatewayapi_backendtlspolicy
     labelsFromPath:
       name:
@@ -445,6 +445,120 @@ resources:
               target_kind: ["kind"]
               target_name: ["name"]
               target_namespace: ["namespace"]
+  - groupVersionKind:
+      group: gateway.networking.k8s.io
+      kind: "ListenerSet"
+      version: "v1"
+    metricNamePrefix: gatewayapi_listenerset
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+      - name: "parent_info"
+        help: "Parent reference that the listenerset is attached to"
+        each:
+          type: Info
+          info:
+            path: [spec, parentRef]
+            labelsFromPath:
+              parent_group: ["group"]
+              parent_kind: ["kind"]
+              parent_name: ["name"]
+              parent_namespace: ["namespace"]
+      - name: "listener_info"
+        help: "ListenerSet listener information"
+        each:
+          type: Info
+          info:
+            path: [spec, listeners]
+            labelsFromPath:
+              listener_name: ["name"]
+              port: ["port"]
+              protocol: ["protocol"]
+              hostname: ["hostname"]
+              tls_mode: ["tls", "mode"]
+              allowed_routes_namespaces_from: ["allowedRoutes", "namespaces", "from"]
+      - name: "status"
+        help: "status condition"
+        each:
+          type: Gauge
+          gauge:
+            path: [status, conditions]
+            labelsFromPath:
+              type: ["type"]
+            valueFrom: ["status"]
+      - name: "status_listener_attached_routes"
+        help: "Number of attached routes for a listener"
+        each:
+          type: Gauge
+          gauge:
+            path: [status, listeners]
+            labelsFromPath:
+              listener_name: ["name"]
+            valueFrom: ["attachedRoutes"]
+  - groupVersionKind:
+      group: gateway.networking.k8s.io
+      kind: "ReferenceGrant"
+      version: "v1"
+    metricNamePrefix: gatewayapi_referencegrant
+    labelsFromPath:
+      name:
+        - metadata
+        - name
+      namespace:
+        - metadata
+        - namespace
+    metrics:
+      - name: "created"
+        help: "created timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, creationTimestamp]
+      - name: "deleted"
+        help: "deletion timestamp"
+        each:
+          type: Gauge
+          gauge:
+            path: [metadata, deletionTimestamp]
+            nilIsZero: true
+      - name: "from_info"
+        help: "Resources that are allowed to reference across namespaces"
+        each:
+          type: Info
+          info:
+            path: [spec, from]
+            labelsFromPath:
+              from_group: ["group"]
+              from_kind: ["kind"]
+              from_namespace: ["namespace"]
+      - name: "to_info"
+        help: "Resources that may be referenced"
+        each:
+          type: Info
+          info:
+            path: [spec, to]
+            labelsFromPath:
+              to_group: ["group"]
+              to_kind: ["kind"]
+              to_name: ["name"]
 rbac:
   - apiGroups:
       - gateway.networking.k8s.io
@@ -457,6 +571,8 @@ rbac:
       - tlsroutes
       - udproutes
       - backendtlspolicies
+      - listenersets
+      - referencegrants
     verbs:
       - list
       - watch
