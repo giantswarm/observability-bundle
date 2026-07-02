@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add KSM metrics for Gateway API `ListenerSet` and `ReferenceGrant` resources.
+
+### Changed
+
+- Update Gateway API KSM configs to `v1` for `Gateway`, `GatewayClass`, `HTTPRoute`, `GRPCRoute`, `TLSRoute` and `BackendTLSPolicy`.
+
 ## [3.2.0] - 2026-06-29
 
 ### Changed
