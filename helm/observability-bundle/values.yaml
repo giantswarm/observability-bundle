@@ -101,15 +101,15 @@ apps:
   alloyEvents:
     appName: alloy-events
     chartName: alloy
-    catalog: default
     dependsOn:
-      - prometheus-operator-crd
+      - cilium
       - kyverno-crds
+      - prometheus-operator-crd
+      - vertical-pod-autoscaler-crd
     enabled: true
     namespace: kube-system
-    # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.21.1
+    version: 0.21.2
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -124,15 +124,15 @@ apps:
   alloyLogs:
     appName: alloy-logs
     chartName: alloy
-    catalog: default
     dependsOn:
-      - prometheus-operator-crd
+      - cilium
       - kyverno-crds
+      - prometheus-operator-crd
+      - vertical-pod-autoscaler-crd
     enabled: true
     namespace: kube-system
-    # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.21.1
+    version: 0.21.2
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -147,25 +147,23 @@ apps:
   alloyPodLogsCrds:
     appName: alloy-podlogs-crds
     chartName: alloy-podlogs-crds
-    catalog: default
     enabled: true
     namespace: kube-system
-    # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.21.1
+    version: 0.21.2
 
   alloyMetrics:
     appName: alloy-metrics
     chartName: alloy
-    catalog: default
     dependsOn:
-      - prometheus-operator-crd
+      - cilium
       - kyverno-crds
+      - prometheus-operator-crd
+      - vertical-pod-autoscaler-crd
     enabled: true
     namespace: kube-system
-    # used by renovate
     # repo: giantswarm/alloy-app
-    version: 0.21.1
+    version: 0.21.2
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -180,10 +178,8 @@ apps:
   prometheusOperatorCrd:
     appName: prometheus-operator-crd
     chartName: prometheus-operator-crd
-    catalog: default
     enabled: true
     namespace: kube-system
-    # used by renovate
     # repo: giantswarm/prometheus-operator-crd
     version: 22.0.0
     extraConfigs: []
@@ -191,14 +187,13 @@ apps:
   kubePrometheusStack:
     appName: kube-prometheus-stack
     chartName: kube-prometheus-stack
-    catalog: default
     dependsOn:
+      - cilium
       - prometheus-operator-crd
     enabled: true
     namespace: kube-system
     skipCRDs: true
     timeout: 15m
-    # used by renovate
     # repo: giantswarm/kube-prometheus-stack-app
     version: 22.0.0
     extraConfigs: []
