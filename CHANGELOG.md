@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Values: Generate schema for Alloy PodLogs CRDs.
+- Values: Add Cilium as dependency for Alloy apps & Kube Prometheus Stack.
+- Values: Update Alloy apps to v0.21.2.
+
+### Removed
+
+- Values: Remove unused catalog.
+
 ## [3.3.0] - 2026-07-02
 
 ### Added
