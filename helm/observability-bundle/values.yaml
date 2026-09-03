@@ -181,7 +181,7 @@ apps:
     enabled: true
     namespace: kube-system
     # repo: giantswarm/prometheus-operator-crd
-    version: 22.0.0
+    version: 23.0.0
     extraConfigs: []
 
   kubePrometheusStack:
