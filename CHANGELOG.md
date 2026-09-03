@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.4.0] - 2026-09-03
+
+### Changed
+
+- Values: Update Prometheus Operator CRD and Kube Prometheus Stack to v23.0.0.
+
 ## [3.3.1] - 2026-08-06
 
 ### Changed
@@ -14,7 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Values: Generate schema for Alloy PodLogs CRDs.
 - Values: Add Cilium as dependency for Alloy apps & Kube Prometheus Stack.
 - Values: Update Alloy apps to v0.21.2.
-- Values: Update Prometheus Operator CRD and Kube Prometheus Stack to v23.0.0.
 
 ### Removed
 
@@ -731,7 +736,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.3.1...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.4.0...HEAD
+[3.4.0]: https://github.com/giantswarm/observability-bundle/compare/v3.3.1...v3.4.0
 [3.3.1]: https://github.com/giantswarm/observability-bundle/compare/v3.3.0...v3.3.1
 [3.3.0]: https://github.com/giantswarm/observability-bundle/compare/v3.2.0...v3.3.0
 [3.2.0]: https://github.com/giantswarm/observability-bundle/compare/v3.1.0...v3.2.0
