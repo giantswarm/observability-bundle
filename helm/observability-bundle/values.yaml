@@ -113,7 +113,7 @@ apps:
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
-    version: 0.23.0
+    version: 0.23.1
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -136,7 +136,7 @@ apps:
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
-    version: 0.23.0
+    version: 0.23.1
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -154,7 +154,7 @@ apps:
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
-    version: 0.23.0
+    version: 0.23.1
 
   alloyMetrics:
     appName: alloy-metrics
@@ -167,7 +167,7 @@ apps:
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
-    version: 0.23.0
+    version: 0.23.1
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
