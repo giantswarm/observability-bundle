@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update `alloy` apps to 0.23.1 (Alloy v1.19.2).
+- Update `prometheus-operator-crd` to 24.0.0 (Prometheus Operator CRDs v0.94.0).
+- Update `kube-prometheus-stack` to 24.0.0 (chart 91.2.3, Prometheus Operator v0.94.0).
+
 ### Added
 
 - Point kube-prometheus-stack's control-plane ServiceMonitors at the alloy-metrics token Secret.
