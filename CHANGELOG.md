@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- KSM custom resource state: Set the Gateway API `TCPRoute` and `UDPRoute` collectors to `v1`, which is the version the API server serves.
+
 ## [3.4.0] - 2026-09-03
 
 ### Changed
