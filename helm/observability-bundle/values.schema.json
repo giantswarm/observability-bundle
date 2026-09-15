@@ -235,6 +235,22 @@
                                 "values": {
                                     "type": "object",
                                     "properties": {
+                                        "global": {
+                                            "type": "object",
+                                            "properties": {
+                                                "controlPlaneScrapeAuth": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "secretName": {
+                                                            "type": "string"
+                                                        },
+                                                        "serviceAccountName": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
                                         "kube-prometheus-stack": {
                                             "type": "object",
                                             "properties": {

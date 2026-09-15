@@ -6,6 +6,10 @@ userConfig:
   kubePrometheusStack:
     configMap:
       values:
+        global:
+          # alloy-metrics scrapes the control plane; the Secret is rendered by alloy-app.
+          controlPlaneScrapeAuth:
+            serviceAccountName: alloy-metrics
         kube-prometheus-stack:
           defaultRules:
             create: false
