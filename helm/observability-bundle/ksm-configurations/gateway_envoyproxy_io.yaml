@@ -53,6 +53,33 @@ resources:
             labelsFromPath:
               target_kind: [spec, targetRef, kind]
               target_name: [spec, targetRef, name]
+      - name: "target_info"
+        help: "Resources the SecurityPolicy is attached to via spec.targetRefs. The deprecated spec.targetRef is in the info metric, spec.targetSelectors is not covered"
+        each:
+          type: Info
+          info:
+            path: [spec, targetRefs]
+            labelsFromPath:
+              target_group: ["group"]
+              target_kind: ["kind"]
+              target_name: ["name"]
+              target_section_name: ["sectionName"]
+      - name: "status_ancestor_accepted"
+        help: "Accepted condition of the SecurityPolicy, per ancestor it is attached to. 1 when True, 0 when False or Unknown, no series when the policy resolved no ancestor"
+        each:
+          type: Gauge
+          gauge:
+            path: [status, ancestors]
+            valueFrom: ["conditions", "[type=Accepted]", "status"]
+            labelsFromPath:
+              controller_name: ["controllerName"]
+              ancestor_group: ["ancestorRef", "group"]
+              ancestor_kind: ["ancestorRef", "kind"]
+              ancestor_name: ["ancestorRef", "name"]
+              ancestor_namespace: ["ancestorRef", "namespace"]
+              ancestor_section_name: ["ancestorRef", "sectionName"]
+              ancestor_port: ["ancestorRef", "port"]
+              reason: ["conditions", "[type=Accepted]", "reason"]
       - name: "created"
         help: "created timestamp"
         each:
@@ -87,6 +114,33 @@ resources:
             labelsFromPath:
               target_kind: [spec, targetRef, kind]
               target_name: [spec, targetRef, name]
+      - name: "target_info"
+        help: "Resources the BackendTrafficPolicy is attached to via spec.targetRefs. The deprecated spec.targetRef is in the info metric, spec.targetSelectors is not covered"
+        each:
+          type: Info
+          info:
+            path: [spec, targetRefs]
+            labelsFromPath:
+              target_group: ["group"]
+              target_kind: ["kind"]
+              target_name: ["name"]
+              target_section_name: ["sectionName"]
+      - name: "status_ancestor_accepted"
+        help: "Accepted condition of the BackendTrafficPolicy, per ancestor it is attached to. 1 when True, 0 when False or Unknown, no series when the policy resolved no ancestor"
+        each:
+          type: Gauge
+          gauge:
+            path: [status, ancestors]
+            valueFrom: ["conditions", "[type=Accepted]", "status"]
+            labelsFromPath:
+              controller_name: ["controllerName"]
+              ancestor_group: ["ancestorRef", "group"]
+              ancestor_kind: ["ancestorRef", "kind"]
+              ancestor_name: ["ancestorRef", "name"]
+              ancestor_namespace: ["ancestorRef", "namespace"]
+              ancestor_section_name: ["ancestorRef", "sectionName"]
+              ancestor_port: ["ancestorRef", "port"]
+              reason: ["conditions", "[type=Accepted]", "reason"]
       - name: "created"
         help: "created timestamp"
         each:
@@ -121,6 +175,33 @@ resources:
             labelsFromPath:
               target_kind: [spec, targetRef, kind]
               target_name: [spec, targetRef, name]
+      - name: "target_info"
+        help: "Resources the ClientTrafficPolicy is attached to via spec.targetRefs. The deprecated spec.targetRef is in the info metric, spec.targetSelectors is not covered"
+        each:
+          type: Info
+          info:
+            path: [spec, targetRefs]
+            labelsFromPath:
+              target_group: ["group"]
+              target_kind: ["kind"]
+              target_name: ["name"]
+              target_section_name: ["sectionName"]
+      - name: "status_ancestor_accepted"
+        help: "Accepted condition of the ClientTrafficPolicy, per ancestor it is attached to. 1 when True, 0 when False or Unknown, no series when the policy resolved no ancestor"
+        each:
+          type: Gauge
+          gauge:
+            path: [status, ancestors]
+            valueFrom: ["conditions", "[type=Accepted]", "status"]
+            labelsFromPath:
+              controller_name: ["controllerName"]
+              ancestor_group: ["ancestorRef", "group"]
+              ancestor_kind: ["ancestorRef", "kind"]
+              ancestor_name: ["ancestorRef", "name"]
+              ancestor_namespace: ["ancestorRef", "namespace"]
+              ancestor_section_name: ["ancestorRef", "sectionName"]
+              ancestor_port: ["ancestorRef", "port"]
+              reason: ["conditions", "[type=Accepted]", "reason"]
       - name: "created"
         help: "created timestamp"
         each:
@@ -155,6 +236,33 @@ resources:
             labelsFromPath:
               target_kind: [spec, targetRef, kind]
               target_name: [spec, targetRef, name]
+      - name: "target_info"
+        help: "Resources the EnvoyExtensionPolicy is attached to via spec.targetRefs. The deprecated spec.targetRef is in the info metric, spec.targetSelectors is not covered"
+        each:
+          type: Info
+          info:
+            path: [spec, targetRefs]
+            labelsFromPath:
+              target_group: ["group"]
+              target_kind: ["kind"]
+              target_name: ["name"]
+              target_section_name: ["sectionName"]
+      - name: "status_ancestor_accepted"
+        help: "Accepted condition of the EnvoyExtensionPolicy, per ancestor it is attached to. 1 when True, 0 when False or Unknown, no series when the policy resolved no ancestor"
+        each:
+          type: Gauge
+          gauge:
+            path: [status, ancestors]
+            valueFrom: ["conditions", "[type=Accepted]", "status"]
+            labelsFromPath:
+              controller_name: ["controllerName"]
+              ancestor_group: ["ancestorRef", "group"]
+              ancestor_kind: ["ancestorRef", "kind"]
+              ancestor_name: ["ancestorRef", "name"]
+              ancestor_namespace: ["ancestorRef", "namespace"]
+              ancestor_section_name: ["ancestorRef", "sectionName"]
+              ancestor_port: ["ancestorRef", "port"]
+              reason: ["conditions", "[type=Accepted]", "reason"]
       - name: "created"
         help: "created timestamp"
         each:
