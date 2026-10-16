@@ -80,6 +80,11 @@ userConfig:
                     regex: "capi_cluster_.+;{{ $.Values.managementCluster }}"
                     targetLabel: cluster_type
                     replacement: management_cluster
+                  # Set provider for CAPI cluster metrics of AKS workload clusters, as the external label carries the management cluster's provider
+                  - sourceLabels: [__name__, cluster_type, infrastructure_reference_kind]
+                    regex: "capi_cluster_.+;workload_cluster;(AzureASOManagedCluster|AzureManagedCluster)"
+                    targetLabel: provider
+                    replacement: aks
           prometheus:
             enabled: false
           prometheusOperator:
