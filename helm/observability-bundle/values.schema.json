@@ -15,9 +15,10 @@
                             "type": "string"
                         },
                         "dependsOn": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
+                            "type": "object",
+                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
+                            "additionalProperties": {
+                                "type": "boolean"
                             }
                         },
                         "enabled": {
@@ -58,9 +59,10 @@
                             "type": "string"
                         },
                         "dependsOn": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
+                            "type": "object",
+                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
+                            "additionalProperties": {
+                                "type": "boolean"
                             }
                         },
                         "enabled": {
@@ -101,9 +103,10 @@
                             "type": "string"
                         },
                         "dependsOn": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
+                            "type": "object",
+                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
+                            "additionalProperties": {
+                                "type": "boolean"
                             }
                         },
                         "enabled": {
@@ -164,9 +167,10 @@
                             "type": "string"
                         },
                         "dependsOn": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
+                            "type": "object",
+                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
+                            "additionalProperties": {
+                                "type": "boolean"
                             }
                         },
                         "enabled": {

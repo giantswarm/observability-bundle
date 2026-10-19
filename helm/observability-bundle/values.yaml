@@ -106,10 +106,10 @@ apps:
     appName: alloy-events
     chartName: alloy
     dependsOn:
-      - cilium
-      - kyverno-crds
-      - prometheus-operator-crd
-      - vertical-pod-autoscaler-crd
+      cilium: true
+      kyverno-crds: true
+      prometheus-operator-crd: true
+      vertical-pod-autoscaler-crd: true
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
@@ -129,10 +129,10 @@ apps:
     appName: alloy-logs
     chartName: alloy
     dependsOn:
-      - cilium
-      - kyverno-crds
-      - prometheus-operator-crd
-      - vertical-pod-autoscaler-crd
+      cilium: true
+      kyverno-crds: true
+      prometheus-operator-crd: true
+      vertical-pod-autoscaler-crd: true
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
@@ -160,10 +160,10 @@ apps:
     appName: alloy-metrics
     chartName: alloy
     dependsOn:
-      - cilium
-      - kyverno-crds
-      - prometheus-operator-crd
-      - vertical-pod-autoscaler-crd
+      cilium: true
+      kyverno-crds: true
+      prometheus-operator-crd: true
+      vertical-pod-autoscaler-crd: true
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
@@ -192,8 +192,8 @@ apps:
     appName: kube-prometheus-stack
     chartName: kube-prometheus-stack
     dependsOn:
-      - cilium
-      - prometheus-operator-crd
+      cilium: true
+      prometheus-operator-crd: true
     enabled: true
     namespace: kube-system
     skipCRDs: true
