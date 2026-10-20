@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.6.0] - 2026-10-20
+
 ### Changed
 
 - *!Breaking change*: Turn `apps.<appName>.dependsOn` from a list into a map from dependency name to `true`/`false`, so that a provider can turn off a single dependency (for example `kyverno-crds` on clusters without the security bundle) instead of overriding the whole list.
@@ -761,7 +763,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.5.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.6.0...HEAD
+[3.6.0]: https://github.com/giantswarm/observability-bundle/compare/v3.5.0...v3.6.0
 [3.5.0]: https://github.com/giantswarm/observability-bundle/compare/v3.4.0...v3.5.0
 [3.4.0]: https://github.com/giantswarm/observability-bundle/compare/v3.3.1...v3.4.0
 [3.3.1]: https://github.com/giantswarm/observability-bundle/compare/v3.3.0...v3.3.1
