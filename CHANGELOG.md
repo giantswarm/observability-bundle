@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- KSM custom resource state: Add the `infrastructure_reference_kind` label to all `capi_cluster_*` metrics.
+- Set `provider="aks"` on `capi_cluster_*` metrics of AKS workload clusters.
+
 ## [3.6.0] - 2026-10-20
 
 ### Changed
@@ -17,11 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - KSM custom resource state: Add `status_parent_accepted` and `status_parent_resolved_refs` gauges for Gateway API `HTTPRoute`, one series per parent with the condition `reason` as label.
 - KSM custom resource state: Add `target_info` and `status_ancestor_accepted` metrics for Envoy Gateway `SecurityPolicy`, `BackendTrafficPolicy`, `ClientTrafficPolicy` and `EnvoyExtensionPolicy`.
-
-### Changed
-
-- KSM custom resource state: Add the `infrastructure_reference_kind` label to all `capi_cluster_*` metrics.
-- Set `provider="aks"` on `capi_cluster_*` metrics of AKS workload clusters.
 
 ## [3.5.0] - 2026-09-16
 
