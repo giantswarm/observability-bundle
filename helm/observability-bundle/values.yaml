@@ -85,6 +85,11 @@ userConfig:
                     regex: "capi_cluster_.+;workload_cluster;(AzureASOManagedCluster|AzureManagedCluster)"
                     targetLabel: provider
                     replacement: aks
+                  # Same for CAPI machine pool metrics of AKS node pools
+                  - sourceLabels: [__name__, infrastructure_reference_kind]
+                    regex: "capi_machinepool_.+;(AzureASOManagedMachinePool|AzureManagedMachinePool)"
+                    targetLabel: provider
+                    replacement: aks
           prometheus:
             enabled: false
           prometheusOperator:
