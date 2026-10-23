@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- KSM custom resource state: Add the `infrastructure_reference_kind` label to all `capi_cluster_*` metrics.
+- KSM custom resource state: Add the `infrastructure_reference_kind` label to all `capi_machinepool_*` metrics.
+- Set `provider="aks"` on `capi_cluster_*` metrics of AKS workload clusters and on `capi_machinepool_*` metrics of AKS node pools.
+
 ## [3.6.0] - 2026-10-20
 
 ### Changed
