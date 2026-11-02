@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Override `CAdvisor` default scrape interval from 10s to 60s in kube-prometheus-stack.
+
 ## [3.6.0] - 2026-10-20
 
 ### Changed
