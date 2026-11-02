@@ -16,9 +16,19 @@
                         },
                         "dependsOn": {
                             "type": "object",
-                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
-                            "additionalProperties": {
-                                "type": "boolean"
+                            "properties": {
+                                "cilium": {
+                                    "type": "boolean"
+                                },
+                                "kyverno-crds": {
+                                    "type": "boolean"
+                                },
+                                "prometheus-operator-crd": {
+                                    "type": "boolean"
+                                },
+                                "vertical-pod-autoscaler-crd": {
+                                    "type": "boolean"
+                                }
                             }
                         },
                         "enabled": {
@@ -60,9 +70,19 @@
                         },
                         "dependsOn": {
                             "type": "object",
-                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
-                            "additionalProperties": {
-                                "type": "boolean"
+                            "properties": {
+                                "cilium": {
+                                    "type": "boolean"
+                                },
+                                "kyverno-crds": {
+                                    "type": "boolean"
+                                },
+                                "prometheus-operator-crd": {
+                                    "type": "boolean"
+                                },
+                                "vertical-pod-autoscaler-crd": {
+                                    "type": "boolean"
+                                }
                             }
                         },
                         "enabled": {
@@ -104,9 +124,19 @@
                         },
                         "dependsOn": {
                             "type": "object",
-                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
-                            "additionalProperties": {
-                                "type": "boolean"
+                            "properties": {
+                                "cilium": {
+                                    "type": "boolean"
+                                },
+                                "kyverno-crds": {
+                                    "type": "boolean"
+                                },
+                                "prometheus-operator-crd": {
+                                    "type": "boolean"
+                                },
+                                "vertical-pod-autoscaler-crd": {
+                                    "type": "boolean"
+                                }
                             }
                         },
                         "enabled": {
@@ -168,9 +198,13 @@
                         },
                         "dependsOn": {
                             "type": "object",
-                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
-                            "additionalProperties": {
-                                "type": "boolean"
+                            "properties": {
+                                "cilium": {
+                                    "type": "boolean"
+                                },
+                                "prometheus-operator-crd": {
+                                    "type": "boolean"
+                                }
                             }
                         },
                         "enabled": {
@@ -245,9 +279,6 @@
                                                 "controlPlaneScrapeAuth": {
                                                     "type": "object",
                                                     "properties": {
-                                                        "secretName": {
-                                                            "type": "string"
-                                                        },
                                                         "serviceAccountName": {
                                                             "type": "string"
                                                         }
@@ -320,6 +351,19 @@
                                                                             }
                                                                         }
                                                                     }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "kubelet": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "serviceMonitor": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "cAdvisorInterval": {
+                                                                    "type": "string"
                                                                 }
                                                             }
                                                         }
