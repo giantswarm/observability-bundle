@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update `alloy` apps to 0.25.0 (Alloy v1.21.3).
+- `mimir.rules.kubernetes` now recovers after a Mimir outage during a leader change.
+- `loki_write_*` metrics no longer carry the `tenant` label.
+
 ## [3.6.0] - 2026-10-20
 
 ### Changed
