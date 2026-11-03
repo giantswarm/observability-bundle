@@ -17,19 +17,8 @@
                         "dependsOn": {
                             "type": "object",
                             "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
-                            "properties": {
-                                "cilium": {
-                                    "type": "boolean"
-                                },
-                                "kyverno-crds": {
-                                    "type": "boolean"
-                                },
-                                "prometheus-operator-crd": {
-                                    "type": "boolean"
-                                },
-                                "vertical-pod-autoscaler-crd": {
-                                    "type": "boolean"
-                                }
+                            "additionalProperties": {
+                                "type": "boolean"
                             }
                         },
                         "enabled": {
@@ -72,19 +61,8 @@
                         "dependsOn": {
                             "type": "object",
                             "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
-                            "properties": {
-                                "cilium": {
-                                    "type": "boolean"
-                                },
-                                "kyverno-crds": {
-                                    "type": "boolean"
-                                },
-                                "prometheus-operator-crd": {
-                                    "type": "boolean"
-                                },
-                                "vertical-pod-autoscaler-crd": {
-                                    "type": "boolean"
-                                }
+                            "additionalProperties": {
+                                "type": "boolean"
                             }
                         },
                         "enabled": {
@@ -127,19 +105,8 @@
                         "dependsOn": {
                             "type": "object",
                             "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
-                            "properties": {
-                                "cilium": {
-                                    "type": "boolean"
-                                },
-                                "kyverno-crds": {
-                                    "type": "boolean"
-                                },
-                                "prometheus-operator-crd": {
-                                    "type": "boolean"
-                                },
-                                "vertical-pod-autoscaler-crd": {
-                                    "type": "boolean"
-                                }
+                            "additionalProperties": {
+                                "type": "boolean"
                             }
                         },
                         "enabled": {
@@ -202,13 +169,8 @@
                         "dependsOn": {
                             "type": "object",
                             "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
-                            "properties": {
-                                "cilium": {
-                                    "type": "boolean"
-                                },
-                                "prometheus-operator-crd": {
-                                    "type": "boolean"
-                                }
+                            "additionalProperties": {
+                                "type": "boolean"
                             }
                         },
                         "enabled": {
