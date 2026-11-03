@@ -16,6 +16,7 @@
                         },
                         "dependsOn": {
                             "type": "object",
+                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
                             "properties": {
                                 "cilium": {
                                     "type": "boolean"
@@ -70,6 +71,7 @@
                         },
                         "dependsOn": {
                             "type": "object",
+                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
                             "properties": {
                                 "cilium": {
                                     "type": "boolean"
@@ -124,6 +126,7 @@
                         },
                         "dependsOn": {
                             "type": "object",
+                            "description": "HelmReleases this app depends on, keyed by name without the cluster ID prefix. Only dependencies set to `true` are kept, so a provider can turn off a dependency the cluster doesn't have.",
                             "properties": {
                                 "cilium": {
                                     "type": "boolean"
