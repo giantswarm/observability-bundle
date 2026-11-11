@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Raise the `alloy-logs` HelmRelease timeout from 10m to 30m, so that upgrades complete on large workload clusters (40-150 nodes) where the DaemonSet rollout takes longer than 10 minutes.
+
 ## [3.8.0] - 2026-11-03
 
 ### Changed

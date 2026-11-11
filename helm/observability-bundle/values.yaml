@@ -138,6 +138,7 @@ apps:
       vertical-pod-autoscaler-crd: true
     enabled: true
     namespace: kube-system
+    timeout: 30m
     # repo: giantswarm/alloy-app
     version: 0.25.0
     # a list of extraConfigs for the App,
