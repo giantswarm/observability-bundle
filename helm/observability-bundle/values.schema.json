@@ -88,6 +88,9 @@
                         "namespace": {
                             "type": "string"
                         },
+                        "timeout": {
+                            "type": "string"
+                        },
                         "version": {
                             "type": "string"
                         }
