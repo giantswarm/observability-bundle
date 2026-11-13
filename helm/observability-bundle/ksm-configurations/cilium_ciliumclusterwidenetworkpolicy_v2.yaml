@@ -1,0 +1,26 @@
+# Lets network policy alerts tell whether the clusterwide deny of network-policies-app
+# (CiliumClusterwideNetworkPolicy default-deny-all-namespaces) is on. One series per policy.
+rbac:
+  - apiGroups:
+      - cilium.io
+    resources:
+      - ciliumclusterwidenetworkpolicies
+    verbs: ["list", "watch"]
+
+resources:
+  - groupVersionKind:
+      group: cilium.io
+      version: v2
+      kind: CiliumClusterwideNetworkPolicy
+    metricNamePrefix: kube_cilium_clusterwidenetworkpolicy
+    metrics:
+      - name: info
+        help: Information about a CiliumClusterwideNetworkPolicy.
+        each:
+          type: Info
+          info:
+            # name stays here: kube-state-metrics drops Info samples without labels of their own.
+            labelsFromPath:
+              name:
+                - metadata
+                - name
