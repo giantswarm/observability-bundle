@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- KSM custom resource state: Add `info` metric for Cilium `CiliumClusterwideNetworkPolicy`, one series per policy with its `name` as label.
+
 ## [3.8.0] - 2026-11-03
 
 ### Changed
