@@ -24,6 +24,13 @@ resources:
       uid:
         - metadata
         - uid
+      # On all capi_machinepool_* metrics so that the provider label can be derived from it.
+      infrastructure_reference_kind:
+        - spec
+        - template
+        - spec
+        - infrastructureRef
+        - kind
     metrics:
       - name: spec_replicas
         help: The number of desired machines for a machinepool.
@@ -80,12 +87,6 @@ resources:
                 - spec
                 - infrastructureRef
                 - name
-              infrastructure_reference_kind:
-                - spec
-                - template
-                - spec
-                - infrastructureRef
-                - kind
               bootstrap_configuration_reference_name:
                 - spec
                 - template
