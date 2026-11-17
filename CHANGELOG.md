@@ -13,6 +13,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - KSM custom resource state: Add the `infrastructure_reference_kind` label to all `capi_machinepool_*` metrics.
 - Set `provider="aks"` on `capi_cluster_*` metrics of AKS workload clusters and on `capi_machinepool_*` metrics of AKS node pools.
 
+## [3.8.0] - 2026-11-03
+
+### Changed
+
+- Update `alloy` apps to 0.25.0 (Alloy v1.21.3).
+- `mimir.rules.kubernetes` now recovers after a Mimir outage during a leader change.
+- `loki_write_*` metrics no longer carry the `tenant` label.
+
+## [3.7.0] - 2026-11-03
+
+### Changed
+
+- Override `CAdvisor` default scrape interval from 10s to 60s in kube-prometheus-stack.
+
 ## [3.6.0] - 2026-10-20
 
 ### Changed
@@ -769,7 +783,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.6.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.8.0...HEAD
+[3.8.0]: https://github.com/giantswarm/observability-bundle/compare/v3.7.0...v3.8.0
+[3.7.0]: https://github.com/giantswarm/observability-bundle/compare/v3.6.0...v3.7.0
 [3.6.0]: https://github.com/giantswarm/observability-bundle/compare/v3.5.0...v3.6.0
 [3.5.0]: https://github.com/giantswarm/observability-bundle/compare/v3.4.0...v3.5.0
 [3.4.0]: https://github.com/giantswarm/observability-bundle/compare/v3.3.1...v3.4.0

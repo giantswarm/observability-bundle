@@ -11,6 +11,9 @@ userConfig:
           controlPlaneScrapeAuth:
             serviceAccountName: alloy-metrics
         kube-prometheus-stack:
+          kubelet:
+            serviceMonitor:
+              cAdvisorInterval: 60s
           defaultRules:
             create: false
           alertmanager:
@@ -123,7 +126,7 @@ apps:
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
-    version: 0.24.0
+    version: 0.25.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -146,7 +149,7 @@ apps:
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
-    version: 0.24.0
+    version: 0.25.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
@@ -164,7 +167,7 @@ apps:
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
-    version: 0.24.0
+    version: 0.25.0
 
   alloyMetrics:
     appName: alloy-metrics
@@ -177,7 +180,7 @@ apps:
     enabled: true
     namespace: kube-system
     # repo: giantswarm/alloy-app
-    version: 0.24.0
+    version: 0.25.0
     # a list of extraConfigs for the App,
     # It can be secret or configmap
     # https://github.com/giantswarm/rfc/tree/main/multi-layer-app-config#example
