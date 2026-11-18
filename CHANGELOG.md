@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- KSM custom resource state: Add `info` metric for Cilium `CiliumClusterwideNetworkPolicy`, one series per policy with its `name` as label.
+
 ### Changed
 
 - Update architect to v10.18.0 (giantswarm/observability-bundle#523)
