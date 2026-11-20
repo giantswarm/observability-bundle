@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.9.0] - 2026-11-20
+
 ### Added
 
 - KSM custom resource state: Add `info` metric for Cilium `CiliumClusterwideNetworkPolicy`, one series per policy with its `name` as label.
@@ -787,7 +789,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.8.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.9.0...HEAD
+[3.9.0]: https://github.com/giantswarm/observability-bundle/compare/v3.8.0...v3.9.0
 [3.8.0]: https://github.com/giantswarm/observability-bundle/compare/v3.7.0...v3.8.0
 [3.7.0]: https://github.com/giantswarm/observability-bundle/compare/v3.6.0...v3.7.0
 [3.6.0]: https://github.com/giantswarm/observability-bundle/compare/v3.5.0...v3.6.0
