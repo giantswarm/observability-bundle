@@ -202,5 +202,5 @@ apps:
     skipCRDs: true
     timeout: 15m
     # repo: giantswarm/kube-prometheus-stack-app
-    version: 24.0.0
+    version: 25.0.0
     extraConfigs: []
