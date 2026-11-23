@@ -31,6 +31,13 @@ userConfig:
                   - sourceLabels: [__name__]
                     regex: kube_(.+_annotations|secret_type|pod_status_qos_class|pod_tolerations|pod_status_scheduled|replicaset_metadata_generation|replicaset_status_observed_generation|replicaset_annotations|replicaset_status_fully_labeled_replicas|.+_metadata_resource_version)
                     action: drop
+                  # Per-pod and per-object series nothing reads: no alert, SLO, dashboard, Muster runbook
+                  # or Backstage plugin (giantswarm/giantswarm#38930). Kept on purpose:
+                  # kube_pod_container_status_ready (opsgenie-proxy alert, CloudNativePG dashboards),
+                  # the *_waiting_reason / *_terminated_reason series (runbooks, Backstage) and kube_endpoint_address (runbook).
+                  - sourceLabels: [__name__]
+                    regex: kube_secret_owner|kube_replicaset_status_(replicas|terminating_replicas)|kube_pod_container_status_(waiting|terminated|running)|kube_pod_container_state_started|kube_pod_status_(scheduled_time|initialized_time|reason)|kube_pod_(service_account|restart_policy|scheduler)
+                    action: drop
                   # drop image_id label
                   - action: labeldrop
                     regex: image_id

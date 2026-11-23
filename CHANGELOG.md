@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Stop shipping kube-state-metrics series no Giant Swarm alert, SLO, dashboard or runbook reads, such as `kube_secret_owner`, `kube_pod_status_reason` and the per-container `kube_pod_container_status_{waiting,terminated,running}` (giantswarm/giantswarm#38930).
+
 ## [3.9.0] - 2026-11-20
 
 ### Added
