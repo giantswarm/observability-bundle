@@ -11,9 +11,6 @@ userConfig:
           controlPlaneScrapeAuth:
             serviceAccountName: alloy-metrics
         kube-prometheus-stack:
-          kubelet:
-            serviceMonitor:
-              cAdvisorInterval: 60s
           defaultRules:
             create: false
           alertmanager:

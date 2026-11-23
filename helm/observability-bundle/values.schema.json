@@ -325,19 +325,6 @@
                                                         }
                                                     }
                                                 },
-                                                "kubelet": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "serviceMonitor": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "cAdvisorInterval": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
                                                 "prometheus": {
                                                     "type": "object",
                                                     "properties": {
