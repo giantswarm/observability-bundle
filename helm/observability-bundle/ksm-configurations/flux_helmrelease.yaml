@@ -9,7 +9,7 @@ resources:
   - groupVersionKind:
       group: helm.toolkit.fluxcd.io
       kind: HelmRelease
-      version: "*"
+      version: v2
     metricNamePrefix: gotk
     metrics:
       - name: "resource_info"
@@ -23,7 +23,7 @@ resources:
           exported_namespace: [metadata, namespace]
           ready: [status, conditions, "[type=Ready]", status]
           suspended: [spec, suspend]
-          revision: [status, lastAppliedRevision]
+          revision: [status, history, "0", chartVersion]
           chart_name: [spec, chart, spec, chart]
           chart_source_name: [spec, chart, spec, sourceRef, name]
           team: [metadata, annotations, "application.giantswarm.io/team"]

@@ -9,7 +9,7 @@ resources:
   - groupVersionKind:
       group: image.toolkit.fluxcd.io
       kind: ImagePolicy
-      version: "*"
+      version: v1
     metricNamePrefix: gotk
     metrics:
       - name: "resource_info"

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- KSM custom resource state: Pin Flux resources to explicit API versions (`v1`, `v2` for `HelmRelease`, `v1beta3` for `Alert` and `Provider`) instead of `"*"`, which made kube-state-metrics watch every served version and emit duplicate series. `OCIRepository` moves from `v1beta2`, which Flux 2.8 removes, to `v1`.
+- KSM custom resource state: Read the Flux `HelmRelease` `revision` label from `status.history[0].chartVersion`, as `status.lastAppliedRevision` no longer exists in the `v2` API and the label was always empty.
+
 ## [3.9.0] - 2026-11-20
 
 ### Added
