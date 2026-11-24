@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.8.1] - 2026-11-24
+
 ### Fixed
 
 - Update `kube-prometheus-stack` to 24.0.2 (Prometheus Operator `update` on its custom resources' finalizers).
@@ -781,7 +783,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `app.giantswarm.io` label group was changed to `application.giantswarm.io`
 
-[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.8.0...HEAD
+[Unreleased]: https://github.com/giantswarm/observability-bundle/compare/v3.8.1...HEAD
+[3.8.1]: https://github.com/giantswarm/observability-bundle/compare/v3.8.0...v3.8.1
 [3.8.0]: https://github.com/giantswarm/observability-bundle/compare/v3.7.0...v3.8.0
 [3.7.0]: https://github.com/giantswarm/observability-bundle/compare/v3.6.0...v3.7.0
 [3.6.0]: https://github.com/giantswarm/observability-bundle/compare/v3.5.0...v3.6.0
