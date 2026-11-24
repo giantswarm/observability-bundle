@@ -1,0 +1,65 @@
+suite: member-chart label
+templates:
+  - templates/helmreleases.yaml
+release:
+  name: observability-bundle
+  namespace: org-test
+set:
+  clusterID: test
+tests:
+  - it: labels the alloy OCIRepository with its chart name
+    documentSelector:
+      path: spec.url
+      value: oci://gsoci.azurecr.io/charts/giantswarm/alloy
+      matchMany: true
+    asserts:
+      - isKind:
+          of: OCIRepository
+      - equal:
+          path: metadata.labels["bundle.giantswarm.io/member-chart"]
+          value: alloy
+
+  - it: labels the alloy-podlogs-crds OCIRepository with its chart name
+    documentSelector:
+      path: spec.url
+      value: oci://gsoci.azurecr.io/charts/giantswarm/alloy-podlogs-crds
+      matchMany: true
+    asserts:
+      - isKind:
+          of: OCIRepository
+      - equal:
+          path: metadata.labels["bundle.giantswarm.io/member-chart"]
+          value: alloy-podlogs-crds
+
+  - it: labels the kube-prometheus-stack OCIRepository with its chart name
+    documentSelector:
+      path: spec.url
+      value: oci://gsoci.azurecr.io/charts/giantswarm/kube-prometheus-stack
+      matchMany: true
+    asserts:
+      - isKind:
+          of: OCIRepository
+      - equal:
+          path: metadata.labels["bundle.giantswarm.io/member-chart"]
+          value: kube-prometheus-stack
+
+  - it: labels the prometheus-operator-crd OCIRepository with its chart name
+    documentSelector:
+      path: spec.url
+      value: oci://gsoci.azurecr.io/charts/giantswarm/prometheus-operator-crd
+      matchMany: true
+    asserts:
+      - isKind:
+          of: OCIRepository
+      - equal:
+          path: metadata.labels["bundle.giantswarm.io/member-chart"]
+          value: prometheus-operator-crd
+
+  - it: does not label the member HelmReleases
+    documentSelector:
+      path: kind
+      value: HelmRelease
+      matchMany: true
+    asserts:
+      - notExists:
+          path: metadata.labels["bundle.giantswarm.io/member-chart"]
