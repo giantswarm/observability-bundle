@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Update `kube-prometheus-stack` to 24.0.2 (Prometheus Operator `update` on its custom resources' finalizers).
+
 ## [3.8.0] - 2026-11-03
 
 ### Changed
