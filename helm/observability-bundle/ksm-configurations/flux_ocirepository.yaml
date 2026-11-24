@@ -9,7 +9,7 @@ resources:
   - groupVersionKind:
       group: source.toolkit.fluxcd.io
       kind: OCIRepository
-      version: v1beta2
+      version: v1
     metricNamePrefix: gotk
     metrics:
       - name: "resource_info"

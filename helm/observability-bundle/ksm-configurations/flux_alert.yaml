@@ -9,7 +9,7 @@ resources:
   - groupVersionKind:
       group: notification.toolkit.fluxcd.io
       kind: Alert
-      version: "*"
+      version: v1beta3
     metricNamePrefix: gotk
     metrics:
       - name: "resource_info"
