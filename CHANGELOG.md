@@ -7,15 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
+### Fixed
 
-- KSM custom resource state: Add `info` metric for Cilium `CiliumClusterwideNetworkPolicy`, one series per policy with its `name` as label.
-
-### Changed
-
-- Update architect to v10.18.0 (giantswarm/observability-bundle#523)
-- Update `prometheus-operator-crd` to 25.0.0 (Prometheus Operator CRDs v0.95.2).
-- Update `kube-prometheus-stack` to 25.0.0 (chart 93.5.0, Prometheus Operator v0.95.2).
+- Update `kube-prometheus-stack` to 24.0.2 (Prometheus Operator `update` on its custom resources' finalizers).
 
 ## [3.8.0] - 2026-11-03
 
