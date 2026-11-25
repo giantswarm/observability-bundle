@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add the `bundle.giantswarm.io/member-chart` label with the chart name to each member `OCIRepository`, so a member can be found by label.
+
 ## [3.9.0] - 2026-11-20
 
 ### Added
